@@ -65,9 +65,9 @@
         android:textColor="@color/green"
         android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        tools:layout_editor_absoluteY="150dp" />
+        tools:layout_editor_absoluteY="40dp" />
 
     <ImageButton
         android:id="@+id/imageButton6"
