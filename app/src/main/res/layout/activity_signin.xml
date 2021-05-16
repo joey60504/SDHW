@@ -61,14 +61,13 @@
         android:id="@+id/textView5"
         android:layout_width="110dp"
         android:layout_height="52dp"
-        android:layout_marginTop="40dp"
         android:text="@string/signin"
         android:textColor="@color/green"
         android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="40dp" />
 
     <ImageButton
         android:id="@+id/imageButton6"
