@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">test</string>
+    <string name="btn">按鈕</string>
+    <string name="login">登入</string>
+    <string name="goback">上一頁</string>
+    <string name="UID">身分證</string>
+    <string name="password">密碼</string>
+    <string name="forgetpwd">忘記密碼</string>
+    <string name="signin">註冊</string>
+    <string name="male">男生</string>
+    <string name="gonext">下一頁</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+</resources>

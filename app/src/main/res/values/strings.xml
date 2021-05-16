@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">test</string>
+    <string name="btn">btn</string>
+    <string name="login">login</string>
+    <string name="goback">goback</string>
+    <string name="UID">UID</string>
+    <string name="password">password</string>
+    <string name="forgetpwd">forgetpwd</string>
+    <string name="signin">signin</string>
+    <string name="male">male</string>
+    <string name="gonext">gonext</string>
+    <string name="one">one</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
+
+</resources>
