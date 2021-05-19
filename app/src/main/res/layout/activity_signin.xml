@@ -7,18 +7,6 @@
     tools:context=".signin">
 
     <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="70dp"
-        android:layout_height="5dp"
-        android:layout_marginTop="160dp"
-        android:background="@drawable/ovalgreen"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ovalgreen" />
-
-    <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -135,17 +123,5 @@
         app:layout_constraintEnd_toEndOf="@+id/imageButton7"
         app:layout_constraintStart_toStartOf="@+id/imageButton7"
         app:layout_constraintTop_toTopOf="@+id/imageButton7" />
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="70dp"
-        android:layout_height="5dp"
-        android:layout_marginTop="160dp"
-        android:background="@drawable/ovalgreen"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ovalgreen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
