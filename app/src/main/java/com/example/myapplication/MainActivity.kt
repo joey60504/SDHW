@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     fun login(){
         // Choose authentication providers
         val providers = arrayListOf(
+                AuthUI.IdpConfig.PhoneBuilder().build(),
             AuthUI.IdpConfig.EmailBuilder().build(),
             AuthUI.IdpConfig.GoogleBuilder().build()
         )
