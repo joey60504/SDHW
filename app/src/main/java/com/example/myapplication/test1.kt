@@ -36,6 +36,11 @@ class test1 : AppCompatActivity(),AdapterView.OnItemSelectedListener{
                 val transaction = manager.beginTransaction()
                 transaction.replace(R.id.fragment,BlankFragment2()).commit()
             }
+            "data3"->{
+                val manager = supportFragmentManager
+                val transaction = manager.beginTransaction()
+                transaction.replace(R.id.fragment,BlankFragment3()).commit()
+            }
         }
     }
     override fun onNothingSelected(parent: AdapterView<*>) {
