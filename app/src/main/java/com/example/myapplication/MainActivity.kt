@@ -86,9 +86,6 @@ class MainActivity : AppCompatActivity() {
                 recreate()
             }
     }
-    fun signin(p0: View){
-        startActivity(Intent(this,signin::class.java))
-    }
     fun test(p0: View){
         startActivity(Intent(this,test1::class.java))
     }
