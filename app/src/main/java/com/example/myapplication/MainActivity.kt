@@ -1,92 +1,94 @@
 package com.example.myapplication
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
-    val RC_SIGN_IN=303
-    private lateinit var auth: FirebaseAuth
+
+    lateinit var auth: FirebaseAuth
+    lateinit var storedVerificationId:String
+    lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
+    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // Initialize Firebase Auth
-        auth = Firebase.auth
 
-    }
+        auth=FirebaseAuth.getInstance()
 
-    fun login(){
-        // Choose authentication providers
-        val providers = arrayListOf(
-                AuthUI.IdpConfig.PhoneBuilder().build(),
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build()
-        )
+//        Reference
+        val Login=findViewById<Button>(R.id.loginBtn)
 
-        // Create and launch sign-in intent
-        startActivityForResult(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setLogo(R.drawable.male)
-                .build(),
-            RC_SIGN_IN)
-    }
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if(currentUser != null){
-            Log.d("DEBUG","currentUser=${currentUser.email}")
-            Toast.makeText(this,"Welcome ${currentUser.email}",Toast.LENGTH_SHORT).show()
-        }else{
+        var currentUser = auth.currentUser
+        if(currentUser != null) {
+            startActivity(Intent(applicationContext, choice::class.java))
+            finish()
+        }
+
+        Login.setOnClickListener{
             login()
         }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+        // Callback function for Phone Auth
+        callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-        if (requestCode == RC_SIGN_IN) {
-            val response = IdpResponse.fromResultIntent(data)
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                startActivity(Intent(applicationContext, choice::class.java))
+                finish()
+            }
 
-            if (resultCode == Activity.RESULT_OK) {
-                // Successfully signed in
-                val user = FirebaseAuth.getInstance().currentUser
-                Log.d("DEBUG","res=${response.toString()}")
-                if(user!=null) {
-                    Toast.makeText(this, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
-                }
-            } else {
-                // Sign in failed. If response is null the user canceled the
-                // sign-in flow using the back button. Otherwise check
-                // response.getError().getErrorCode() and handle the error.
-                // ...
+            override fun onVerificationFailed(e: FirebaseException) {
+                Toast.makeText(applicationContext, "Failed", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onCodeSent(
+                verificationId: String,
+                token: PhoneAuthProvider.ForceResendingToken
+            ) {
+
+                Log.d("TAG","onCodeSent:$verificationId")
+                storedVerificationId = verificationId
+                resendToken = token
+
+                var intent = Intent(applicationContext,Verify::class.java)
+                intent.putExtra("storedVerificationId",storedVerificationId)
+                startActivity(intent)
             }
         }
+
     }
-    fun logout(p0: View){
-        AuthUI.getInstance()
-            .signOut(this)
-            .addOnCompleteListener {
-                // ...
-                Toast.makeText(this,"You logout now",Toast.LENGTH_SHORT).show()
-                recreate()
-            }
+
+    private fun login() {
+        val mobileNumber=findViewById<EditText>(R.id.phoneNumber)
+        var number=mobileNumber.text.toString().trim()
+
+        if(!number.isEmpty()){
+            number="+886"+number
+            sendVerificationcode (number)
+        }else{
+            Toast.makeText(this,"Enter mobile number",Toast.LENGTH_SHORT).show()
+        }
     }
-    fun test(p0: View){
-        startActivity(Intent(this,test1::class.java))
+
+    private fun sendVerificationcode(number: String) {
+        val options = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber(number) // Phone number to verify
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setActivity(this) // Activity (for callback binding)
+            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
     }
 }
