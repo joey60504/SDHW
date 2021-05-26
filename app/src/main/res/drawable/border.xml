@@ -2,11 +2,11 @@
     android:shape="rectangle">
     <corners
         android:radius="8dp"
-        android:topRightRadius="8dp"
-        android:bottomRightRadius="8dp"
-        android:bottomLeftRadius="8dp"/>
+        android:topRightRadius="5dp"
+        android:bottomRightRadius="5dp"
+        android:bottomLeftRadius="5dp"/>
     <stroke
-        android:width="3dp"
+        android:width="2.5dp"
         android:color="#1f3354"/>
 
 </shape>
