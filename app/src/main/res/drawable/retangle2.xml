@@ -3,8 +3,8 @@
     <!--陰影部分-->
     <!--設置陰影左邊跟上面的offset-->
     <item
-        android:left="2dp"
-        android:top="2dp">
+        android:left="5dp"
+        android:top="5dp">
         <shape
             android:shape="rectangle">
             <!--設定陰影顏色-->
@@ -18,8 +18,8 @@
     <!--物件部分-->
     <!--設置物件右邊跟下面的offset-->
     <item
-        android:bottom="4dp"
-        android:right="4dp">
+        android:bottom="5dp"
+        android:right="5dp">
         <shape
             android:shape="rectangle">
             <!--設定形狀的顏色-->
@@ -30,7 +30,7 @@
                 android:radius="20dp"/>
             <!--設定邊框-->
             <stroke
-                android:width="0dp"
+                android:width="2dp"
                 android:color="#3e4c59"/>
             <!--設定內容與邊界的距離-->
             <padding

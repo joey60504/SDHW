@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#bfbcac"
+    android:background="#314c61 "
     tools:context=".choice">
 
     <Button
@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.162"
-        app:srcCompat="@drawable/rectangle" />
+        app:srcCompat="@drawable/ovalgreen" />
 
 
     <ImageButton
@@ -60,16 +60,16 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81"
-        app:srcCompat="@drawable/rectangle" />
+        app:layout_constraintVertical_bias="0.769"
+        app:srcCompat="@drawable/ovalgreen" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/commute"
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
+        android:textColor="#4a595c"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton10"
         app:layout_constraintEnd_toEndOf="@+id/imageButton10"
         app:layout_constraintStart_toStartOf="@+id/imageButton10"
@@ -80,8 +80,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/outing"
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
+        android:textColor="#4a595c"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
