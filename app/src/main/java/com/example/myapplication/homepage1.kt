@@ -12,7 +12,7 @@ class homepage1 : AppCompatActivity() {
         setContentView(R.layout.activity_homepage1)
         val datatest= listOf("data1","data2","data3")
         val adapter= ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,datatest)
-        findViewById<Spinner>(R.id.spinner).adapter=adapter
+        findViewById<Spinner>(R.id.spinner3).adapter=adapter
     }
 
 }
