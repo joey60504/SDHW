@@ -11,23 +11,24 @@
         android:id="@+id/idLogout"
         android:layout_width="211dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="32dp"
         android:background="#FF6376"
         android:fontFamily="@font/font1"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="test"
-        android:text="Button"
+        android:text="@string/btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.917"
@@ -50,6 +51,7 @@
         app:srcCompat="@drawable/ovalgreen" />
 
 
+
     <ImageButton
         android:id="@+id/imageButton11"
         android:layout_width="250dp"
@@ -60,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769"
+        app:layout_constraintVertical_bias="0.771"
         app:srcCompat="@drawable/ovalgreen" />
 
     <TextView

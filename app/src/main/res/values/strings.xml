@@ -18,5 +18,9 @@
     <string name="commute">commute</string>
     <string name="outing">outing</string>
     <string name="housenumber">housenumber</string>
+    <string name="pet">pet</string>
+    <string name="child">child</string>
+    <string name="gender">gender</string>
+    <string name="smoke">smoke</string>
 
 </resources>
