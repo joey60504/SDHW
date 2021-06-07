@@ -22,4 +22,8 @@
     <string name="child">child</string>
     <string name="gender">gender</string>
     <string name="smoke">smoke</string>
+    <string name="user_id">User_ID</string>
+    <string name="Email">Email</string>
+    <string name="passwordconfirm">passwordconfirm</string>
+    <string name="datacheck">DataCheck</string>
 </resources>

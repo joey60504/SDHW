@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -53,11 +54,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Failed", Toast.LENGTH_LONG).show()
             }
 
-            override fun onCodeSent(
-                verificationId: String,
-                token: PhoneAuthProvider.ForceResendingToken
-            ) {
-
+            override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
                 Log.d("TAG","onCodeSent:$verificationId")
                 storedVerificationId = verificationId
                 resendToken = token
@@ -90,5 +87,8 @@ class MainActivity : AppCompatActivity() {
             .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
+    }
+    fun signup(p0: View){
+        startActivity(Intent(this,singup::class.java))
     }
 }

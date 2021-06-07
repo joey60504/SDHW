@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".homepage1"></activity>
+        <activity android:name=".singup"></activity>
+        <activity android:name=".homepage1" />
         <activity android:name=".choice" />
         <activity android:name=".Verify" />
         <activity android:name=".test1" />
