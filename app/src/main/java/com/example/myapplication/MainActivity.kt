@@ -84,11 +84,11 @@ class MainActivity : AppCompatActivity() {
             .setPhoneNumber(number) // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this) // Activity (for callback binding)
-            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
+            .setCallbacks(callbacks)
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
     fun signup(p0: View){
-        startActivity(Intent(this,singup::class.java))
+        startActivity(Intent(this,signin::class.java))
     }
 }

@@ -26,5 +26,6 @@
     <string name="Email">Email</string>
     <string name="passwordconfirm">passwordconfirm</string>
     <string name="datacheck">datacheck</string>
+    <string name="Phone_number">Phone_number</string>
 
 </resources>

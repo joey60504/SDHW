@@ -26,4 +26,5 @@
     <string name="Email">電子郵件</string>
     <string name="passwordconfirm">重複密碼</string>
     <string name="datacheck">資料檢查</string>
+    <string name="Phone_number">手機號碼</string>
 </resources>
