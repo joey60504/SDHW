@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".signin"></activity>
-        <activity android:name=".singup" />
+        <activity android:name=".signin" />
         <activity android:name=".homepage1" />
         <activity android:name=".choice" />
         <activity android:name=".Verify" />

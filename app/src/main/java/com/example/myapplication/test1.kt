@@ -13,11 +13,31 @@ class test1 : AppCompatActivity(),AdapterView.OnItemSelectedListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test1)
-        val datatest= listOf("data1","data2","data3")
-        val adapter=ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,datatest)
-        findViewById<Spinner>(R.id.spinner).adapter=adapter
+        val datatest1= listOf("Yes","No")
+        val adapter1=ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,datatest1)
+        findViewById<Spinner>(R.id.spinner).adapter=adapter1
+        spinner.onItemSelectedListener=this
+
+
+        setContentView(R.layout.activity_test1)
+        val datatest2= listOf("Yes","No")
+        val adapter2=ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,datatest2)
+        findViewById<Spinner>(R.id.spinner).adapter=adapter2
+        spinner.onItemSelectedListener=this
+
+        setContentView(R.layout.activity_test1)
+        val datatest3= listOf("Man","Woman")
+        val adapter3=ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,datatest3)
+        findViewById<Spinner>(R.id.spinner).adapter=adapter3
+        spinner.onItemSelectedListener=this
+
+        setContentView(R.layout.activity_test1)
+        val datatest4= listOf("Yes","No")
+        val adapter4=ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,datatest4)
+        findViewById<Spinner>(R.id.spinner).adapter=adapter4
         spinner.onItemSelectedListener=this
     }
+
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
         // An item was selected. You can retrieve the selected item using

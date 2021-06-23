@@ -27,5 +27,9 @@
     <string name="passwordconfirm">passwordconfirm</string>
     <string name="datacheck">datacheck</string>
     <string name="Phone_number">Phone_number</string>
+    <string-array name="pet_array">
+        <item>"Yes"</item>
+        <item>"No"</item>
+    </string-array>
 
 </resources>
