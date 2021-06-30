@@ -33,10 +33,7 @@ class choice : AppCompatActivity() {
         }
 
     }
-    fun test(p0: View){
-        startActivity(Intent(this,test1::class.java))
-    }
     fun commute(p0: View){
-        startActivity(Intent(this,homepage1::class.java))
+        startActivity(Intent(this,homepage::class.java))
     }
 }

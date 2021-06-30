@@ -4,28 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#314c61"><![CDATA[
-    tools:context=".homepage1">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ]]>
+    android:background="@color/background"
+    tools:context=".ui.home.HomeFragment">
+    android:background="#314c61">
 
     <ImageView
         android:id="@+id/imageView8"
@@ -86,10 +67,10 @@
         android:background="@drawable/retangle2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049">
+        app:layout_constraintVertical_bias="0.023">
 
     </SearchView>
 
@@ -353,10 +334,10 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/smoke"
             app:layout_constraintEnd_toEndOf="@+id/smoke"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/smoke"
             app:layout_constraintTop_toTopOf="@+id/smoke"
-            app:layout_constraintVertical_bias="0.384" />
+            app:layout_constraintVertical_bias="0.538" />
 
         <ImageView
             android:id="@+id/imageView11"
@@ -393,24 +374,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintHorizontal_bias="0.912"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
+        app:layout_constraintVertical_bias="0.007"
         app:srcCompat="@drawable/addhouse_adobespark" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="45dp"
-        android:layout_height="37dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048"
-        app:srcCompat="@drawable/list1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
