@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#FEFAF1"
     tools:context=".ui.home.HomeFragment">
     android:background="#314c61">
 
@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/housenumber"
-        android:textColor="#4a595c"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"
@@ -102,63 +102,63 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="117dp"
-        android:layout_height="128dp"
+        android:layout_width="124dp"
+        android:layout_height="131dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208"
-        app:srcCompat="@drawable/house1_4" />
+        app:layout_constraintVertical_bias="0.2"
+        app:srcCompat="@drawable/newhouse" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="117dp"
-        android:layout_height="128dp"
+        android:layout_width="127dp"
+        android:layout_height="139dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386"
-        app:srcCompat="@drawable/house1_4" />
+        app:layout_constraintVertical_bias="0.381"
+        app:srcCompat="@drawable/newhouse" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="117dp"
-        android:layout_height="128dp"
+        android:layout_width="124dp"
+        android:layout_height="145dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572"
-        app:srcCompat="@drawable/house1_4" />
+        app:layout_constraintVertical_bias="0.558"
+        app:srcCompat="@drawable/newhouse" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="117dp"
-        android:layout_height="128dp"
+        android:layout_width="128dp"
+        android:layout_height="133dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762"
-        app:srcCompat="@drawable/house1_4" />
+        app:layout_constraintVertical_bias="0.746"
+        app:srcCompat="@drawable/newhouse" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="117dp"
-        android:layout_height="128dp"
+        android:layout_width="131dp"
+        android:layout_height="137dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
-        app:srcCompat="@drawable/house1_4" />
+        app:layout_constraintVertical_bias="0.938"
+        app:srcCompat="@drawable/newhouse" />
 
     <TextView
         android:id="@+id/textView2"
@@ -214,32 +214,32 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="33dp"
-        android:layout_height="28dp"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
         android:background="#00000000"
         android:contentDescription="TODO"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44"
-        app:srcCompat="@drawable/addheart_black" />
+        app:layout_constraintVertical_bias="0.431"
+        app:srcCompat="@drawable/heart2" />
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="47dp"
-        android:layout_height="43dp"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287"
-        app:srcCompat="@drawable/heart_adobespark" />
+        app:layout_constraintVertical_bias="0.268"
+        app:srcCompat="@drawable/heart2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -281,6 +281,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/child"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/child"
             app:layout_constraintEnd_toEndOf="@+id/child"
@@ -306,6 +307,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/gender"
+            android:textColor="#EFE9E9"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/gender"
             app:layout_constraintEnd_toEndOf="@+id/gender"
@@ -331,6 +333,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/smoke"
+            android:textColor="#F1EEEE"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/smoke"
             app:layout_constraintEnd_toEndOf="@+id/smoke"
@@ -356,6 +359,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pet"
+            android:textColor="#FEFEFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/pet"
             app:layout_constraintEnd_toEndOf="@+id/pet"
@@ -374,10 +378,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007"
-        app:srcCompat="@drawable/addhouse_adobespark" />
+        app:layout_constraintVertical_bias="0.008"
+        app:srcCompat="@drawable/addhouseicon_adobespark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
