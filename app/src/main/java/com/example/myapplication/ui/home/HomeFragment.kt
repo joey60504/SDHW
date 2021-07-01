@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentHomeBinding
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_test1.*
+//import kotlinx.android.synthetic.main.activity_test1.*
 
 class HomeFragment : Fragment()  {
 
