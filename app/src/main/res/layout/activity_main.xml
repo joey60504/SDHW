@@ -77,12 +77,5 @@
             android:text="LOGIN"
             android:textColor="#ffffff" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="334dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/font1"
-            android:onClick="signup"
-            android:text="@string/signin" />
     </LinearLayout>
 </LinearLayout>
