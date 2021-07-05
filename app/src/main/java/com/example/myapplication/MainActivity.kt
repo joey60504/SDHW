@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
-    fun signup(p0: View){
-        startActivity(Intent(this,signin::class.java))
+    fun signup(p0: View) {
+        startActivity(Intent(this, signin::class.java))
     }
 }
