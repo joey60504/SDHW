@@ -46,15 +46,15 @@ class RegistrationActivity : AppCompatActivity() {
             }
 
 
-            auth.createUserWithEmailAndPassword(usernameInput.text.toString(), passwordInput.text.toString())
-                .addOnCompleteListener {
-                    if(it.isSuccessful) {
+            auth.signInWithCredential(credential)
+                .addOnCompleteListener(this) {
+                    if(task.isSuccessful) {
                         val currentUser = auth.currentUser
                         val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
                         currentUSerDb?.child("名稱")?.setValue(firstnameInput.text.toString())
                         currentUSerDb?.child("年齡")?.setValue(lastnameInput.text.toString())
-                        currentUSerDb?.child("性別")?.setValue(lastnameInput.text.toString())
-                        currentUSerDb?.child("駕照照片")?.setValue(lastnameInput.text.toString())
+                        currentUSerDb?.child("性別")?.setValue(usernameInput.text.toString())
+                        currentUSerDb?.child("駕照照片")?.setValue(passwordInput.text.toString())
 
                         Toast.makeText(this@RegistrationActivity, "登錄成功", Toast.LENGTH_LONG).show()
                         finish()
