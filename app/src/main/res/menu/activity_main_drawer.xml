@@ -10,15 +10,20 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/myroom_icon"
+            android:title="@string/myroom" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/friend_icon"
+            android:title="@string/friend" />
         <item
             android:id="@+id/nav_test"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="test" />
+            android:icon="@drawable/likelist_icon"
+            android:title="@string/likelist"/>
+        <item
+            android:id="@+id/test123"
+            android:icon="@drawable/signout_icon"
+            android:title="@string/signout"
+            tools:ignore="DuplicateIds" />
     </group>
 </menu>

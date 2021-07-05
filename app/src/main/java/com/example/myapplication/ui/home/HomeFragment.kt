@@ -12,18 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentHomeBinding
 import androidx.appcompat.app.AppCompatActivity
-//import kotlinx.android.synthetic.main.activity_test1.*
 
 class HomeFragment : Fragment()  {
 
-    private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val petspinner=binding.pet

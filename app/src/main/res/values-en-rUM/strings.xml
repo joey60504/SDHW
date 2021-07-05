@@ -27,4 +27,16 @@
     <string name="passwordconfirm">passwordconfirm</string>
     <string name="datacheck">DataCheck</string>
     <string name="Phone_number">Phone_number</string>
+    <string name="name">Name</string>
+    <string name="friend">Friend</string>
+    <string name="personalinformation">Personalinformation</string>
+    <string name="myroom">MyRoom</string>
+    <string name="chat">Chat</string>
+    <string name="likelist">LikeList</string>
+    <string name="signout">Signout</string>
+    <string name="backtochoice">BackToChoice</string>
+    <string name="action">Action</string>
+    <string name="about">About</string>
+    <string name="unreadmessage">UnReadMessage</string>
+    <string name="home">Home</string>
 </resources>

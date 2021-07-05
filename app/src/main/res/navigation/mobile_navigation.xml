@@ -27,4 +27,9 @@
         android:name="com.example.myapplication.ui.test.nav_test"
         android:label="fragment_nav_test"
         tools:layout="@layout/fragment_nav_test" />
+    <fragment
+        android:id="@+id/test123"
+        android:name="com.example.myapplication.ui.test123.test123"
+        android:label="fragment_test123"
+        tools:layout="@layout/fragment_test123" />
 </navigation>
