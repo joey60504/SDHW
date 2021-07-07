@@ -11,25 +11,19 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_registration1.*
 
-class RegistrationActivity : AppCompatActivity() {
+class RegistrationActivity1 : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     var databaseReference: DatabaseReference? = null
     var database: FirebaseDatabase? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration1)
-
+        setContentView(R.layout.`activity_registration1`)
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
-
         register()
     }
-
     private fun register() {
-
-
         registerButton.setOnClickListener {
 
             if (TextUtils.isEmpty(firstnameInput.text.toString())) {
@@ -45,13 +39,10 @@ class RegistrationActivity : AppCompatActivity() {
                 firstnameInput.setError("請輸入駕照照片URL")
                 return@setOnClickListener
             }
-
         }
     }
-
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) {
+        auth.signInWithCredential(credential).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     val currentUser = auth.currentUser
                     val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
@@ -60,14 +51,14 @@ class RegistrationActivity : AppCompatActivity() {
                     currentUSerDb?.child("性別")?.setValue(usernameInput.text.toString())
                     currentUSerDb?.child("駕照照片")?.setValue(passwordInput.text.toString())
 
-                    Toast.makeText(this@RegistrationActivity, "登錄成功", Toast.LENGTH_LONG)
+                    Toast.makeText(this@RegistrationActivity1, "登錄成功", Toast.LENGTH_LONG)
                         .show()
                     finish()
-
                 } else {
-                    Toast.makeText(this@RegistrationActivity, "登錄失敗 ", Toast.LENGTH_LONG)
+                    Toast.makeText(this@RegistrationActivity1, "登錄失敗 ", Toast.LENGTH_LONG)
                         .show()
                 }
             }
     }
+
 }

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".RegistrationActivity1"></activity>
+        <activity android:name="com.android.firebaseauthdemo.RegistrationActivity1"></activity>
         <activity
             android:name=".homepage"
             android:label="@string/title_activity_homepage"
