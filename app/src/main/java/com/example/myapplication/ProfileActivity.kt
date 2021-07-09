@@ -67,7 +67,7 @@ class ProfileActivity : AppCompatActivity() {
                 sb.append(snapshot.child("password").value.toString())
                 sb.append("\n")
 
-                phoneNumber.text = sb.toString()
+               // phoneNumber.text = sb.toString()
             }
         })
 

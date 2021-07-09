@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import com.android.firebaseauthdemo.RegistrationActivity1
 import com.google.firebase.auth.FirebaseAuth
 
 class choice : AppCompatActivity() {
@@ -40,4 +39,5 @@ class choice : AppCompatActivity() {
     fun test(p0: View){
         startActivity(Intent(this,RegistrationActivity1::class.java))
     }
+
 }
