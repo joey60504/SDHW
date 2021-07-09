@@ -42,9 +42,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         addProfileButton.setOnClickListener{
-
             startActivity(Intent(this,AddPersonalDetails::class.java))
-
         }
         //print phone number
         val sb = StringBuilder()
@@ -72,5 +70,5 @@ class ProfileActivity : AppCompatActivity() {
         })
 
     }
-    }
+}
 

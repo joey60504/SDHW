@@ -11,17 +11,13 @@
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".AddPersonalDetails"></activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".UserInfo" />
         <activity android:name=".RegistrationActivity1" />
         <activity
             android:name=".homepage"
             android:label="@string/title_activity_homepage"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
-        <activity android:name=".signin" />
-        <activity android:name=".homepage1" />
         <activity android:name=".choice" />
         <activity android:name=".Verify" />
-        <activity android:name=".test1" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

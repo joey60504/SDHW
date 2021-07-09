@@ -25,10 +25,10 @@ class AddPersonalDetails : AppCompatActivity() {
         val ref = databaseRef?.reference!!.child("profile")
 
         val Login = findViewById<Button>(R.id.loginBtn)
-        val firstnameInput : EditText = findViewById(R.id.firstnameInput)
-        val lastnameInput : EditText = findViewById(R.id.lastnameInput)
-        val usernameInput : EditText = findViewById(R.id.usernameInput)
-        val passwordInput : EditText = findViewById(R.id.passwordInput)
+        val firstnameInput=findViewById<EditText>(R.id.firstnameInput)
+        val lastnameInput = findViewById<EditText>(R.id.lastnameInput)
+        val usernameInput = findViewById<EditText>(R.id.usernameInput)
+        val passwordInput = findViewById<EditText>(R.id.passwordInput)
 
         Login.setOnClickListener{
            val firstName = firstnameInput.text.toString()
@@ -44,8 +44,6 @@ class AddPersonalDetails : AppCompatActivity() {
 
             finish()
     }
-
-
 
     }
 }

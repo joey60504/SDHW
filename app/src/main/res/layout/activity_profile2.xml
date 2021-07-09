@@ -53,6 +53,7 @@
         android:layout_marginBottom="35dp"
         android:background="#FF6376"
         android:fontFamily="@font/font1"
+        android:onClick="test"
         android:text="Add Profile"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

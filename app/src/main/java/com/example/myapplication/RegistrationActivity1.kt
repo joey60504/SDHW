@@ -20,7 +20,6 @@ class RegistrationActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration1)
-
         database = FirebaseDatabase.getInstance();
         referance = database.getReference("proflie")
         registerButton.setOnClickListener(){
@@ -41,15 +40,9 @@ class RegistrationActivity1 : AppCompatActivity() {
             lastnameInput.setText("")
             usernameInput.setText("")
             passwordInput.setText("")
-
         }else{
-
             Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
-
-
         }
-
-
     }
 
 }
