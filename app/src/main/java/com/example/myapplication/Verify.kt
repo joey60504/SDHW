@@ -1,11 +1,11 @@
 package com.example.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
@@ -13,7 +13,11 @@ import com.google.firebase.auth.PhoneAuthProvider
 
 class Verify : AppCompatActivity() {
 
+
+
     lateinit var auth: FirebaseAuth
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +42,8 @@ class Verify : AppCompatActivity() {
                 Toast.makeText(this,"Enter OTP",Toast.LENGTH_SHORT).show()
             }
         }
-
     }
+
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
