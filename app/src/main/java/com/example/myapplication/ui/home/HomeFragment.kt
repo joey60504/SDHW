@@ -33,7 +33,6 @@ class HomeFragment : Fragment()  {
         val smokerspinner=binding.smoke
         smokerspinner.adapter=ArrayAdapter(this.requireContext(),android.R.layout.simple_spinner_dropdown_item,
             listOf("YES","NO"))
-
         return root
     }
 
