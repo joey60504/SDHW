@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             login()
         }
 
-        // Callback function for Phone Auth
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -113,13 +112,4 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, p0.message, Toast.LENGTH_LONG).show()
             }
         }
-
-    override fun onStart() {
-        super.onStart()
-        if (auth?.currentUser != null) {
-            val intent = Intent(this@MainActivity, ProfileActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
 }
