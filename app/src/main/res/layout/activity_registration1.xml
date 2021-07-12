@@ -6,71 +6,99 @@
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.RegistrationActivity1">
 
-    <TextView android:id="@+id/titleTv"
+    <TextView
+        android:id="@+id/titleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="個人資料"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstnameInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#000000"
-        android:layout_margin="10dp"
-        />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText android:id="@+id/firstnameInput"
+
+    <EditText
+        android:id="@+id/firstnameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTv"
-        android:hint="輸入名稱"
-        android:textColor="#000000"
         android:layout_margin="10dp"
-        />
+        android:hint="@string/輸入ID"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/EmailInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
 
-    <EditText android:id="@+id/lastnameInput"
+    <EditText
+        android:id="@+id/EmailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstnameInput"
-        android:hint="輸入年齡"
-        android:textColor="#000000"
         android:layout_margin="10dp"
-        />
-    <EditText android:id="@+id/usernameInput"
+        android:hint="@string/輸入EMAIL"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/ageInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstnameInput" />
+
+    <EditText
+        android:id="@+id/ageInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastnameInput"
-        android:hint="生理性別"
-        android:textColor="#000000"
         android:layout_margin="10dp"
-        />
+        android:hint="@string/輸入年齡"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/genderinput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailInput" />
 
-    <EditText android:id="@+id/passwordInput"
+    <EditText
+        android:id="@+id/genderinput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameInput"
-        android:hint="駕照照片URL"
-        android:textColor="#000000"
         android:layout_margin="10dp"
-        />
+        android:hint="@string/生理性別"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/photoinput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageInput" />
 
+    <EditText
+        android:id="@+id/photoinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/駕照URL"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genderinput" />
 
-    <Button android:id="@+id/registerButton"
+    <Button
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAllCaps="false"
-        android:text="確定"
-        android:textStyle="bold"
         android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput"/>
+        android:text="確定"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoinput" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,5 +56,10 @@
     <string name="menu_test" translatable="false">test</string>
     <string name="unreadmessage">unreadmessage</string>
     <string name="home">home</string>
+    <string name="輸入ID">Enter ID</string>
+    <string name="輸入年齡">Enter Age</string>
+    <string name="生理性別">Gender</string>
+    <string name="駕照URL">駕照URL</string>
+    <string name="輸入EMAIL">Enter Email</string>
 
 </resources>

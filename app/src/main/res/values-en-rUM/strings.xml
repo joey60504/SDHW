@@ -39,4 +39,9 @@
     <string name="about">About</string>
     <string name="unreadmessage">UnReadMessage</string>
     <string name="home">Home</string>
+    <string name="輸入ID">Enter ID</string>
+    <string name="輸入年齡">Enter Age</string>
+    <string name="生理性別">Gender</string>
+    <string name="駕照URL">Driver License URL</string>
+    <string name="輸入EMAIL">Enter Email</string>
 </resources>
