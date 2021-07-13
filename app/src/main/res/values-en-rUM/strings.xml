@@ -44,4 +44,13 @@
     <string name="生理性別">Gender</string>
     <string name="駕照URL">Driver License URL</string>
     <string name="輸入EMAIL">Enter Email</string>
+    <string name="roominformation">roominformation</string>
+    <string name="drivervalue">drivervalue</string>
+    <string name="detailinformation">detailinformation</string>
+    <string name="each">each</string>
+    <string name="price">price</string>
+    <string name="starttime">StartTime</string>
+    <string name="nowpeople_limitpeople">NowPeople/LimitPeople</string>
+    <string name="access">Access</string>
+    <string name="close">Close</string>
 </resources>

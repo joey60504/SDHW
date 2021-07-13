@@ -35,24 +35,18 @@ class RegistrationActivity1 : AppCompatActivity() {
                         Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, choice::class.java))
                     }
-
-
             } else {
                 Toast.makeText(this, "欄位不可為空", Toast.LENGTH_SHORT).show()
             }
-
-
         }
-
     }
+
 
     var usernameisvalid=false
     var emailisvalid=false
-
     fun isValiedEmail(target:CharSequence?):Boolean{
         return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
-
     val usernamewatcher =object:TextWatcher{
         var b=usernameisvalid
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -86,7 +80,6 @@ class RegistrationActivity1 : AppCompatActivity() {
             else{
                 b=true
             }
-
         }
         override fun afterTextChanged(s: Editable?) {
             emailisvalid=b

@@ -62,4 +62,14 @@
     <string name="駕照URL">駕照URL</string>
     <string name="輸入EMAIL">Enter Email</string>
 
+    <string name="roominformation">roominformation</string>
+    <string name="drivervalue">drivervalue</string>
+    <string name="detailinformation">detailinformation</string>
+    <string name="each">each</string>
+    <string name="price">price</string>
+    <string name="starttime">starttime</string>
+    <string name="nowpeople_limitpeople">nowpeople_limitpeople</string>
+    <string name="access">access</string>
+    <string name="close">close</string>
+
 </resources>

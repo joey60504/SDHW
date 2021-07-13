@@ -44,4 +44,13 @@
     <string name="生理性別">性別</string>
     <string name="駕照URL">駕照URL</string>
     <string name="輸入EMAIL">輸入Email</string>
+    <string name="roominformation">房間資訊</string>
+    <string name="drivervalue">駕駛評價</string>
+    <string name="detailinformation">詳細資訊</string>
+    <string name="each">其他</string>
+    <string name="price">價格</string>
+    <string name="starttime">出發時間</string>
+    <string name="nowpeople_limitpeople">現有人數/人數上限</string>
+    <string name="access">進入</string>
+    <string name="close">關閉</string>
 </resources>

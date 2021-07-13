@@ -74,19 +74,6 @@
 
     </SearchView>
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="272dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="98dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095"
-        app:srcCompat="@drawable/rectangle1" />
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
@@ -385,4 +372,18 @@
         app:layout_constraintVertical_bias="0.008"
         app:srcCompat="@drawable/addhouseicon_adobespark__1_" />
 
+    <ImageButton
+        android:id="@+id/housebutton"
+        android:layout_width="272dp"
+        android:layout_height="95dp"
+        android:background="#ffffffff"
+        android:src="@drawable/rectangle1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.224" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
