@@ -11,7 +11,7 @@
         android:id="@+id/idLogout"
         android:layout_width="211dp"
         android:layout_height="50dp"
-        android:background="#FF6376"
+        android:background="@color/green"
         android:fontFamily="@font/font1"
         android:text="@string/logout"
         android:textAllCaps="false"
