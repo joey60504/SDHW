@@ -10,17 +10,26 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_registration1.*
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 
 class RegistrationActivity1 : AppCompatActivity() {
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration1)
 
+        auth = FirebaseAuth.getInstance()
+
+        val registerButton : Button = findViewById(R.id.registerButton)
+
         firstnameInput.addTextChangedListener(usernamewatcher)
         EmailInput.addTextChangedListener(emailwatcher)
 
         var database = FirebaseDatabase.getInstance().reference
+
         registerButton.setOnClickListener() {
             val name = findViewById<EditText>(R.id.firstnameInput).text.toString()
             val email= findViewById<EditText>(R.id.EmailInput).text.toString()
@@ -38,6 +47,7 @@ class RegistrationActivity1 : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "欄位不可為空", Toast.LENGTH_SHORT).show()
             }
+            finish()
         }
     }
 

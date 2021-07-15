@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".room_lock"></activity>
-        <activity android:name=".room" />
-        <activity android:name=".AddPersonalDetails" />
+        <activity android:name=".AddPersonalDetails"></activity>
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".room_lock" />
+        <activity android:name=".room" />
         <activity android:name=".RegistrationActivity1" />
         <activity
             android:name=".homepage"

@@ -112,4 +112,12 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, p0.message, Toast.LENGTH_LONG).show()
             }
         }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser != null) {
+            startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+            finish()
+        }
+    }
 }
