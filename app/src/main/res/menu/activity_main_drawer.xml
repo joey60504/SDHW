@@ -18,12 +18,12 @@
             android:title="@string/friend" />
         <item
             android:id="@+id/nav_test"
-            android:icon="@drawable/likelist_icon"
-            android:title="@string/likelist"/>
+            android:icon="@drawable/ic_chat"
+            android:title="@string/chat"/>
         <item
             android:id="@+id/test123"
-            android:icon="@drawable/signout_icon"
-            android:title="@string/signout"
+            android:icon="@drawable/likelist_icon"
+            android:title="@string/likelist"
             tools:ignore="DuplicateIds" />
     </group>
 </menu>
