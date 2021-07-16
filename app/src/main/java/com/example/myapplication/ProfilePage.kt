@@ -21,7 +21,7 @@ class ProfilePage : AppCompatActivity() {
         //Get DATA
         var getdata=object :ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
-                
+
             }
 
             override fun onDataChange(p0: DataSnapshot) {
