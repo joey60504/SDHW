@@ -24,14 +24,14 @@
             android:shape="rectangle">
             <!--設定形狀的顏色-->
             <solid
-                android:color="#FEFAF1"/>
+                android:color="@color/topcolor"/>
             <!--設定圓角的尺寸-->
             <corners
                 android:radius="20dp"/>
             <!--設定邊框-->
             <stroke
                 android:width="0dp"
-                android:color="#325774"/>
+                android:color="@color/topcolor"/>
             <!--設定內容與邊界的距離-->
             <padding
                 android:top="0dp"
@@ -41,3 +41,4 @@
         </shape>
     </item>
 </layer-list>
+

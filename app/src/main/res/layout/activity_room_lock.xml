@@ -11,7 +11,7 @@
         android:id="@+id/imageButton16"
         android:layout_width="51dp"
         android:layout_height="48dp"
-        android:background="#FEFAF1"
+        android:background="@drawable/ic_chat_blue"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.039"
-        app:srcCompat="@drawable/ic_chat" />
+        app:srcCompat="@drawable/ic_chat_blue" />
 
     <ImageButton
         android:id="@+id/imageButton5"

@@ -18,19 +18,19 @@
     <!--物件部分-->
     <!--設置物件右邊跟下面的offset-->
     <item
-        android:bottom="6dp"
-        android:right="6dp">
+        android:bottom="3dp"
+        android:right="3dp">
         <shape
             android:shape="rectangle">
             <!--設定形狀的顏色-->
             <solid
-                android:color="#254259"/>
+                android:color="@color/blue"/>
             <!--設定圓角的尺寸-->
             <corners
                 android:radius="20dp"/>
             <!--設定邊框-->
             <stroke
-                android:width="3dp"
+                android:width="0dp"
                 android:color="#15324a"/>
             <!--設定內容與邊界的距離-->
             <padding

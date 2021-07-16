@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".AddPersonalDetails"></activity>
+        <activity android:name=".department_information"></activity>
+        <activity android:name=".AddPersonalDetails" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".room_lock" />
         <activity android:name=".room" />
