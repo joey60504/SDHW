@@ -53,4 +53,5 @@
     <string name="nowpeople_limitpeople">現有人數/人數上限</string>
     <string name="access">進入</string>
     <string name="close">關閉</string>
+    <string name="Enter_name">輸入姓名</string>
 </resources>

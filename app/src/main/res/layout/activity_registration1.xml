@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="@string/輸入ID"
+        android:hint="@string/Enter_name"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/EmailInput"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,13 +50,13 @@
 
     <EditText
         android:id="@+id/ageInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:hint="@string/輸入年齡"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/genderinput"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailInput" />
@@ -101,5 +101,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoinput" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="datePicker"
+        android:text="選取日期"
+        app:layout_constraintBottom_toTopOf="@+id/genderinput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ageInput"
+        app:layout_constraintTop_toBottomOf="@+id/EmailInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

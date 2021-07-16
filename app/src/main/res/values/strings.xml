@@ -61,7 +61,6 @@
     <string name="生理性別">Gender</string>
     <string name="駕照URL">駕照URL</string>
     <string name="輸入EMAIL">Enter Email</string>
-
     <string name="roominformation">roominformation</string>
     <string name="drivervalue">drivervalue</string>
     <string name="detailinformation">detailinformation</string>
@@ -71,5 +70,6 @@
     <string name="nowpeople_limitpeople">nowpeople_limitpeople</string>
     <string name="access">access</string>
     <string name="close">close</string>
+    <string name="Enter_name">Enter_name</string>
 
 </resources>

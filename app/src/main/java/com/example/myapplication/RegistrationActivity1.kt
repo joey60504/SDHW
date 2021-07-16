@@ -1,18 +1,21 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.widget.EditText
-import android.widget.Toast
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_registration1.*
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_registration1.*
+import java.util.*
+
 
 class RegistrationActivity1 : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
@@ -20,17 +23,11 @@ class RegistrationActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration1)
-
+//資料庫讀取
         auth = FirebaseAuth.getInstance()
         var phone=auth.currentUser?.phoneNumber.toString()
-
         val registerButton : Button = findViewById(R.id.registerButton)
-
-        firstnameInput.addTextChangedListener(usernamewatcher)
-        EmailInput.addTextChangedListener(emailwatcher)
-
         var database = FirebaseDatabase.getInstance().reference
-
         registerButton.setOnClickListener() {
             val name = findViewById<EditText>(R.id.firstnameInput).text.toString()
             val email= findViewById<EditText>(R.id.EmailInput).text.toString()
@@ -50,22 +47,26 @@ class RegistrationActivity1 : AppCompatActivity() {
             }
             finish()
         }
+//監聽
+        firstnameInput.addTextChangedListener(usernamewatcher)
+        EmailInput.addTextChangedListener(emailwatcher)
     }
 
-
+//監聽
     var usernameisvalid=false
     var emailisvalid=false
     fun isValiedEmail(target:CharSequence?):Boolean{
         return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
+
     val usernamewatcher =object:TextWatcher{
         var b=usernameisvalid
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         }
         override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
             Log.d("signup",text.toString())
-            if(text?.length?:0<10){
-                firstnameInput.error="至少需要10個字元"
+            if(text?.length?:0<3){
+                firstnameInput.error="請輸入正確格式"
                 b=false
             }
             else{
@@ -97,6 +98,20 @@ class RegistrationActivity1 : AppCompatActivity() {
         }
     }
 
+
+//生日
+    fun datePicker(v: View) {
+        val calendar = Calendar.getInstance()
+        val year = calendar[Calendar.YEAR]
+        val month = calendar[Calendar.MONTH]
+        val day = calendar[Calendar.DAY_OF_MONTH]
+        DatePickerDialog(v.context, { view, year, month, day ->
+                val monthfix= month+1
+                val dateTime = "$year/$monthfix/$day"
+                ageInput.setText(dateTime)
+            }, year, month, day
+        ).show()
+    }
 }
 
 
