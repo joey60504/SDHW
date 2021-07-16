@@ -54,4 +54,11 @@
     <string name="access">進入</string>
     <string name="close">關閉</string>
     <string name="Enter_name">輸入姓名</string>
+    <string name="time">時間</string>
+    <string name="startpoint">起點</string>
+    <string name="endpoint">終點</string>
+    <string name="navigating">導航</string>
+    <string name="carcard">車牌</string>
+    <string name="passenger_information">乘客資訊</string>
+    <string name="Builds_the_room">創建房間</string>
 </resources>

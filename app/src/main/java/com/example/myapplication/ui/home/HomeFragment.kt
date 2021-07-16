@@ -2,6 +2,7 @@ package com.example.myapplication.ui.home
 
 import android.R
 import android.content.DialogInterface
+import android.content.Intent
 import android.icu.number.Notation.simple
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentHomeBinding
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.driver_department_information
+import com.example.myapplication.homepage
 import kotlinx.android.synthetic.main.dialog_view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -52,6 +55,8 @@ class HomeFragment : Fragment() {
         return root
     }
 
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -77,5 +82,6 @@ class HomeFragment : Fragment() {
 
             }
         }
+
     }
 }

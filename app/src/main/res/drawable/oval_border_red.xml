@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!--填充色-->
+    <solid android:color="@color/底色" />
+    <!--描邊及描邊尺寸-->
+    <stroke
+        android:width="3dp"
+        android:color="#A63C24" />
+    <!--圓角尺寸,四個角相同可直接使用android:radius-->
+    <corners
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"
+        android:topLeftRadius="30dp"
+        android:topRightRadius="30dp" />
+</shape>
