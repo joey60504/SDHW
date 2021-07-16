@@ -7,20 +7,6 @@
     android:background="#FEFAF1"
     tools:context=".ui.home.HomeFragment">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="258dp"
-        android:layout_height="40dp"
-        android:background="@drawable/retangle2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023">
-
-    </SearchView>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="125dp"
@@ -417,17 +403,35 @@
 
     <ImageButton
         android:id="@+id/addhouse"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
+        android:layout_width="65dp"
+        android:layout_height="61dp"
         android:background="@color/底色"
         android:scaleType="fitXY"
         android:src="@drawable/addhouseicon_adobespark__1_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.021" />
+
+    <EditText
+        android:id="@+id/editTextNumber4"
+        android:layout_width="259dp"
+        android:layout_height="39dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/roomnumber"
+        android:drawableLeft="@drawable/ic_search"
+        android:foregroundTint=""
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.034" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -61,4 +61,6 @@
     <string name="carcard">車牌</string>
     <string name="passenger_information">乘客資訊</string>
     <string name="Builds_the_room">創建房間</string>
+    <string name="room_chat">房間聊天室</string>
+    <string name="roomnumber">房間號</string>
 </resources>

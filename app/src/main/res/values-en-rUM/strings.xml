@@ -61,4 +61,6 @@
     <string name="carcard">carcard</string>
     <string name="passenger_information">passenger_information</string>
     <string name="Builds_the_room">Builds_the_room</string>
+    <string name="room_chat">room_chat</string>
+    <string name="roomnumber">roomnumber</string>
 </resources>
