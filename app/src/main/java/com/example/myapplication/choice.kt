@@ -37,7 +37,7 @@ class choice : AppCompatActivity() {
         startActivity(Intent(this,homepage::class.java))
     }
     fun test(p0: View){
-        startActivity(Intent(this,RegistrationActivity1::class.java))
+        startActivity(Intent(this,ProfilePage::class.java))
     }
 
 }
