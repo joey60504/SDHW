@@ -68,6 +68,7 @@
         android:layout_width="68dp"
         android:layout_height="38dp"
         android:text="@string/friend"
+        android:textColor="@color/blue"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

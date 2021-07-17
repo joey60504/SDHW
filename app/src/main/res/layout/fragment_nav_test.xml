@@ -217,6 +217,7 @@
         android:layout_width="203dp"
         android:layout_height="34dp"
         android:text="@string/unreadmessage"
+        android:textColor="@color/blue"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

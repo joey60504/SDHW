@@ -5,17 +5,27 @@
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/rectangle3"
     android:gravity="bottom"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:padding="0dp"
+        app:srcCompat="@drawable/logo_final" />
+
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="30dp"
         android:text="@string/言途"
-        android:textSize="30sp" />
+        android:textColor="@color/底色"
+        android:textSize="45sp" />
+
 </LinearLayout>

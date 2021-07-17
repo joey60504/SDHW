@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/myroom_icon"
@@ -25,5 +25,17 @@
             android:icon="@drawable/likelist_icon"
             android:title="@string/likelist"
             tools:ignore="DuplicateIds" />
+
+        <item android:title="設定">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/personinformation"
+                        android:icon="@drawable/ic_person"
+                        android:iconTint="@color/blue"
+                        android:title="@string/personalinformation" />
+                </group>
+            </menu>
+        </item>
     </group>
 </menu>

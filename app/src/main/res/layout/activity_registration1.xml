@@ -6,52 +6,52 @@
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.RegistrationActivity1">
 
+
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="個人資料"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:textColor="@color/blue"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/firstnameInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
         android:id="@+id/firstnameInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
         android:hint="@string/Enter_name"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/EmailInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTv" />
 
     <EditText
         android:id="@+id/EmailInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
         android:hint="@string/輸入EMAIL"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/ageInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstnameInput" />
 
     <EditText
         android:id="@+id/ageInput"
-        android:layout_width="154dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
         android:hint="@string/輸入年齡"
         android:textColor="#000000"
@@ -61,40 +61,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailInput" />
 
-
     <EditText
         android:id="@+id/genderinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
         android:hint="@string/生理性別"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/photoinput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageInput" />
 
     <EditText
         android:id="@+id/photoinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
         android:hint="@string/駕照URL"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderinput" />
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="131dp"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:background="@drawable/rectangle"
         android:text="確定"
         android:textAllCaps="false"
+        android:textColor="@color/底色"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,14 +106,31 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="34dp"
+        android:background="@drawable/oval"
         android:onClick="datePicker"
         android:text="選取日期"
+        android:textColor="@color/底色"
         app:layout_constraintBottom_toTopOf="@+id/genderinput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ageInput"
-        app:layout_constraintTop_toBottomOf="@+id/EmailInput" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailInput"
+        app:layout_constraintVertical_bias="0.507" />
+
+    <ImageButton
+        android:id="@+id/imageButton48"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="@color/底色"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/arrow_blue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

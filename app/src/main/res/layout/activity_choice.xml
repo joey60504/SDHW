@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#314c61 "
+    android:background="@color/底色"
     tools:context=".choice">
 
     <Button
@@ -27,7 +27,7 @@
         android:id="@+id/imageButton10"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:background="#00000000"
+        android:background="@color/底色"
         android:onClick="commute"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.162"
-        app:srcCompat="@drawable/ovalgreen" />
+        app:srcCompat="@drawable/rectangle1" />
 
 
     <ImageButton
@@ -49,14 +49,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.771"
-        app:srcCompat="@drawable/ovalgreen" />
+        app:srcCompat="@drawable/rectangle1" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/commute"
-        android:textColor="#4a595c"
+        android:textColor="@color/底色"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton10"
         app:layout_constraintEnd_toEndOf="@+id/imageButton10"
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/outing"
-        android:textColor="#4a595c"
+        android:textColor="@color/底色"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"

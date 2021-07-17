@@ -10,8 +10,8 @@
     android:layout_gravity="start"
     android:fitsSystemWindows="true"
     app:headerLayout="@layout/nav_header_homepage"
-    app:itemTextColor="@color/blue"
-    app:itemIconTint="@color/blue"
+    app:itemTextColor="#325774"
+    app:itemIconTint="#325774"
     app:menu="@menu/activity_main_drawer"
     >
 
@@ -42,4 +42,9 @@
         android:name="com.example.myapplication.ui.test123.test123"
         android:label="fragment_test12"
         tools:layout="@layout/fragment_test123" />
+    <fragment
+        android:id="@+id/personinformation"
+        android:name="com.example.myapplication.ui.personinformation.personinformation"
+        android:label="fragment_personinformation"
+        tools:layout="@layout/fragment_personinformation" />
 </navigation>
