@@ -14,15 +14,15 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="117dp"
+        android:layout_height="122dp"
         android:padding="0dp"
         app:srcCompat="@drawable/logo_final" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="158dp"
+        android:layout_height="122dp"
         android:padding="30dp"
         android:text="@string/言途"
         android:textColor="@color/底色"
