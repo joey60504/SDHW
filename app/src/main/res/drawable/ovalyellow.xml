@@ -24,7 +24,7 @@
             android:shape="rectangle">
             <!--設定形狀的顏色-->
             <solid
-                android:color="@color/topcolor"/>
+                android:color="#c9c6af"/>
             <!--設定圓角的尺寸-->
             <corners
                 android:radius="20dp"/>

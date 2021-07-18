@@ -9,7 +9,7 @@
     tools:context=".ui.test123.test123">
 
     <ImageButton
-        android:id="@+id/imageButton21"
+        android:id="@+id/back_chat"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:background="#FEFAF1"

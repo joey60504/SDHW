@@ -43,7 +43,6 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.094"
@@ -111,15 +110,15 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="152dp"
-        android:layout_height="130dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196"
-        app:srcCompat="@drawable/ic_drive" />
+        app:layout_constraintVertical_bias="0.218"
+        app:srcCompat="@drawable/drive1" />
 
     <View
         android:id="@+id/view2"
@@ -167,7 +166,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.038" />
