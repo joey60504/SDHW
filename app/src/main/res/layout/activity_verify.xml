@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9FAFF"
+    android:background="@color/blue"
     tools:context=".Verify"
     android:orientation="vertical"
     android:weightSum="2">
@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_verify"
+            android:src="@drawable/logo1_final"
             android:paddingBottom="40dp"/>
     </LinearLayout>
     <LinearLayout
@@ -26,38 +26,33 @@
         android:orientation="vertical"
         android:gravity="bottom|center"
         android:layout_weight="1">
-        <TextView
-            android:layout_width="match_parent"
-            android:paddingLeft="40dp"
-            android:layout_height="wrap_content"
-            android:text="Verify mobile"
-            android:paddingBottom="15dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/font1"
-            android:textColor="#444444"/>
+
         <com.chaos.view.PinView
             android:id="@+id/id_otp"
+            style="@style/PinWidget.PinView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:itemCount="6"
             android:layout_margin="10dp"
-            android:itemBackground="#F4F6F9"
             android:cursorVisible="true"
-            app:lineColor="#2196F3"
-            android:textColor="#1F1F1F"
             android:inputType="number"
+            android:itemBackground="#F4F6F9"
+            android:textColor="@color/blue"
             app:hideLineWhenFilled="true"
-            style="@style/PinWidget.PinView"
-            app:itemRadius="5dp"/>
+            app:itemCount="6"
+            app:itemRadius="5dp"
+            app:lineColor="@color/底色" />
+
         <Button
             android:id="@+id/verifyBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="@drawable/rectangle_brown"
+            android:fontFamily="serif"
             android:text="Verify"
             android:textAllCaps="false"
-            android:fontFamily="@font/font1"
-            android:layout_margin="40dp"
             android:textColor="#ffffff"
-            android:background="#6372FF"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

@@ -16,12 +16,12 @@
 
         <path
             android:pathData="M0 0V48H207V0"
-            android:fillColor="#FFFFFF"
+            android:fillColor="@color/底色"
             />
 
         <path
             android:pathData="M0 0H207V48H0V0Z"
-            android:strokeWidth="3"
+            android:strokeWidth=""
             android:strokeColor="#C6C6C6"
             />
 

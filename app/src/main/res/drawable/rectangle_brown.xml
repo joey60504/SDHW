@@ -12,7 +12,7 @@
                 android:color="#544c35" />
             <!--設定圓角的尺寸-->
             <corners
-                android:radius="20dp"/>
+                android:radius="10dp"/>
         </shape>
     </item>
     <!--物件部分-->
@@ -27,7 +27,7 @@
                 android:color="@color/topcolor"/>
             <!--設定圓角的尺寸-->
             <corners
-                android:radius="20dp"/>
+                android:radius="10dp"/>
             <!--設定邊框-->
             <stroke
                 android:width="0dp"

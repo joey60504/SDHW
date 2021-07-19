@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/底色"
     tools:context="com.example.myapplication.RegistrationActivity1">
 
 
@@ -12,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="casual"
         android:text="個人資料"
         android:textColor="@color/blue"
         android:textSize="34sp"
@@ -27,6 +29,7 @@
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:hint="@string/Enter_name"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/EmailInput"
@@ -40,6 +43,7 @@
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:hint="@string/輸入EMAIL"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/ageInput"
@@ -53,6 +57,7 @@
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:hint="@string/輸入年齡"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/genderinput"
@@ -66,6 +71,7 @@
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:hint="@string/生理性別"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/photoinput"
@@ -79,6 +85,7 @@
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_margin="10dp"
+        android:fontFamily="serif"
         android:hint="@string/駕照URL"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
@@ -93,10 +100,11 @@
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle"
+        android:fontFamily="casual"
         android:text="確定"
         android:textAllCaps="false"
         android:textColor="@color/底色"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +116,8 @@
         android:id="@+id/button3"
         android:layout_width="84dp"
         android:layout_height="34dp"
-        android:background="@drawable/oval"
+        android:background="@drawable/rectangle_brown"
+        android:fontFamily="casual"
         android:onClick="datePicker"
         android:text="選取日期"
         android:textColor="@color/底色"
@@ -117,7 +126,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ageInput"
         app:layout_constraintTop_toBottomOf="@+id/EmailInput"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.488" />
 
     <ImageButton
         android:id="@+id/imageButton48"

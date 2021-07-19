@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9FAFF"
+    android:background="@color/blue"
     android:orientation="vertical"
     android:weightSum="2"
     tools:context=".MainActivity">
@@ -16,66 +16,62 @@
         android:gravity="center|bottom">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="416dp"
             android:layout_height="wrap_content"
-            android:paddingBottom="40dp"
-            android:src="@drawable/ic_login" />
+            android:paddingBottom="0dp"
+            android:src="@drawable/logo1_final" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="10dp"
         android:layout_weight="1"
-        android:gravity="bottom|center"
+        android:gravity="center"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/font1"
-            android:paddingLeft="40dp"
-            android:text="Login"
-            android:textColor="#444444"
-            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="40dp"
-            android:paddingTop="10dp"
+            android:paddingTop="0dp"
             android:paddingRight="40dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="0dp">
 
             <EditText
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:background="@drawable/edittext_bg"
+                android:layout_width="67dp"
+                android:layout_height="45dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ovalgreen"
                 android:enabled="false"
+                android:fontFamily="serif"
                 android:paddingLeft="10dp"
                 android:text="+886"
-                android:textColor="#1F1F1F" />
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/phoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_bg"
+                android:layout_width="235dp"
+                android:layout_height="45dp"
+                android:background="@drawable/ovalgreen"
                 android:inputType="phone"
-                android:paddingLeft="10dp"
-                android:textColor="#1F1F1F" />
+                android:paddingLeft="5dp"
+                android:textColor="@color/底色" />
         </LinearLayout>
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="317dp"
+            android:layout_height="76dp"
             android:layout_margin="40dp"
-            android:background="#6372FF"
-            android:fontFamily="@font/font1"
+            android:background="@drawable/ovalyellow"
+            android:fontFamily="serif"
+            android:gravity="center"
             android:text="LOGIN"
-            android:textColor="#ffffff" />
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>
