@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -34,13 +35,41 @@ class choice : AppCompatActivity() {
             finish()
         }
 //完
-//換頁
+        firstlogin()
     }
+//換頁
     fun commute(p0: View){
         startActivity(Intent(this,homepage::class.java))
     }
-    fun test(p0: View){
-        startActivity(Intent(this,ProfileActivity::class.java))
-    }
 //換頁完
+//首次登入跳出
+    fun firstlogin(){
+       auth = FirebaseAuth.getInstance()
+       var phone = auth.currentUser?.phoneNumber.toString()
+       var database = FirebaseDatabase.getInstance().reference
+       var getdata=object : ValueEventListener {
+           override fun onCancelled(error: DatabaseError) {
+
+           }
+           override fun onDataChange(p0: DataSnapshot) {
+               val res=p0.value as HashMap<*,*>
+//               Log.d("login",res.toString())
+               val profile= res["profile"] as HashMap<*,*>
+//               Log.d("login",profile.toString())
+               try {
+                   val userphone=profile[phone] as HashMap<*,*>
+                   for(i in userphone.values){
+                       if(i=="" || i==null){
+                           startActivity(Intent(this@choice,ProfileActivity::class.java))
+                       }
+                   }
+               }catch (e:Exception){
+                   database.child("profile").child(phone).setValue(User())
+                   startActivity(Intent(this@choice,ProfileActivity::class.java))
+               }
+           }
+       }
+       database.addValueEventListener(getdata)
+    }
+//首次登入跳出完
 }

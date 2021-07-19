@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/font1"
 
+        android:text="numberinformation"
         android:textColor="#1F1F1F"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/addProfileButton"
@@ -40,7 +41,7 @@
         android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/justAbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,19 +62,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
-    <Button
-        android:id="@+id/justAbutton"
-        android:layout_width="211dp"
-        android:layout_height="50dp"
-        android:background="#FF6376"
-        android:fontFamily="@font/font1"
-        android:onClick="test"
-        android:text="暫時的next"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signOutButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

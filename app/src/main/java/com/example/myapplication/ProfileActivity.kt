@@ -39,7 +39,5 @@ class ProfileActivity : AppCompatActivity() {
 
         }
     }
-    fun test(p0: View){
-        startActivity(Intent(this,choice::class.java))
-    }
+
 }
