@@ -63,7 +63,8 @@ class choice : AppCompatActivity() {
                            startActivity(Intent(this@choice,ProfileActivity::class.java))
                        }
                    }
-               }catch (e:Exception){
+               }
+               catch (e:Exception){
                    database.child("profile").child(phone).setValue(User())
                    startActivity(Intent(this@choice,ProfileActivity::class.java))
                }

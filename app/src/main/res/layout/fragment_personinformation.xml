@@ -11,19 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/imageButton57"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@color/底色"
-            android:src="@drawable/ic_pen"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.381" />
-
         <TextView
             android:id="@+id/textView74"
             android:layout_width="wrap_content"
@@ -31,21 +18,21 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.632"
+            app:layout_constraintHorizontal_bias="0.618"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.367" />
+            app:layout_constraintVertical_bias="0.379" />
 
         <TextView
             android:id="@+id/textView67"
             android:layout_width="110dp"
             android:layout_height="47dp"
             android:background="@drawable/rectangle_brown"
+            android:fontFamily="casual"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/gender"
             android:textColor="@color/底色"
             android:textSize="20sp"
-            android:fontFamily="casual"
             app:layout_constraintBottom_toTopOf="@+id/textView68"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.116"
@@ -80,11 +67,11 @@
             android:layout_width="115dp"
             android:layout_height="46dp"
             android:background="@drawable/rectangle_brown"
+            android:fontFamily="casual"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/駕照URL"
             android:textColor="@color/底色"
             android:textSize="20sp"
-            android:fontFamily="casual"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.118"
@@ -109,7 +96,7 @@
             android:src="@drawable/boy1"
             app:layout_constraintBottom_toTopOf="@+id/textView73"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintHorizontal_bias="0.103"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -152,19 +139,19 @@
             android:src="@drawable/arrow_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.021" />
+            app:layout_constraintVertical_bias="0.023" />
 
         <TextView
             android:id="@+id/textView73"
             android:layout_width="110dp"
             android:layout_height="47dp"
             android:background="@drawable/rectangle_brown"
+            android:fontFamily="casual"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/Phone_number"
-            android:fontFamily="casual"
             android:textColor="@color/底色"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textView65"
@@ -178,9 +165,9 @@
             android:layout_width="110dp"
             android:layout_height="47dp"
             android:background="@drawable/rectangle_brown"
+            android:fontFamily="casual"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/age"
-            android:fontFamily="casual"
             android:textColor="@color/底色"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textView67"
@@ -190,19 +177,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
         <ImageButton
-            android:id="@+id/imageButton49"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@color/底色"
-            android:src="@drawable/ic_pen"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.504" />
-
-        <ImageButton
             android:id="@+id/imageButton51"
             android:layout_width="32dp"
             android:layout_height="32dp"
@@ -210,10 +184,10 @@
             android:src="@drawable/ic_pen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.957"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.783" />
+            app:layout_constraintVertical_bias="0.505" />
 
         <ImageButton
             android:id="@+id/imageButton50"
@@ -221,12 +195,23 @@
             android:layout_height="32dp"
             android:background="@color/底色"
             android:src="@drawable/ic_pen"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton52"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.957"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.642" />
+            app:layout_constraintTop_toBottomOf="@+id/imageButton49" />
+
+        <ImageButton
+            android:id="@+id/imageButton49"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/底色"
+            android:src="@drawable/ic_pen"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.957"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton51" />
 
         <ImageButton
             android:id="@+id/imageButton52"
@@ -236,10 +221,9 @@
             android:src="@drawable/ic_pen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.957"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.922" />
+            app:layout_constraintTop_toBottomOf="@+id/imageButton50" />
 
         <TextView
             android:id="@+id/textView69"
@@ -257,11 +241,11 @@
             android:layout_width="110dp"
             android:layout_height="47dp"
             android:background="@drawable/rectangle_brown"
+            android:fontFamily="casual"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/Email"
             android:textColor="@color/底色"
             android:textSize="20sp"
-            android:fontFamily="casual"
             app:layout_constraintBottom_toTopOf="@+id/textView66"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.116"

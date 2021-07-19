@@ -57,7 +57,7 @@
                 android:background="@drawable/ovalgreen"
                 android:inputType="phone"
                 android:paddingLeft="5dp"
-                android:textColor="@color/底色" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <Button

@@ -1,34 +1,31 @@
 package com.example.myapplication.ui.home
 
 import android.R
-import android.content.DialogInterface
+import android.R.attr.button
 import android.content.Intent
-import android.icu.number.Notation.simple
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.databinding.FragmentHomeBinding
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.driver_department_information
-import com.example.myapplication.homepage
+import androidx.fragment.app.Fragment
+import com.example.myapplication.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.dialog_view.*
 import kotlinx.android.synthetic.main.fragment_home.*
+
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//spinner
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val petspinner = binding.pet
@@ -51,6 +48,8 @@ class HomeFragment : Fragment() {
             this.requireContext(), android.R.layout.simple_spinner_dropdown_item,
             listOf("YES", "NO")
         )
+//spinner完
+
 
         return root
     }
