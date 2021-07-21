@@ -41,9 +41,9 @@ class newmessage : AppCompatActivity() {
     private fun fetchUsers(){
         val ref = FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
+            override fun onDataChange(p0: DataSnapshot) {
                 val adapter = GroupAdapter<GroupieViewHolder>()
-                p0.children.foeEach{
+                p0.children.forEach{
                     Log.d("NewMessage",it.toString())
                     val user = it.getValue(User::class.java)
                     if(user != null) {
@@ -70,8 +70,6 @@ class newmessage : AppCompatActivity() {
 class UserItem(val user: User): Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.username_textview_new_message.text = user.name
-
-        Picasso.get().load(user.photo).into(viewHolder.itemView.imageView_new_message)
     }
 
     override fun getLayout(): Int {
