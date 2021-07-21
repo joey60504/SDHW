@@ -164,7 +164,7 @@
         android:layout_height="30dp"
         android:background="@drawable/rectangle_brown"
         android:fontFamily="serif"
-        android:text="選擇日期"
+        android:text="選擇時間"
         android:textColor="@color/底色"
         android:textSize="14sp"
         android:textStyle="bold"
