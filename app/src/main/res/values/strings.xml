@@ -82,5 +82,6 @@
     <string name="room_chat">room_chat</string>
     <string name="roomnumber">roomnumber</string>
     <string name="age">age</string>
+    <string name="startdate">startdate</string>
 
 </resources>
