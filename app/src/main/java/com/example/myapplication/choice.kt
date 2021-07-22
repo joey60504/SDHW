@@ -73,4 +73,5 @@ class choice : AppCompatActivity() {
        database.addValueEventListener(getdata)
     }
 //首次登入跳出完
+
 }

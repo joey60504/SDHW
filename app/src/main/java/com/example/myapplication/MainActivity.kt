@@ -107,17 +107,10 @@ class MainActivity : AppCompatActivity() {
             override fun onVerificationCompleted(p0: PhoneAuthCredential) {
 
             }
-
             override fun onVerificationFailed(p0: FirebaseException) {
                 Toast.makeText(this@MainActivity, p0.message, Toast.LENGTH_LONG).show()
             }
         }
 
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null) {
-            startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
-            finish()
-        }
-    }
+
 }

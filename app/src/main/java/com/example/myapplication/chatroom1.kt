@@ -17,45 +17,6 @@ class chatroom1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chatroom1)
 
-        supportActionBar?.title = "Chat Log"
 
-        val adapter = GroupAdapter<GroupieViewHolder>()
-
-        adapter.add(ChatFromItem())
-        adapter.add(ChatToItem())
-        adapter.add(ChatFromItem())
-        adapter.add(ChatToItem())
-        adapter.add(ChatFromItem())
-        adapter.add(ChatToItem())
-        adapter.add(ChatFromItem())
-        adapter.add(ChatToItem())
-        adapter.add(ChatFromItem())
-        adapter.add(ChatToItem())
-
-
-        recyclerview_chatroom1.adapter = adapter
-
-    }
-    fun back5(p0: View){
-        startActivity(Intent(this,nav_test::class.java))
-    }
-}
-
-class ChatFromItem: Item<GroupieViewHolder>() {
-    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-
-    }
-    override fun getLayout(): Int {
-        return R.layout.chat_from_row
-    }
-}
-
-class ChatToItem: Item<GroupieViewHolder>() {
-    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.chat_to_row
     }
 }
