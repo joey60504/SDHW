@@ -4,7 +4,13 @@ class User(val name : String="",val email : String="" ,val age : String="",val g
 
 
 }
-class roominfo(val Date :String="",val startpoint :String="",val endpoint1 :String="",val carcard:String="",val price:String=""){
+class roominfo(
+    val Date: String? ="",
+    val time: String? ="",
+    val startpoint: String? ="",
+    val endpoint1: String? ="",
+    val carcard: String? ="",
+    val price:String=""){
 
 
 }
