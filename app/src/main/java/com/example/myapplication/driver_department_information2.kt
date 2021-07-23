@@ -59,7 +59,7 @@ class driver_department_information2 : AppCompatActivity() {
             val startpoint = intent.getBundleExtra("Extra")?.getString("startpoint_EXTRA")
             val endpoint1 = intent.getBundleExtra("Extra")?.getString("endpoint_EXTRA")
             val carcard = intent.getBundleExtra("Extra")?.getString("carcard_EXTRA")
-            val price = findViewById<EditText>(R.id.editTextNumber2).text.toString()
+            val price = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
 
             val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price)
             val roomRule=roomrule(gender, smoke, child, pet)

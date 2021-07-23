@@ -1,12 +1,15 @@
 package com.example.myapplication.ui.personinformation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.myapplication.databinding.FragmentNavTestBinding
 import com.example.myapplication.databinding.FragmentPersoninformationBinding
+import com.example.myapplication.driver_department_information
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,28 +34,20 @@ class personinformation : Fragment() {
         auth = FirebaseAuth.getInstance()
         var phone = auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference
-        var getdata=object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                for (i in p0.children) {
-                    var name=i.child(phone).child("name").getValue()
-                    var age=i.child(phone).child("age").getValue()
-                    var gender=i.child(phone).child("gender").getValue()
-                    var photo=i.child(phone).child("photo").getValue()
-                    var email=i.child(phone).child("email").getValue()
-                    textView64.text=name.toString()
-                    textView70.text=age.toString()
-                    textView71.text=gender.toString()
-                    textView72.text=photo.toString()
-                    textView69.text=email.toString()
-                    textView74.text=phone
-                }
-            }
+        database.child("profile").child(phone).get().addOnSuccessListener {
+            val user =it.value as HashMap<*,*>
+            var name=user["name"].toString()
+            var age=user["age"].toString()
+            var gender=user["gender"].toString()
+            var photo=user["photo"].toString()
+            var email=user["email"].toString()
+            textView64.text=name
+            textView70.text=age
+            textView71.text=gender
+            textView72.text=photo
+            textView69.text=email
+            textView74.text=phone
         }
-        database.addValueEventListener(getdata)
 //資料庫完
         return root
     }
