@@ -10,7 +10,11 @@ class roominfo(
     val startpoint: String? ="",
     val endpoint1: String? ="",
     val carcard: String? ="",
-    val price:String=""){
-
-
-}
+    val price : String=""
+    ) {}
+class roomrule(
+    val gender:String?="",
+    val smoke:String?="",
+    val child:String?="",
+    val pet:String?=""
+){}
