@@ -10,8 +10,6 @@
         android:id="@+id/room_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
         android:background="@drawable/dialodbackgroud"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"

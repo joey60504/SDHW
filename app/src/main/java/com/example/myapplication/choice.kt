@@ -7,11 +7,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.dialog_view.view.*
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
 class choice : AppCompatActivity() {
@@ -72,6 +74,7 @@ class choice : AppCompatActivity() {
        }
        database.addValueEventListener(getdata)
     }
+
 //首次登入跳出完
 
 }

@@ -12,13 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".newmessage"></activity>
-        <activity android:name=".Chatlog" />
         <activity android:name=".chatroom1" />
         <activity android:name=".room_chat" />
         <activity android:name=".driver_department_information2" />
         <activity android:name=".driver_department_information" />
-        <activity android:name=".ProfilePage" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".room_lock" />
         <activity android:name=".room" />

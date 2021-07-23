@@ -2,18 +2,24 @@ package com.example.myapplication.ui.home
 
 import android.R
 import android.app.DatePickerDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.example.myapplication.ProfileActivity
+import com.example.myapplication.databinding.DialogViewBinding
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.driver_department_information
+import com.google.android.gms.dynamic.SupportFragmentWrapper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,13 +27,14 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_registration1.*
 import kotlinx.android.synthetic.main.dialog_view.*
+import kotlinx.android.synthetic.main.dialog_view.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 import java.util.*
 import kotlin.collections.HashMap
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment()  {
     lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -78,6 +85,12 @@ class HomeFragment : Fragment() {
             }
         }
 //無駕照無法點進完
+        _binding!!.housebutton.setOnClickListener{
+            val cusDialog=CusDialog()
+            activity?.supportFragmentManager?.let { it1 -> cusDialog.show(it1,"cusdialog") }
+        }
+
+
         return root
 
     }
@@ -90,22 +103,34 @@ class HomeFragment : Fragment() {
 
     }
 
+    class CusDialog:DialogFragment(){
+//        View元素綁定
+        private lateinit var binding: DialogViewBinding
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
 
-//    class MainActivity : AppCompatActivity() {
-//
-//        override fun onCreate(savedInstanceState: Bundle?) {
-//            super.onCreate(savedInstanceState)
-//            setContentView(R.layout.select_dialog_item)
-//            fun EnterRoom(p0: View) {
-//                val view = View.inflate(this@MainActivity, R.layout.select_dialog_item, null)
-//                val builder = AlertDialog.Builder(this@MainActivity)
-//                builder.setView(view)
-//                val dialog = builder.create()
-//                dialog.show()
-//                dialog.window?.setBackgroundDrawableResource(R.color.transparent)
-//                val mToast = Toast.makeText(applicationContext, "access clicked" , Toast.LENGTH_SHORT)
-//                mToast.show()
-//            }
-//        }
-//    }
+//            binding實例化
+            binding= DialogViewBinding.inflate(layoutInflater)
+
+//            關閉按鈕
+            binding.close.setOnClickListener {
+                dismiss()
+            }
+
+//            進入按鈕
+            binding.access.setOnClickListener {
+                Log.d("dialog","hiiiiii")
+            }
+
+//            TODO 實作
+            return binding.root
+        }
+    }
+
+
+
+
 }

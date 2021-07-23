@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.example.myapplication.databinding.FragmentNavTestBinding
 import com.example.myapplication.databinding.FragmentPersoninformationBinding
 import com.example.myapplication.driver_department_information
+import com.example.myapplication.homepage
+import com.example.myapplication.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -48,6 +50,10 @@ class personinformation : Fragment() {
             textView69.text=email
             textView74.text=phone
         }
+        _binding!!.backPersoninformation.setOnClickListener{
+            startActivity(Intent(requireContext(),homepage::class.java))
+        }
+
 //資料庫完
         return root
     }
