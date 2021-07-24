@@ -1,11 +1,13 @@
 package com.example.myapplication.ui.test
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.myapplication.databinding.FragmentNavTestBinding
+import com.example.myapplication.homepage
 
 
 private var _binding: FragmentNavTestBinding?=null
@@ -22,6 +24,11 @@ class nav_test : Fragment() {
     ): View? {
         _binding = FragmentNavTestBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+
+        binding!!.backChat.setOnClickListener{
+            startActivity(Intent(requireContext(), homepage::class.java))
+        }
         return root
     }
 }

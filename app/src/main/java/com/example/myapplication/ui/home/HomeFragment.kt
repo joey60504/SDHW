@@ -82,6 +82,7 @@ class HomeFragment : Fragment()  {
                 else{
                     startActivity(Intent(requireContext(),driver_department_information::class.java))
                 }
+
             }
         }
 //無駕照無法點進完
@@ -127,6 +128,7 @@ class HomeFragment : Fragment()  {
 
 //            TODO 實作
             return binding.root
+
         }
     }
 

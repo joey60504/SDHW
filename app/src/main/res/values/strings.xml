@@ -65,14 +65,14 @@
     <string name="roominformation">roominformation</string>
     <string name="drivervalue">drivervalue</string>
     <string name="detailinformation">detailinformation</string>
-    <string name="each">each</string>
+    <string name="other">other</string>
     <string name="price">price</string>
-    <string name="starttime">starttime</string>
+    <string name="set_off_time">set_off_time</string>
     <string name="nowpeople_limitpeople">nowpeople_limitpeople</string>
     <string name="access">access</string>
     <string name="close">close</string>
     <string name="time">time</string>
-    <string name="startpoint">startpoint</string>
+    <string name="set_off_date">set_off_date</string>
     <string name="endpoint">endpoint</string>
     <string name="navigating">navigating</string>
     <string name="carcard">carcard</string>
@@ -82,6 +82,6 @@
     <string name="room_chat">room_chat</string>
     <string name="roomnumber">roomnumber</string>
     <string name="age">age</string>
-    <string name="startdate">startdate</string>
+    <string name="startpoint">startpoint</string>
 
 </resources>

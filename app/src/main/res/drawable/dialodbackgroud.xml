@@ -9,7 +9,7 @@
             android:shape="rectangle">
             <!--設定陰影顏色-->
             <solid
-                android:color="#56000000" />
+                android:color="#56000000"/>
             <!--設定圓角的尺寸-->
             <corners
                 android:radius="10dp"/>
