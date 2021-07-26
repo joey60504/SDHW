@@ -1,43 +1,28 @@
 package com.example.myapplication.ui.home
 
 import android.R
-import android.app.DatePickerDialog
-import android.app.Dialog
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import com.example.myapplication.ProfileActivity
-import com.example.myapplication.databinding.DialogViewBinding
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.driver_department_information
-import com.google.android.gms.dynamic.SupportFragmentWrapper
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_registration1.*
-import kotlinx.android.synthetic.main.dialog_view.*
-import kotlinx.android.synthetic.main.dialog_view.view.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_personinformation.*
-import java.util.*
 import kotlin.collections.HashMap
 
 
-class HomeFragment : Fragment()  {
+class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
     lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val dataList=arrayListOf("5顆星","4顆星","3顆星","3顆星","3顆星","3顆星","3顆星")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,26 +32,20 @@ class HomeFragment : Fragment()  {
 //spinner
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val petspinner = binding.pet
-        petspinner.adapter = ArrayAdapter(
-            this.requireContext(), android.R.layout.simple_spinner_dropdown_item,
-            listOf("YES", "NO")
-        )
-        val childspinner = binding.child
-        childspinner.adapter = ArrayAdapter(
-            this.requireContext(), android.R.layout.simple_spinner_dropdown_item,
-            listOf("YES", "NO")
-        )
-        val genderspinner = binding.gender
-        genderspinner.adapter = ArrayAdapter(
-            this.requireContext(), android.R.layout.simple_spinner_dropdown_item,
-            listOf("MAN", "WOMAN")
-        )
-        val smokerspinner = binding.smoke
-        smokerspinner.adapter = ArrayAdapter(
-            this.requireContext(), android.R.layout.simple_spinner_dropdown_item,
-            listOf("YES", "NO")
-        )
+
+
+        binding.pet.adapter = MyAdapter(requireContext(),listOf("寵物","YES", "NO"))
+        binding.child.adapter = MyAdapter(requireContext(),listOf("孩童","YES", "NO"))
+        binding.gender.adapter = MyAdapter(requireContext(),listOf("性別","MAN", "WOMAN"))
+        binding.smoke.adapter = MyAdapter(requireContext(),listOf("抽菸","YES", "NO"))
+        binding.recycler1.apply {
+            val myAdapter=RoomAdapter(this@HomeFragment)
+            adapter=myAdapter
+            val manager=LinearLayoutManager(requireContext())
+            manager.orientation=LinearLayoutManager.VERTICAL
+            layoutManager=manager
+            myAdapter.dataList= dataList
+        }
 //spinner完
 //無駕照無法點進
         _binding!!.addhouse.setOnClickListener(){
@@ -86,10 +65,7 @@ class HomeFragment : Fragment()  {
             }
         }
 //無駕照無法點進完
-        _binding!!.housebutton.setOnClickListener{
-            val cusDialog=CusDialog()
-            activity?.supportFragmentManager?.let { it1 -> cusDialog.show(it1,"cusdialog") }
-        }
+
 
 
         return root
@@ -104,35 +80,35 @@ class HomeFragment : Fragment()  {
 
     }
 
-    class CusDialog:DialogFragment(){
-//        View元素綁定
-        private lateinit var binding: DialogViewBinding
-        override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
 
-//            binding實例化
-            binding= DialogViewBinding.inflate(layoutInflater)
+//    spinner Hint
+    class MyAdapter(context: Context,item:List<String>): ArrayAdapter<String>(context,R.layout.simple_spinner_dropdown_item,item) {
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
+            view.setTextColor(Color.WHITE)
+            return view
+        }
 
-//            關閉按鈕
-            binding.close.setOnClickListener {
-                dismiss()
+        override fun isEnabled(position: Int): Boolean {
+            return position!=0
+        }
+
+        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
+            //set the color of first item in the drop down list to gray
+            if(position == 0) {
+                view.setTextColor(Color.GRAY)
+            } else {
+                //here it is possible to define color for other items by
+                //view.setTextColor(Color.RED)
             }
-
-//            進入按鈕
-            binding.access.setOnClickListener {
-                Log.d("dialog","hiiiiii")
-            }
-
-//            TODO 實作
-            return binding.root
-
+            return view
         }
     }
 
-
+    override fun onItemClick(position: Int) {
+        activity?.supportFragmentManager?.let { MyDialog(position,dataList).show(it,"myDialog") }
+    }
 
 
 }
