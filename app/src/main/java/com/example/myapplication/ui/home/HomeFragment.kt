@@ -22,7 +22,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
     lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val dataList=arrayListOf("5顆星","4顆星","3顆星","3顆星","3顆星","3顆星","3顆星")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,13 +60,9 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
                 else{
                     startActivity(Intent(requireContext(),driver_department_information::class.java))
                 }
-
             }
         }
 //無駕照無法點進完
-
-
-
         return root
 
     }
@@ -105,10 +100,15 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
             return view
         }
     }
+// spinner HInt完
 
+
+// Recycler監聽方法
     override fun onItemClick(position: Int) {
         activity?.supportFragmentManager?.let { MyDialog(position,dataList).show(it,"myDialog") }
     }
+// Recycler監聽方法完
 
+    private val dataList=arrayListOf("5顆星","4顆星","3顆星","3顆星","3顆星","3顆星","3顆星")
 
 }

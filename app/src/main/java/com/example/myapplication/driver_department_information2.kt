@@ -28,6 +28,7 @@ class driver_department_information2 : AppCompatActivity() {
         }
         imageButton39.setOnClickListener {
             gender="皆可"
+            imageButton39.setImageResource(R.drawable.boygirl__choice)
         }
         imageButton3.setOnClickListener {
             smoke="可"
