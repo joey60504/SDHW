@@ -89,18 +89,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             } catch(ex: SecurityException) {
                 Log.d("myTag", "Security Exception, no location available")
             }
-        if(oriLocation != null) {
+        /*if(oriLocation != null) {
             drawMarker()
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(oriLocation!!.latitude, oriLocation!!.longitude), 17.0f))
-        }
+        }*/
     }
     val locationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
             if(oriLocation == null) {
                 oriLocation = location
-                drawMarker()
+                //drawMarker()
             }
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+           // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
 
         }
     }
