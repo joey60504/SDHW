@@ -1,7 +1,16 @@
 package com.example.myapplication
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -41,8 +50,64 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        locationManager()
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            return
+        }
+        mMap.isMyLocationEnabled = true
+
     }
+    var oriLocation : Location? = null
+
+    fun locationManager(){
+        val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
+        var isGPSEnabled = locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        var isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+        if (!(isGPSEnabled || isNetworkEnabled))
+            Toast.makeText(this, "目前無開啟任何定位功能",Toast.LENGTH_LONG).show()
+        else
+            try {
+                if (isGPSEnabled ) {
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                        0L, 0f, locationListener)
+                    oriLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                }
+                else if (isNetworkEnabled) {
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                        0L, 0f, locationListener)
+                    oriLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+                }
+            } catch(ex: SecurityException) {
+                Log.d("myTag", "Security Exception, no location available")
+            }
+        if(oriLocation != null) {
+            drawMarker()
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(oriLocation!!.latitude, oriLocation!!.longitude), 17.0f))
+        }
+    }
+    val locationListener = object : LocationListener {
+        override fun onLocationChanged(location: Location) {
+            if(oriLocation == null) {
+                oriLocation = location
+                drawMarker()
+            }
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+
+        }
+    }
+    fun drawMarker(){
+        var lntLng = LatLng(oriLocation!!.latitude, oriLocation!!.longitude)
+        mMap.addMarker(MarkerOptions().position(lntLng).title("Current Position"))
+    }
+
+
 }
