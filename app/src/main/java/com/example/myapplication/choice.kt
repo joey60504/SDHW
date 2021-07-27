@@ -43,6 +43,9 @@ class choice : AppCompatActivity() {
     fun commute(p0: View){
         startActivity(Intent(this,homepage::class.java))
     }
+    fun test(p0: View){
+        startActivity(Intent(this,MapsActivity::class.java))
+    }
 //換頁完
 //首次登入跳出
     fun firstlogin(){
