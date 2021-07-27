@@ -62,7 +62,7 @@
     <string name="passenger_information">乘客資訊</string>
     <string name="Builds_the_room">創建房間</string>
     <string name="room_chat">房間聊天室</string>
-    <string name="roomnumber">房間號</string>
+    <string name="roomnumber">房間號或地點</string>
     <string name="age">年齡</string>
     <string name="startpoint">起點</string>
 </resources>

@@ -35,8 +35,12 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
 
         binding.pet.adapter = MyAdapter(requireContext(),listOf("寵物","YES", "NO"))
         binding.child.adapter = MyAdapter(requireContext(),listOf("孩童","YES", "NO"))
-        binding.gender.adapter = MyAdapter(requireContext(),listOf("性別","MAN", "WOMAN"))
+        binding.gender.adapter = MyAdapter(requireContext(),listOf("性別","MAN", "WOMAN","BOTH"))
         binding.smoke.adapter = MyAdapter(requireContext(),listOf("抽菸","YES", "NO"))
+        binding.date.adapter = MyAdapter(requireContext(),listOf("出發日","TODAY","IN 2 DAYS","IN 3 DAYS","IN 5 DAYS"))
+        binding.time.adapter = MyAdapter(requireContext(),listOf("出發時段","0:00~8:00","8:00~9:00","9:00~10:00","10:00~11:00","11:00~12:00",
+            "12:00~13:00","13:00~14:00","14:00~15:00","15:00~16:00","16:00~17:00","17:00~18:00","18:00~19:00","19:00~20:00",
+            "20:00~21:00","21:00~22:00","22:00~23:00","23:00~0:00"))
         binding.recycler1.apply {
             val myAdapter=RoomAdapter(this@HomeFragment)
             adapter=myAdapter

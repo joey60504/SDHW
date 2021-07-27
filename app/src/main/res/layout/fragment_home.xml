@@ -9,34 +9,32 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="88dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/recycler1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <Spinner
             android:id="@+id/child"
             android:layout_width="70dp"
             android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/spinner1"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/gender"
-            app:layout_constraintStart_toEndOf="@+id/pet"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/pet"
             android:layout_width="70dp"
             android:layout_height="40dp"
+            android:layout_marginStart="27dp"
             android:background="@drawable/spinner1"
             android:dropDownWidth="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/child"
+            app:layout_constraintHorizontal_bias="0.122"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,21 +42,42 @@
             android:id="@+id/gender"
             android:layout_width="70dp"
             android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/spinner1"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/smoke"
-            app:layout_constraintStart_toEndOf="@+id/child"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/smoke"
             android:layout_width="70dp"
             android:layout_height="40dp"
+            android:layout_marginEnd="27dp"
+            android:background="@drawable/spinner1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/spinner1"
+            app:layout_constraintEnd_toEndOf="@+id/child"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/pet"
+            app:layout_constraintTop_toBottomOf="@+id/pet" />
+
+        <Spinner
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:background="@drawable/spinner1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/gender"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/smoke"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gender"
+            app:layout_constraintTop_toBottomOf="@+id/smoke"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -66,11 +85,11 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <EditText
             android:id="@+id/editText2"
@@ -79,10 +98,10 @@
             android:layout_marginStart="32dp"
             android:background="@drawable/border"
             android:drawableLeft="@drawable/ic_search"
-            android:ems="10"
+            android:ems="60"
             android:fontFamily="serif"
             android:hint="@string/roomnumber"
-            android:inputType="number"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/addhouse"
             app:layout_constraintHorizontal_bias="0.5"
@@ -105,15 +124,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="411dp"
+        android:layout_height="551dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout1" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

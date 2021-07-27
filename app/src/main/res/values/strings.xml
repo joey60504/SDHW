@@ -80,7 +80,7 @@
     <string name="passenger_information">passenger_information</string>
     <string name="Builds_the_room">Builds_the_room</string>
     <string name="room_chat">room_chat</string>
-    <string name="roomnumber">roomnumber</string>
+    <string name="roomnumber">roomnumber or place</string>
     <string name="age">age</string>
     <string name="startpoint">startpoint</string>
     <string name="title_activity_maps" translatable="false">Map</string>
