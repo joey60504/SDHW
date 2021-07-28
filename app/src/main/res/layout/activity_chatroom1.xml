@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/底色"
     tools:context=".chatroom1">
 
     <TextView
@@ -38,7 +37,7 @@
         app:srcCompat="@drawable/arrow_blue" />
 
     <ImageButton
-        android:id="@+id/imageButton41"
+        android:id="@+id/send_button_chat_log"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@color/底色"

@@ -23,5 +23,7 @@ class nav_test : Fragment() {
         _binding = FragmentNavTestBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
+
     }
+
 }
