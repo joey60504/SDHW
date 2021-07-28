@@ -74,4 +74,17 @@
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
         app:layout_constraintTop_toTopOf="@+id/imageButton11" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="44dp"
+        android:onClick="test"
+        android:text="test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/idLogout"
+        app:layout_constraintTop_toTopOf="@+id/idLogout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

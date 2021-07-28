@@ -15,88 +15,41 @@ class driver_department_information2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_department_information2)
         lateinit var auth: FirebaseAuth
-        button4.setOnClickListener {
+        var gender=""
+        var smoke=""
+        var child=""
+        var pet=""
 
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val Date = intent.getBundleExtra("Extra")?.getString("Date_EXTRA")
-            val time = intent.getBundleExtra("Extra")?.getString("time_EXTRA")
-            val startpoint = intent.getBundleExtra("Extra")?.getString("startpoint_EXTRA")
-            val endpoint1 = intent.getBundleExtra("Extra")?.getString("endpoint_EXTRA")
-            val carcard = intent.getBundleExtra("Extra")?.getString("carcard_EXTRA")
-            val price = findViewById<EditText>(R.id.editTextNumber2).text.toString()
-
-            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price)
-            database.child("room").child(phone).setValue(roomInfo)
-                .addOnCompleteListener {
-                    Toast.makeText(this, "房間建立成功", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, choice::class.java))
-                }
-        }
-        imageButton56.setOnClickListener{
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val gender:String?="限男"
-            database.child("room").child(phone).child("roomrule").child("gender").setValue(gender)
+        imageButton56.setOnClickListener {
+            gender = "限男"
         }
         imageButton53.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val gender="限女"
-            database.child("room").child(phone).child("roomrule").child("gender").setValue(gender)
+            gender="限女"
         }
         imageButton39.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val gender="皆可"
-            database.child("room").child(phone).child("roomrule").child("gender").setValue(gender)
+            gender="皆可"
+            imageButton39.setImageResource(R.drawable.boygirl__choice)
         }
         imageButton3.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val smoke="可"
-            database.child("room").child(phone).child("roomrule").child("smoke").setValue(smoke)
+            smoke="可"
         }
         imageButton32.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val smoke="不可"
-            database.child("room").child(phone).child("roomrule").child("smoke").setValue(smoke)
+            smoke="不可"
         }
         imageButton4.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val child="可"
-            database.child("room").child(phone).child("roomrule").child("child").setValue(child)
+            child="可"
+
         }
         imageButton34.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val child="不可"
-            database.child("room").child(phone).child("roomrule").child("child").setValue(child)
+            child="不可"
         }
         imageButton6.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val pet="可"
-            database.child("room").child(phone).child("roomrule").child("pet").setValue(pet)
+            pet="可"
         }
         imageButton38.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
-            var phone = auth.currentUser?.phoneNumber.toString()
-            var database = FirebaseDatabase.getInstance().reference
-            val pet="不可"
-            database.child("room").child(phone).child("roomrule").child("pet").setValue(pet)
+            pet="不可"
         }
+
         button4.setOnClickListener {
 
             auth = FirebaseAuth.getInstance()
@@ -107,10 +60,12 @@ class driver_department_information2 : AppCompatActivity() {
             val startpoint = intent.getBundleExtra("Extra")?.getString("startpoint_EXTRA")
             val endpoint1 = intent.getBundleExtra("Extra")?.getString("endpoint_EXTRA")
             val carcard = intent.getBundleExtra("Extra")?.getString("carcard_EXTRA")
-            val price = findViewById<EditText>(R.id.editTextNumber2).text.toString()
+            val price = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
 
             val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price)
-            database.child("room").child(phone).setValue(roomInfo)
+            val roomRule=roomrule(gender, smoke, child, pet)
+            database.child("room").child(phone).child("roomRULE").setValue(roomRule)
+            database.child("room").child(phone).child("roomINFO").setValue(roomInfo)
                 .addOnCompleteListener {
                     Toast.makeText(this, "房間建立成功", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, choice::class.java))

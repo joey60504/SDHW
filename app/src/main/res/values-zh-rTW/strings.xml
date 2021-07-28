@@ -47,22 +47,22 @@
     <string name="roominformation">房間資訊</string>
     <string name="drivervalue">駕駛評價</string>
     <string name="detailinformation">詳細資訊</string>
-    <string name="each">其他</string>
+    <string name="other">其他</string>
     <string name="price">價格</string>
-    <string name="starttime">出發時間</string>
+    <string name="set_off_time">出發時間</string>
     <string name="nowpeople_limitpeople">現有人數/人數上限</string>
     <string name="access">進入</string>
     <string name="close">關閉</string>
     <string name="Enter_name">輸入姓名</string>
     <string name="time">時間</string>
-    <string name="startpoint">起點</string>
+    <string name="set_off_date">出發日期</string>
     <string name="endpoint">終點</string>
     <string name="navigating">導航</string>
     <string name="carcard">車牌</string>
     <string name="passenger_information">乘客資訊</string>
     <string name="Builds_the_room">創建房間</string>
     <string name="room_chat">房間聊天室</string>
-    <string name="roomnumber">房間號</string>
+    <string name="roomnumber">房間號或地點</string>
     <string name="age">年齡</string>
-    <string name="startdate">出發日期</string>
+    <string name="startpoint">起點</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
@@ -26,9 +27,9 @@ class driver_department_information : AppCompatActivity() {
         go.setOnClickListener {
             val Date = findViewById<EditText>(R.id.editTextDate).text.toString()
             val time = findViewById<EditText>(R.id.editTextDate2).text.toString()
-            val startpoint = findViewById<EditText>(R.id.editTextTextPostalAddress).text.toString()
-            val endpoint1 = findViewById<EditText>(R.id.editTextTextPostalAddress2).text.toString()
-            val carcard = findViewById<EditText>(R.id.editTextNumber).text.toString()
+            val startpoint = findViewById<EditText>(R.id.editTextTextPersonName3).text.toString()
+            val endpoint1 = findViewById<EditText>(R.id.editTextTextPersonName4).text.toString()
+            val carcard = findViewById<EditText>(R.id.editTextTextPersonName).text.toString()
 
             if(Date.isNotEmpty() && startpoint.isNotEmpty() && endpoint1.isNotEmpty() && carcard.isNotEmpty() && time.isNotEmpty()){
                 var i = Intent(this, driver_department_information2::class.java)
@@ -72,11 +73,18 @@ class driver_department_information : AppCompatActivity() {
         val hour = calendar[Calendar.HOUR]
         val minute = calendar[Calendar.MINUTE]
         TimePickerDialog(v.context, {_, hour, minute ->
-            val dateTime = "$hour:$minute"
-            editTextDate2.setText(dateTime)
+            if(minute==0){
+                val dateTime= "$hour:$minute$minute"
+                editTextDate2.setText(dateTime)
+            }
+            else{
+                val dateTime= "$hour:$minute"
+                editTextDate2.setText(dateTime)
+            }
         },hour,minute,true
         ).show()
     }
+
 }
 
 

@@ -22,8 +22,8 @@
     </item>
     //第二組item 插入圖片(spinner箭頭)
 
-    <item>
 
+    <item>
         <bitmap
             android:gravity="end"
             android:src="@drawable/down"
