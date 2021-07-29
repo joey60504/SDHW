@@ -19,35 +19,47 @@ class driver_department_information2 : AppCompatActivity() {
         var smoke=""
         var child=""
         var pet=""
-
-        imageButton56.setOnClickListener {
-            gender = "限男"
+        b.setOnClickListener {
+            gender="限男"
+            bg.setImageResource(R.drawable.man_woman_n)
+            g.setImageResource(R.drawable.girl_n)
         }
-        imageButton53.setOnClickListener {
+        g.setOnClickListener {
             gender="限女"
+            b.setImageResource(R.drawable.boy_n)
+            bg.setImageResource(R.drawable.man_woman_n)
         }
-        imageButton39.setOnClickListener {
+        bg.setOnClickListener {
             gender="皆可"
-            imageButton39.setImageResource(R.drawable.boygirl__choice)
+            b.setImageResource(R.drawable.boy_n)
+            g.setImageResource(R.drawable.girl_n)
         }
-        imageButton3.setOnClickListener {
-            smoke="可"
-        }
-        imageButton32.setOnClickListener {
-            smoke="不可"
-        }
-        imageButton4.setOnClickListener {
-            child="可"
 
+        smoke_yes.setOnClickListener {
+            smoke="可"
+            smoke_no.setImageResource(R.drawable.cross)
         }
-        imageButton34.setOnClickListener {
+        smoke_no.setOnClickListener {
+            smoke="不可"
+            smoke_yes.setImageResource(R.drawable.check_n)
+        }
+
+        child_yes.setOnClickListener {
+            child="可"
+            child_no.setImageResource(R.drawable.cross)
+        }
+        child_no.setOnClickListener {
             child="不可"
+            child_yes.setImageResource(R.drawable.check_n)
         }
-        imageButton6.setOnClickListener {
+
+        pet_yes.setOnClickListener {
             pet="可"
+            pet_no.setImageResource(R.drawable.cross)
         }
-        imageButton38.setOnClickListener {
+        pet_no.setOnClickListener {
             pet="不可"
+            pet_yes.setImageResource(R.drawable.check_n)
         }
 
         button4.setOnClickListener {
