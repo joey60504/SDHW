@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_choice.*
 import kotlinx.android.synthetic.main.dialog_view.view.*
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
@@ -43,13 +44,13 @@ class choice : AppCompatActivity() {
 //完
         firstlogin()
         permission()
+        button2.setOnClickListener(){
+            startActivity(Intent(this,MapsActivity::class.java))
+        }
     }
     //換頁
     fun commute(p0: View){
         startActivity(Intent(this,homepage::class.java))
-    }
-    fun test(p0: View){
-        startActivity(Intent(this,MapsActivity::class.java))
     }
     //換頁完
 //首次登入跳出
@@ -82,8 +83,6 @@ class choice : AppCompatActivity() {
         }
         database.addValueEventListener(getdata)
     }
-
-    //首次登入跳出完
     fun permission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
@@ -105,7 +104,7 @@ class choice : AppCompatActivity() {
             }
         }
     }
-
+    //首次登入跳出完
 
 
 }
