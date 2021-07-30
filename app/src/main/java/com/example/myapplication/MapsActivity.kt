@@ -100,7 +100,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 oriLocation = location
                 //drawMarker()
             }
-           // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
+            // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 17.0f))
 
         }
     }

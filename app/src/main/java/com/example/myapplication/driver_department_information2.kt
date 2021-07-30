@@ -11,56 +11,53 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_driver_department_information2.*
 
 class driver_department_information2 : AppCompatActivity() {
+    var gender=""
+    var smoke=""
+    var child=""
+    var pet=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_department_information2)
         lateinit var auth: FirebaseAuth
-        var gender=""
-        var smoke=""
-        var child=""
-        var pet=""
         b.setOnClickListener {
             gender="限男"
-            bg.setImageResource(R.drawable.man_woman_n)
-            g.setImageResource(R.drawable.girl_n)
+            iconselect()
         }
         g.setOnClickListener {
             gender="限女"
-            b.setImageResource(R.drawable.boy_n)
-            bg.setImageResource(R.drawable.man_woman_n)
+            iconselect()
         }
         bg.setOnClickListener {
             gender="皆可"
-            b.setImageResource(R.drawable.boy_n)
-            g.setImageResource(R.drawable.girl_n)
+            iconselect()
         }
-
         smoke_yes.setOnClickListener {
             smoke="可"
-            smoke_no.setImageResource(R.drawable.cross)
+            iconselect()
         }
         smoke_no.setOnClickListener {
             smoke="不可"
-            smoke_yes.setImageResource(R.drawable.check_n)
+            iconselect()
         }
 
         child_yes.setOnClickListener {
             child="可"
-            child_no.setImageResource(R.drawable.cross)
+            iconselect()
         }
         child_no.setOnClickListener {
             child="不可"
-            child_yes.setImageResource(R.drawable.check_n)
+            iconselect()
         }
 
         pet_yes.setOnClickListener {
             pet="可"
-            pet_no.setImageResource(R.drawable.cross)
+            iconselect()
         }
         pet_no.setOnClickListener {
             pet="不可"
-            pet_yes.setImageResource(R.drawable.check_n)
+            iconselect()
         }
+
 
         button4.setOnClickListener {
 
@@ -84,7 +81,54 @@ class driver_department_information2 : AppCompatActivity() {
                 }
         }
     }
-    fun back3(p0: View){
-        startActivity(Intent(this, driver_department_information::class.java))
+
+    fun iconselect(){
+        when(gender){
+            "限男"->{
+                b.setImageResource(R.drawable.boy)
+                bg.setImageResource(R.drawable.man_woman_n)
+                g.setImageResource(R.drawable.girl_n)
+            }
+            "限女"->{
+                b.setImageResource(R.drawable.boy_n)
+                bg.setImageResource(R.drawable.man_woman_n)
+                g.setImageResource(R.drawable.girl)
+            }
+            "皆可"->{
+                b.setImageResource(R.drawable.boy_n)
+                bg.setImageResource(R.drawable.boy_girl1)
+                g.setImageResource(R.drawable.girl_n)
+            }
+        }
+        when(smoke){
+            "可"->{
+                smoke_yes.setImageResource(R.drawable.check_removebg_preview__2_)
+                smoke_no.setImageResource(R.drawable.cross)
+            }
+            "不可"->{
+                smoke_yes.setImageResource(R.drawable.check_n)
+                smoke_no.setImageResource(R.drawable.cross_y)
+            }
+        }
+        when(child){
+            "可"->{
+                child_yes.setImageResource(R.drawable.check_removebg_preview__2_)
+                child_no.setImageResource(R.drawable.cross)
+            }
+            "不可"->{
+                child_yes.setImageResource(R.drawable.check_n)
+                child_no.setImageResource(R.drawable.cross_y)
+            }
+        }
+        when(pet){
+            "可"->{
+                pet_yes.setImageResource(R.drawable.check_removebg_preview__2_)
+                pet_no.setImageResource(R.drawable.cross)
+            }
+            "不可"->{
+                pet_yes.setImageResource(R.drawable.check_n)
+                pet_no.setImageResource(R.drawable.cross_y)
+            }
+        }
     }
 }

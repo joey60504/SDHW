@@ -44,44 +44,46 @@ class choice : AppCompatActivity() {
         firstlogin()
         permission()
     }
-//換頁
+    //換頁
     fun commute(p0: View){
         startActivity(Intent(this,homepage::class.java))
     }
     fun test(p0: View){
         startActivity(Intent(this,MapsActivity::class.java))
     }
-//換頁完
+    //換頁完
 //首次登入跳出
     fun firstlogin(){
-       auth = FirebaseAuth.getInstance()
-       var phone = auth.currentUser?.phoneNumber.toString()
-       var database = FirebaseDatabase.getInstance().reference
-       var getdata=object : ValueEventListener {
-           override fun onCancelled(error: DatabaseError) {
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        var getdata=object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
 
-           }
-           override fun onDataChange(p0: DataSnapshot) {
-               val res=p0.value as HashMap<*,*>
+            }
+            override fun onDataChange(p0: DataSnapshot) {
+                val res=p0.value as HashMap<*,*>
 //               Log.d("login",res.toString())
-               val profile= res["profile"] as HashMap<*,*>
+                val profile= res["profile"] as HashMap<*,*>
 //               Log.d("login",profile.toString())
-               try {
-                   val userphone=profile[phone] as HashMap<*,*>
-                   for(i in userphone.values){
-                       if(i=="" || i==null){
-                           startActivity(Intent(this@choice,ProfileActivity::class.java))
-                       }
-                   }
-               }
-               catch (e:Exception){
-                   database.child("profile").child(phone).setValue(User())
-                   startActivity(Intent(this@choice,ProfileActivity::class.java))
-               }
-           }
-       }
-       database.addValueEventListener(getdata)
+                try {
+                    val userphone=profile[phone] as HashMap<*,*>
+                    for(i in userphone.values){
+                        if(i=="" || i==null){
+                            startActivity(Intent(this@choice,ProfileActivity::class.java))
+                        }
+                    }
+                }
+                catch (e:Exception){
+                    database.child("profile").child(phone).setValue(User())
+                    startActivity(Intent(this@choice,ProfileActivity::class.java))
+                }
+            }
+        }
+        database.addValueEventListener(getdata)
     }
+
+    //首次登入跳出完
     fun permission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
@@ -105,6 +107,5 @@ class choice : AppCompatActivity() {
     }
 
 
-//首次登入跳出完
 
 }
