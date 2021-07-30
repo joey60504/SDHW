@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -102,7 +101,7 @@ class driver_department_information2 : AppCompatActivity() {
         }
         when(smoke){
             "可"->{
-                smoke_yes.setImageResource(R.drawable.check_removebg_preview__2_)
+                smoke_yes.setImageResource(R.drawable.check_y)
                 smoke_no.setImageResource(R.drawable.cross)
             }
             "不可"->{
@@ -112,7 +111,7 @@ class driver_department_information2 : AppCompatActivity() {
         }
         when(child){
             "可"->{
-                child_yes.setImageResource(R.drawable.check_removebg_preview__2_)
+                child_yes.setImageResource(R.drawable.check_y)
                 child_no.setImageResource(R.drawable.cross)
             }
             "不可"->{
@@ -122,7 +121,7 @@ class driver_department_information2 : AppCompatActivity() {
         }
         when(pet){
             "可"->{
-                pet_yes.setImageResource(R.drawable.check_removebg_preview__2_)
+                pet_yes.setImageResource(R.drawable.check_y)
                 pet_no.setImageResource(R.drawable.cross)
             }
             "不可"->{

@@ -9,75 +9,81 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
-        android:layout_width="411dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="410dp"
+        android:layout_height="107dp"
         app:layout_constraintBottom_toTopOf="@+id/recycler1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <Spinner
             android:id="@+id/child"
             android:layout_width="70dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/spinner1"
             app:layout_constraintEnd_toStartOf="@+id/gender"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Spinner
             android:id="@+id/pet"
             android:layout_width="70dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginStart="27dp"
             android:background="@drawable/spinner1"
             android:dropDownWidth="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/child"
             app:layout_constraintHorizontal_bias="0.122"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Spinner
             android:id="@+id/gender"
             android:layout_width="70dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/spinner1"
             app:layout_constraintEnd_toStartOf="@+id/smoke"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Spinner
             android:id="@+id/smoke"
             android:layout_width="70dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="27dp"
             android:background="@drawable/spinner1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Spinner
             android:id="@+id/date"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/spinner1"
             app:layout_constraintEnd_toEndOf="@+id/child"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/pet"
-            app:layout_constraintTop_toBottomOf="@+id/pet" />
+            app:layout_constraintTop_toBottomOf="@+id/pet"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Spinner
             android:id="@+id/time"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:background="@drawable/spinner1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/smoke"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/gender"
             app:layout_constraintTop_toBottomOf="@+id/smoke"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.727"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -85,17 +91,18 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/recycler1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="236dp"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_marginStart="32dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/border"
             android:drawableLeft="@drawable/ic_search"
             android:ems="60"
@@ -105,8 +112,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/addhouse"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/addhouse"
@@ -119,7 +125,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/editText2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -128,8 +135,9 @@
         android:layout_height="551dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
