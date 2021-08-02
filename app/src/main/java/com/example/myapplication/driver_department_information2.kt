@@ -38,7 +38,6 @@ class driver_department_information2 : AppCompatActivity() {
             smoke="不可"
             iconselect()
         }
-
         child_yes.setOnClickListener {
             child="可"
             iconselect()

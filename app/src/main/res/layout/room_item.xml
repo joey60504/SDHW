@@ -145,7 +145,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView3"
                 app:layout_constraintVertical_bias="0.78"
-                app:srcCompat="@drawable/addheart_black" />
+                app:srcCompat="@drawable/addheart_black"
+                tools:ignore="SpeakableTextPresentCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
