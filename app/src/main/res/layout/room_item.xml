@@ -51,7 +51,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toTopOf="@+id/textView3"
                 app:layout_constraintVertical_bias="0.197" />
@@ -110,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:text="@string/set_off_date"
+                android:text="@string/set_off_time"
                 android:textColor="@color/底色"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
@@ -147,6 +147,45 @@
                 app:layout_constraintVertical_bias="0.78"
                 app:srcCompat="@drawable/addheart_black"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView3"
+                app:layout_constraintVertical_bias="0.506" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="@+id/textView3"
+                app:layout_constraintVertical_bias="0.802" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="@+id/textView3"
+                app:layout_constraintVertical_bias="0.197" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

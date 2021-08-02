@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_driver_department_information2.*
+import kotlin.random.Random
 
 class driver_department_information2 : AppCompatActivity() {
     var gender=""
@@ -68,14 +69,15 @@ class driver_department_information2 : AppCompatActivity() {
             val endpoint1 = intent.getBundleExtra("Extra")?.getString("endpoint_EXTRA")
             val carcard = intent.getBundleExtra("Extra")?.getString("carcard_EXTRA")
             val price = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
+            val number= Random.nextInt(10000001,99999999).toString()
 
-            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price)
+            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price, number)
             val roomRule=roomrule(gender, smoke, child, pet)
             database.child("room").child(phone).child("roomRULE").setValue(roomRule)
             database.child("room").child(phone).child("roomINFO").setValue(roomInfo)
                 .addOnCompleteListener {
-                    Toast.makeText(this, "房間建立成功", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, choice::class.java))
+                        Toast.makeText(this, "房間建立成功", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, choice::class.java))
                 }
         }
     }
