@@ -34,9 +34,11 @@ class RegistrationActivity1 : AppCompatActivity() {
             val age = findViewById<EditText>(R.id.ageInput).text.toString()
             val gender = findViewById<EditText>(R.id.genderinput).text.toString()
             val photo = findViewById<EditText>(R.id.photoinput).text.toString()
+            val UID=FirebaseAuth.getInstance().uid ?: ""
+
 
             if (name.isNotEmpty() && email.isNotEmpty() && age.isNotEmpty() && gender.isNotEmpty() && photo.isNotEmpty()) {
-                val Users=User(name, email, age, gender, photo)
+                val Users=User(name, email, age, gender, photo,UID)
                 database.child("profile").child(phone).setValue(Users)
                     .addOnCompleteListener {
                         Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show()

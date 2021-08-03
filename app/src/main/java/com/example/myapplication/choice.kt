@@ -51,6 +51,10 @@ class choice : AppCompatActivity() {
     fun test(p0: View){
         startActivity(Intent(this,MapsActivity::class.java))
     }
+
+    fun test1(p0: View){
+        startActivity(Intent(this,newmessage::class.java))
+    }
 //換頁完
 //首次登入跳出
     fun firstlogin(){
@@ -64,9 +68,10 @@ class choice : AppCompatActivity() {
            override fun onDataChange(p0: DataSnapshot) {
                val res=p0.value as HashMap<*,*>
 //               Log.d("login",res.toString())
-               val profile= res["profile"] as HashMap<*,*>
+
 //               Log.d("login",profile.toString())
                try {
+                   val profile= res["profile"] as HashMap<*,*>
                    val userphone=profile[phone] as HashMap<*,*>
                    for(i in userphone.values){
                        if(i=="" || i==null){
