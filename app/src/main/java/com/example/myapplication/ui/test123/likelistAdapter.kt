@@ -10,7 +10,7 @@ import com.example.myapplication.databinding.RoomItemBinding
 
 class likelistAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<likelistAdapter.ViewHolder>() {
 
-    lateinit var dataList:ArrayList<String>
+    lateinit var dataList:HashMap<*,*>
     private lateinit var binding: RoomItemBinding
 
     class ViewHolder(val view:RoomItemBinding):RecyclerView.ViewHolder(view.root)
@@ -21,14 +21,15 @@ class likelistAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.view.textView3.text=dataList[position]
         holder.view.cardView.setOnClickListener {
             itemListener.onItemClick(position)
         }
+
+
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return 10
     }
 
     interface OnItemClick{

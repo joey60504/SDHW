@@ -13,6 +13,8 @@ import kotlin.math.log
 
 class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
     lateinit var dataList:HashMap<*,*>
+    lateinit var likelist:ArrayList<String>
+    lateinit var roominfo:HashMap<*,*>
     private lateinit var binding: RoomItemBinding
 
     class ViewHolder(val view:RoomItemBinding):RecyclerView.ViewHolder(view.root)
@@ -28,14 +30,32 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
         }
         holder.view.heart.setOnClickListener{
             itemListener.likeClick(position)
+
         }
         val roomList=dataList.toList()
         val (phonenumber,roommap)=roomList[position]
         roommap as HashMap<*,*>
-        val roominfo = roommap["roomINFO"] as HashMap<*,*>
+        roominfo = roommap["roomINFO"] as HashMap<*,*>
         holder.view.textView4.text=roominfo["date"].toString()
         holder.view.textView20.text=roominfo["time"].toString()
         holder.view.textView19.text=roominfo["number"].toString()
+        checkword(roominfo,holder)
+        checklikelist(likelist,holder)
+
+
+
+    }
+
+    override fun getItemCount(): Int {
+        return dataList.size
+    }
+
+    interface OnItemClick{
+        fun onItemClick(position: Int)
+        fun likeClick(position: Int)
+    }
+
+    fun checkword(roominfo:HashMap<*,*>,holder: ViewHolder){
         try {
             val startpointselect = roominfo["startpoint"].toString()
             val startpointfinal = startpointselect.substring(
@@ -58,18 +78,13 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
         catch(e:Exception){
 
         }
-
-
-
-
     }
-
-    override fun getItemCount(): Int {
-        return dataList.size
-    }
-
-    interface OnItemClick{
-        fun onItemClick(position: Int)
-        fun likeClick(position: Int)
+    fun checklikelist(likelist:ArrayList<String>,holder: ViewHolder){
+        if(roominfo["number"] in likelist){
+            holder.view.heart.setImageResource(R.drawable.heart2)
+        }
+        else{
+            holder.view.heart.setImageResource(R.drawable.addheart_black)
+        }
     }
 }

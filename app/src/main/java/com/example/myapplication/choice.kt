@@ -104,7 +104,7 @@ class choice : AppCompatActivity() {
             }
         }
     }
-    //首次登入跳出完
+//首次登入跳出完
 
 
 }

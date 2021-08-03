@@ -11,7 +11,7 @@ class User(val name : String="",
            val gender : String="",
            val photo : String=""
            ): Parcelable{
-                lateinit var likelist:ArrayList<String>
+//                lateinit var likelist:ArrayList<String>
     constructor() : this("", "", "", "", "")
 }
 class roominfo(
