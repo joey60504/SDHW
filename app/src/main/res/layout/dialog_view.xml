@@ -98,7 +98,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
                 android:gravity="center_horizontal"
-                android:text="@string/drivervalue"
+                android:text="@string/roomnumber"
                 android:textAlignment="center"
                 android:textColor="#102C42"
                 android:textSize="18sp"

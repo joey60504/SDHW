@@ -10,14 +10,13 @@ import android.widget.TextView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentGalleryBinding
 import com.example.myapplication.homepage
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
-
+lateinit var auth: FirebaseAuth
 private var _binding: FragmentGalleryBinding?=null
 private val binding get() = _binding!!
-
 class GalleryFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
 
     override fun onCreateView(
@@ -30,6 +29,20 @@ class GalleryFragment : Fragment() {
         binding!!.backMyroom.setOnClickListener{
             startActivity(Intent(requireContext(), homepage::class.java))
         }
+
+
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(phone).get().addOnSuccessListener {
+            val roominfo = it.value as java.util.HashMap<String, Any>
+            val data=roominfo["roomINFO"] as HashMap<*,*>
+            val time=data["time"].toString()
+            binding.textView80.text=time
+
+
+        }
+
         return root
     }
 }

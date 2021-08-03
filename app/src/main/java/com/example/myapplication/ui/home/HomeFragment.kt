@@ -106,13 +106,15 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
 
 
 // Recycler監聽方法
+    //dialogview
     lateinit var roomList:List<Pair<*,*>>
     override fun onItemClick(position: Int) {
         val (phonenumber,roommap)=roomList[position]
         roommap as HashMap<*,*>
         activity?.supportFragmentManager?.let { MyDialog(roommap).show(it,"myDialog") }
     }
-
+    //dialogview完
+    //likelist資料庫新增
     override fun likeClick(position: Int) {
         auth = FirebaseAuth.getInstance()
         var phone = auth.currentUser?.phoneNumber.toString()
@@ -144,6 +146,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
             }
         }
     }
+    //likelist資料庫新增完
 // Recycler監聽方法完
 
 
@@ -155,6 +158,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val root=dataSnapshot.value as HashMap<*,*>
                 dataList=root["room"] as HashMap<*,*>
+
                 profilelist=root["profile"] as HashMap<*,*>
                 val user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 var likelist= arrayListOf<String>()
@@ -164,6 +168,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
                 catch(e:Exception){
 
                 }
+
                 //recycler
                 activity?.runOnUiThread {
                     binding.recycler1.apply {

@@ -32,6 +32,7 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
             itemListener.likeClick(position)
 
         }
+
         val roomList=dataList.toList()
         val (phonenumber,roommap)=roomList[position]
         roommap as HashMap<*,*>
@@ -55,6 +56,7 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
         fun likeClick(position: Int)
     }
 
+    //擷取縣市區域完
     fun checkword(roominfo:HashMap<*,*>,holder: ViewHolder){
         try {
             val startpointselect = roominfo["startpoint"].toString()
@@ -79,6 +81,8 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
 
         }
     }
+    //擷取縣市區域完
+    //愛心變色
     fun checklikelist(likelist:ArrayList<String>,holder: ViewHolder){
         if(roominfo["number"] in likelist){
             holder.view.heart.setImageResource(R.drawable.heart2)
@@ -87,4 +91,5 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
             holder.view.heart.setImageResource(R.drawable.addheart_black)
         }
     }
+    //愛心變色完
 }

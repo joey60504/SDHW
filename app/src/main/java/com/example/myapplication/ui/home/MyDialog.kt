@@ -37,6 +37,9 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment(){
             binding.textView84.text=roominfo["date"].toString()
             binding.textView81.text=roominfo["time"].toString()
             binding.textView79.text=roominfo["price"].toString()
+            binding.textView78.text=roominfo["other"].toString()
+            binding.textView82.text=roominfo["peoplelimit"].toString()
+            binding.textView76.text=roominfo["number"].toString()
             startendpoint(roominfo)
 
             val roomrule =data["roomRULE"] as HashMap<*,*>
@@ -58,6 +61,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment(){
     fun iconselect(){
         when(manwoman){
             "限男"->{
+
 
             }
             "限女"->{

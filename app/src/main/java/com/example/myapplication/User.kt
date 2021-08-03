@@ -21,7 +21,9 @@ class roominfo(
     val endpoint1: String? ="",
     val carcard: String? ="",
     val price : String="",
-    val number: String=""
+    val number: String="",
+    val peoplelimit:String="",
+    val other:String=""
     ) {
 
 }
