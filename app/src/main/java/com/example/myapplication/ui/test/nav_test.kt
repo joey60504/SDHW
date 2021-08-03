@@ -6,16 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentNavTestBinding
 import com.example.myapplication.homepage
+import com.example.myapplication.ui.slideshow.chatAdapter
 
 
 private var _binding: FragmentNavTestBinding?=null
 private val binding get() = _binding!!
+private val dataList=arrayListOf("5顆星","4顆星","3顆星","3顆星","3顆星","3顆星","3顆星")
+class nav_test : Fragment(), chatAdapter.OnItemClick{
 
-class nav_test : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
 
     override fun onCreateView(
@@ -29,8 +30,21 @@ class nav_test : Fragment() {
         binding!!.backChat.setOnClickListener{
             startActivity(Intent(requireContext(), homepage::class.java))
         }
+        binding.recycler3.apply {
+            val myAdapter= chatAdapter(this@nav_test)
+            adapter=myAdapter
+            val manager= LinearLayoutManager(requireContext())
+            manager.orientation= LinearLayoutManager.VERTICAL
+            layoutManager=manager
+            myAdapter.dataList= dataList
+        }
+
+
         return root
 
+    }
+
+    override fun onItemClick(position: Int) {
     }
 
 }

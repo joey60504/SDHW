@@ -2,53 +2,61 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_driver_department_information2.*
+import kotlin.random.Random
 
 class driver_department_information2 : AppCompatActivity() {
+    var gender=""
+    var smoke=""
+    var child=""
+    var pet=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_department_information2)
         lateinit var auth: FirebaseAuth
-        var gender=""
-        var smoke=""
-        var child=""
-        var pet=""
-
-        imageButton56.setOnClickListener {
-            gender = "限男"
+        b.setOnClickListener {
+            gender="限男"
+            iconselect()
         }
-        imageButton53.setOnClickListener {
+        g.setOnClickListener {
             gender="限女"
+            iconselect()
         }
-        imageButton39.setOnClickListener {
+        bg.setOnClickListener {
             gender="皆可"
-            imageButton39.setImageResource(R.drawable.boygirl__choice)
+            iconselect()
         }
-        imageButton3.setOnClickListener {
+        smoke_yes.setOnClickListener {
             smoke="可"
+            iconselect()
         }
-        imageButton32.setOnClickListener {
+        smoke_no.setOnClickListener {
             smoke="不可"
+            iconselect()
         }
-        imageButton4.setOnClickListener {
+        child_yes.setOnClickListener {
             child="可"
-
+            iconselect()
         }
-        imageButton34.setOnClickListener {
+        child_no.setOnClickListener {
             child="不可"
+            iconselect()
         }
-        imageButton6.setOnClickListener {
+
+        pet_yes.setOnClickListener {
             pet="可"
+            iconselect()
         }
-        imageButton38.setOnClickListener {
+        pet_no.setOnClickListener {
             pet="不可"
+            iconselect()
         }
+
 
         button4.setOnClickListener {
 
@@ -61,18 +69,66 @@ class driver_department_information2 : AppCompatActivity() {
             val endpoint1 = intent.getBundleExtra("Extra")?.getString("endpoint_EXTRA")
             val carcard = intent.getBundleExtra("Extra")?.getString("carcard_EXTRA")
             val price = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
+            val number= Random.nextInt(10000001,99999999).toString()
 
-            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price)
+            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price, number)
             val roomRule=roomrule(gender, smoke, child, pet)
             database.child("room").child(phone).child("roomRULE").setValue(roomRule)
             database.child("room").child(phone).child("roomINFO").setValue(roomInfo)
                 .addOnCompleteListener {
-                    Toast.makeText(this, "房間建立成功", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, choice::class.java))
+                        Toast.makeText(this, "房間建立成功", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, choice::class.java))
                 }
         }
     }
-    fun back3(p0: View){
-        startActivity(Intent(this, driver_department_information::class.java))
+
+    fun iconselect(){
+        when(gender){
+            "限男"->{
+                b.setImageResource(R.drawable.boy)
+                bg.setImageResource(R.drawable.man_woman_n)
+                g.setImageResource(R.drawable.girl_n)
+            }
+            "限女"->{
+                b.setImageResource(R.drawable.boy_n)
+                bg.setImageResource(R.drawable.man_woman_n)
+                g.setImageResource(R.drawable.girl)
+            }
+            "皆可"->{
+                b.setImageResource(R.drawable.boy_n)
+                bg.setImageResource(R.drawable.boy_girl1)
+                g.setImageResource(R.drawable.girl_n)
+            }
+        }
+        when(smoke){
+            "可"->{
+                smoke_yes.setImageResource(R.drawable.check_y)
+                smoke_no.setImageResource(R.drawable.cross)
+            }
+            "不可"->{
+                smoke_yes.setImageResource(R.drawable.check_n)
+                smoke_no.setImageResource(R.drawable.cross_y)
+            }
+        }
+        when(child){
+            "可"->{
+                child_yes.setImageResource(R.drawable.check_y)
+                child_no.setImageResource(R.drawable.cross)
+            }
+            "不可"->{
+                child_yes.setImageResource(R.drawable.check_n)
+                child_no.setImageResource(R.drawable.cross_y)
+            }
+        }
+        when(pet){
+            "可"->{
+                pet_yes.setImageResource(R.drawable.check_y)
+                pet_no.setImageResource(R.drawable.cross)
+            }
+            "不可"->{
+                pet_yes.setImageResource(R.drawable.check_n)
+                pet_no.setImageResource(R.drawable.cross_y)
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.myapplication.databinding.DialogViewBinding
 
-class MyDialog(val position:Int,val data:ArrayList<String>): DialogFragment(){
+class MyDialog(val position:Int,val data:HashMap<*,*>): DialogFragment(){
         //        View元素綁定
         private lateinit var binding: DialogViewBinding
         override fun onCreateView(

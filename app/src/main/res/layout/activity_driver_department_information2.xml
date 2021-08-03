@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="@string/roominformation"
+        android:textColor="@color/blue"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,32 +63,30 @@
         app:layout_constraintVertical_bias="0.536" />
 
     <ImageButton
-        android:id="@+id/imageButton34"
+        android:id="@+id/child_no"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@color/底色"
+        android:background="@drawable/cross_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533"
-        app:srcCompat="@drawable/cross" />
+        app:layout_constraintVertical_bias="0.533" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/oval_border_red"
+        android:id="@+id/child_yes"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/check_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53"
-        app:srcCompat="@drawable/check" />
+        app:layout_constraintVertical_bias="0.53" />
 
     <TextView
         android:id="@+id/textView60"
@@ -104,32 +103,30 @@
         app:layout_constraintVertical_bias="0.656" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/oval_border_red"
+        android:id="@+id/pet_yes"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/check_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659"
-        app:srcCompat="@drawable/check" />
+        app:layout_constraintVertical_bias="0.659" />
 
     <ImageButton
-        android:id="@+id/imageButton38"
+        android:id="@+id/pet_no"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@color/底色"
+        android:background="@drawable/cross_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659"
-        app:srcCompat="@drawable/cross" />
+        app:layout_constraintVertical_bias="0.659" />
 
     <TextView
         android:id="@+id/textView58"
@@ -146,35 +143,33 @@
         app:layout_constraintVertical_bias="0.418" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/oval_border_red"
+        android:id="@+id/smoke_yes"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/check_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412"
-        app:srcCompat="@drawable/check" />
+        app:layout_constraintVertical_bias="0.412" />
 
     <ImageButton
-        android:id="@+id/imageButton32"
+        android:id="@+id/smoke_no"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@color/底色"
+        android:background="@drawable/cross_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
-        app:srcCompat="@drawable/cross" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <ImageButton
-        android:id="@+id/imageButton39"
+        android:id="@+id/bg"
         android:layout_width="77dp"
         android:layout_height="65dp"
         android:background="#00000000"
@@ -188,7 +183,7 @@
         app:srcCompat="@drawable/boy_girl1" />
 
     <ImageButton
-        android:id="@+id/imageButton53"
+        android:id="@+id/g"
         android:layout_width="77dp"
         android:layout_height="65dp"
         android:background="#00000000"
@@ -202,7 +197,7 @@
         app:srcCompat="@drawable/girl" />
 
     <ImageButton
-        android:id="@+id/imageButton56"
+        android:id="@+id/b"
         android:layout_width="77dp"
         android:layout_height="65dp"
         android:background="#00000000"
