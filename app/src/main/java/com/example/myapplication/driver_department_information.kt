@@ -88,8 +88,8 @@ class driver_department_information : AppCompatActivity() {
         val hour = calendar[Calendar.HOUR]
         val minute = calendar[Calendar.MINUTE]
         TimePickerDialog(v.context, {_, hour, minute ->
-            if(minute==0){
-                val dateTime= "$hour:$minute$minute"
+            if(minute<10){
+                val dateTime= "$hour:0$minute"
                 editTextDate2.setText(dateTime)
             }
             else{
