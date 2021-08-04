@@ -20,22 +20,20 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
-import kotlinx.android.synthetic.main.activity_newmessage.*
+//import kotlinx.android.synthetic.main.activity_newmessage.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
 
 class newmessage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_newmessage)
+       // setContentView(R.layout.activity_newmessage)
 
         supportActionBar?.title = "Select User"
 
         val adapter = GroupAdapter<GroupieViewHolder>()
-        //adapter.add(UserItem())
-        //adapter.add(UserItem())
-        //adapter.add(UserItem())
-        recyclerview_newmessage.adapter = adapter
+
+        //recyclerview_newmessage.adapter = adapter
 
         fetchUsers()
     }
@@ -72,7 +70,7 @@ class newmessage : AppCompatActivity() {
                     finish()
                 }
 
-                recyclerview_newmessage.adapter = adapter
+                //recyclerview_newmessage.adapter = adapter
             }
             override fun onCancelled(error: DatabaseError) {
 

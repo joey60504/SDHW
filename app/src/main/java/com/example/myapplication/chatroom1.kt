@@ -39,9 +39,9 @@ class chatroom1 : AppCompatActivity() {
 
         recyclerview_chatroom1.adapter = adapter
 
-        val user = intent.getParcelableExtra<User>(newmessage.USER_KEY)
+        toUser = intent.getParcelableExtra<User>(newmessage.USER_KEY)
 
-        textView61.text = user?.name
+        textView61.text = toUser?.name
 
         listenformessage()
 
@@ -53,17 +53,16 @@ class chatroom1 : AppCompatActivity() {
 
     private fun listenformessage(){
 
-        //val ref = FirebaseDatabase.getInstance().getReference("/message")
 
         val fromid = FirebaseAuth.getInstance().uid
         val toid = toUser?.UID
-        val ref = FirebaseDatabase.getInstance().getReference("/user-message/$fromid")
+        val ref = FirebaseDatabase.getInstance().getReference("/user-message/$fromid/$toid")
 
         ref.addChildEventListener(object: ChildEventListener {
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 val chatMessage = p0.getValue(chatmessage::class.java)
-                //Log.d(TAG, chatMessage.text)}
+
                 if (chatMessage != null) {
                     Log.d(TAG, chatMessage.text)
 
@@ -72,7 +71,7 @@ class chatroom1 : AppCompatActivity() {
                     if (chatMessage.fromid == FirebaseAuth.getInstance().uid) {
                         adapter.add(ChatFromItem(chatMessage.text))
                     }else{
-                        adapter.add(ChatToItem(chatMessage.text))
+                        adapter.add(ChatToItem(chatMessage.text, toUser!!))
                     }
                 }
             }
@@ -103,7 +102,6 @@ class chatroom1 : AppCompatActivity() {
 
         if (fromid == null) return
 
-        //val reference = FirebaseDatabase.getInstance().getReference("/message").push()
         val reference = FirebaseDatabase.getInstance().getReference("/user-message/$fromid/$toid")
             .push()
 
@@ -137,7 +135,7 @@ class ChatFromItem(val text:String): Item<GroupieViewHolder>() {
 }
 
 
-class ChatToItem(val text:String): Item<GroupieViewHolder>() {
+class ChatToItem(val text:String, val user: User): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.textview_to_row.text = text
     }

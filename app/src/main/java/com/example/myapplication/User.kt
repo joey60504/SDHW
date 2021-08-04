@@ -14,7 +14,8 @@ class roominfo(
     val startpoint: String? ="",
     val endpoint1: String? ="",
     val carcard: String? ="",
-    val price : String=""
+    val price : String="",
+    val number: String = ""
     ) {}
 class roomrule(
     val gender:String?="",
