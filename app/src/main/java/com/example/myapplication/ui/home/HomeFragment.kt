@@ -76,11 +76,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
 
 
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-
-    }
 
 
 //    spinner Hint
@@ -111,40 +106,83 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
 
 
 // Recycler監聽方法
+    //dialogview
+    lateinit var roomList:List<Pair<*,*>>
     override fun onItemClick(position: Int) {
-        activity?.supportFragmentManager?.let { MyDialog(position,dataList).show(it,"myDialog") }
+        val (phonenumber,roommap)=roomList[position]
+        roommap as HashMap<*,*>
+        activity?.supportFragmentManager?.let { MyDialog(roommap).show(it,"myDialog") }
     }
-
+    //dialogview完
+    //likelist資料庫新增
     override fun likeClick(position: Int) {
-//        auth = FirebaseAuth.getInstance()
-//        var phone = auth.currentUser?.phoneNumber.toString()
-//        var database = FirebaseDatabase.getInstance().reference
-//        database.child("profile").child(phone).get().addOnSuccessListener {
-//            val User=it.value as HashMap<*,*>
-//            User.put("likelist",database.child("roomINFO"))
-//        }
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(phone).get().addOnSuccessListener {
+            val User=it.value as java.util.HashMap<String,Any>
+
+            val (phonenumber,roommap)=roomList[position]
+            roommap as HashMap<*,*>
+            val roominfo=roommap["roomINFO"] as HashMap<*,*>
+            val roomID = roominfo["number"].toString()
+
+            if(User["likelist"]!=null){
+                val likelist =User["likelist"] as ArrayList<String>
+                if(roomID in likelist){
+                    likelist.remove(roomID)
+                    User.put("likelist",likelist)
+                    database.child("profile").child(phone).updateChildren(User)
+                }
+                else{
+                    likelist.add(roomID)
+                    User.put("likelist",likelist)
+                    database.child("profile").child(phone).updateChildren(User)
+                }
+            }
+            else{
+                User.put("likelist", arrayListOf<String>(roomID))
+                database.child("profile").child(phone).updateChildren(User)
+            }
+        }
     }
+    //likelist資料庫新增完
 // Recycler監聽方法完
 
 
-
+    lateinit var profilelist:HashMap<*,*>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val root=dataSnapshot.value as HashMap<*,*>
-                dataList=root["room"] as HashMap<*, *>
+                dataList=root["room"] as HashMap<*,*>
+
+                profilelist=root["profile"] as HashMap<*,*>
+                val user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
+                var likelist= arrayListOf<String>()
+                try {
+                    likelist = user["likelist"] as ArrayList<String>
+                }
+                catch(e:Exception){
+
+                }
+
                 //recycler
-                binding.recycler1.apply {
-                    val myAdapter = RoomAdapter(this@HomeFragment)
-                    adapter = myAdapter
-                    val manager = LinearLayoutManager(requireContext())
-                    manager.orientation = LinearLayoutManager.VERTICAL
-                    layoutManager = manager
-                    myAdapter.dataList = dataList
+                activity?.runOnUiThread {
+                    binding.recycler1.apply {
+                        val myAdapter = RoomAdapter(this@HomeFragment)
+                        adapter = myAdapter
+                        val manager = LinearLayoutManager(requireContext())
+                        manager.orientation = LinearLayoutManager.VERTICAL
+                        layoutManager = manager
+                        myAdapter.dataList = dataList
+                        myAdapter.likelist = likelist
+                    }
                 }
                 //recyler完
+                roomList=dataList.toList()
             }
             override fun onCancelled(databaseError: DatabaseError) {
 

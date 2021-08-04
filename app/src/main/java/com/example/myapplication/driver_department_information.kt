@@ -40,8 +40,9 @@ class driver_department_information : AppCompatActivity() {
             val startpoint = findViewById<EditText>(R.id.editTextTextPersonName3).text.toString()
             val endpoint1 = findViewById<EditText>(R.id.editTextTextPersonName4).text.toString()
             val carcard = findViewById<EditText>(R.id.editTextTextPersonName).text.toString()
+            val peoplelimit= findViewById<EditText>(R.id.editTextTextPersonName5).text.toString()
 
-            if(Date.isNotEmpty() && startpoint.isNotEmpty() && endpoint1.isNotEmpty() && carcard.isNotEmpty() && time.isNotEmpty()){
+            if(Date.isNotEmpty() && startpoint.isNotEmpty() && endpoint1.isNotEmpty() && carcard.isNotEmpty() && time.isNotEmpty() && peoplelimit.isNotEmpty()){
                 var i = Intent(this, driver_department_information2::class.java)
                 var bundle=Bundle()
                 bundle.putString("Date_EXTRA", Date)
@@ -49,6 +50,8 @@ class driver_department_information : AppCompatActivity() {
                 bundle.putString("startpoint_EXTRA", startpoint)
                 bundle.putString("endpoint_EXTRA", endpoint1)
                 bundle.putString("carcard_EXTRA", carcard)
+                bundle.putString("peoplelimit_EXTRA",peoplelimit)
+
                 i.putExtra("Extra",bundle)
 
                 startActivity(i)
@@ -85,8 +88,8 @@ class driver_department_information : AppCompatActivity() {
         val hour = calendar[Calendar.HOUR]
         val minute = calendar[Calendar.MINUTE]
         TimePickerDialog(v.context, {_, hour, minute ->
-            if(minute==0){
-                val dateTime= "$hour:$minute$minute"
+            if(minute<10){
+                val dateTime= "$hour:0$minute"
                 editTextDate2.setText(dateTime)
             }
             else{

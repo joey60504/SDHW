@@ -6,18 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentTest123Binding
 import com.example.myapplication.homepage
-import com.example.myapplication.ui.home.RoomAdapter
 
 
 private var _binding: FragmentTest123Binding?=null
 private val binding get() = _binding!!
-private val dataList=arrayListOf("5顆星","4顆星","3顆星","3顆星","3顆星","3顆星","3顆星")
+
 class test123 : Fragment(),likelistAdapter.OnItemClick {
 
     override fun onCreateView(
@@ -37,7 +33,7 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
             val manager= LinearLayoutManager(requireContext())
             manager.orientation= LinearLayoutManager.VERTICAL
             layoutManager=manager
-            myAdapter.dataList= dataList
+//            myAdapter.dataList= hashMapOf<*,*>()
         }
 
 
