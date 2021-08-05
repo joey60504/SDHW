@@ -52,9 +52,6 @@ class choice : AppCompatActivity() {
         startActivity(Intent(this,MapsActivity::class.java))
     }
 
-    fun test1(p0: View){
-        startActivity(Intent(this,newmessage::class.java))
-    }
 //換頁完
 //首次登入跳出
     fun firstlogin(){

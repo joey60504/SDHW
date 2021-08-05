@@ -72,8 +72,9 @@ class driver_department_information2 : AppCompatActivity() {
             val other =findViewById<EditText>(R.id.editTextTextPersonName6).text.toString()
             val price = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
             val number= Random.nextInt(10000001,99999999).toString()
+            val driversphone=phone
 
-            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price,number,peoplelimit,other)
+            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price,number,peoplelimit,other,driversphone)
             val roomRule=roomrule(gender, smoke, child, pet)
             database.child("room").child(phone).child("roomRULE").setValue(roomRule)
             database.child("room").child(phone).child("roomINFO").setValue(roomInfo)
@@ -81,6 +82,8 @@ class driver_department_information2 : AppCompatActivity() {
                         Toast.makeText(this, "房間建立成功", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, choice::class.java))
                 }
+
+
         }
     }
 
