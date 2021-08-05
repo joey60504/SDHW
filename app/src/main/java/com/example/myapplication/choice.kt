@@ -17,7 +17,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_choice.*
 import kotlinx.android.synthetic.main.dialog_view.view.*
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
@@ -44,44 +43,49 @@ class choice : AppCompatActivity() {
 //完
         firstlogin()
         permission()
-        button2.setOnClickListener(){
-            startActivity(Intent(this,MapsActivity::class.java))
-        }
     }
-    //換頁
+//換頁
     fun commute(p0: View){
         startActivity(Intent(this,homepage::class.java))
     }
-    //換頁完
+    fun test(p0: View){
+        startActivity(Intent(this,MapsActivity::class.java))
+    }
+
+    fun test1(p0: View){
+        startActivity(Intent(this,newmessage::class.java))
+    }
+//換頁完
 //首次登入跳出
     fun firstlogin(){
-        auth = FirebaseAuth.getInstance()
-        var phone = auth.currentUser?.phoneNumber.toString()
-        var database = FirebaseDatabase.getInstance().reference
-        var getdata=object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
+       auth = FirebaseAuth.getInstance()
+       var phone = auth.currentUser?.phoneNumber.toString()
+       var database = FirebaseDatabase.getInstance().reference
+       var getdata=object : ValueEventListener {
+           override fun onCancelled(error: DatabaseError) {
 
-            }
-            override fun onDataChange(p0: DataSnapshot) {
-                val res=p0.value as HashMap<*,*>
+           }
+           override fun onDataChange(p0: DataSnapshot) {
+               val res=p0.value as HashMap<*,*>
 //               Log.d("login",res.toString())
-                val profile= res["profile"] as HashMap<*,*>
+
 //               Log.d("login",profile.toString())
-                try {
-                    val userphone=profile[phone] as HashMap<*,*>
-                    for(i in userphone.values){
-                        if(i=="" || i==null){
-                            startActivity(Intent(this@choice,ProfileActivity::class.java))
-                        }
-                    }
-                }
-                catch (e:Exception){
-                    database.child("profile").child(phone).setValue(User())
-                    startActivity(Intent(this@choice,ProfileActivity::class.java))
-                }
-            }
-        }
-        database.addValueEventListener(getdata)
+               try {
+                   val profile= res["profile"] as HashMap<*,*>
+                   val userphone=profile[phone] as HashMap<*,*>
+                   for(i in userphone.values){
+                       if(i=="" || i==null){
+                           startActivity(Intent(this@choice,ProfileActivity::class.java))
+                       }
+                   }
+               }
+               catch (e:Exception){
+                   database.child("profile").child(phone).setValue(User())
+                   startActivity(Intent(this@choice,ProfileActivity::class.java))
+               }
+           }
+       }
+       database.addValueEventListener(getdata)
     }
     fun permission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -104,7 +108,8 @@ class choice : AppCompatActivity() {
             }
         }
     }
-//首次登入跳出完
 
+
+//首次登入跳出完
 
 }
