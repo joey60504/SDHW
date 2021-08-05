@@ -61,38 +61,37 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment(){
     fun iconselect(){
         when(manwoman){
             "限男"->{
-
-
+                binding.wm.setImageResource(R.drawable.manonly)
             }
             "限女"->{
-
+                binding.wm.setImageResource(R.drawable.girlonly)
             }
             "皆可"->{
-
+                binding.wm.setImageResource(R.drawable.genderisok)
             }
         }
         when(pet){
             "可"->{
-
+                binding.pet.setImageResource(R.drawable.ic_pet)
             }
             "不可"->{
-
+                binding.pet.setImageResource(R.drawable.ic_pet_n)
             }
         }
         when(child){
             "可"->{
-
+                binding.child.setImageResource(R.drawable.ic_child)
             }
             "不可"->{
-
+                binding.child.setImageResource(R.drawable.ic_child_n)
             }
         }
         when(smoke){
             "可"->{
-
+                binding.smokeing.setImageResource(R.drawable.ic_smoking)
             }
             "不可"->{
-
+                binding.smokeing.setImageResource(R.drawable.ic_smoking_n)
             }
         }
     }

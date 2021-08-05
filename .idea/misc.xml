@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_cancel.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_chat.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_chat_blue.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_child.xml" value="0.21875" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_child_n.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_mw.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_mw_n.xml" value="0.215625" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_pen.xml" value="0.21875" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_pet.xml" value="0.21875" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_pet_n.xml" value="0.215625" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/ic_smoking_n.xml" value="0.215625" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/drawable/oval_border_red_.xml" value="0.1734375" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/activity_choice.xml" value="0.30434782608695654" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/activity_driver_department_information.xml" value="0.33" />
@@ -17,6 +29,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/fragment_test123.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/friend_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/likelist_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/myroom_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/testlogin/app/src/main/res/layout/room_item.xml" value="0.33" />
       </map>
     </option>
