@@ -24,27 +24,27 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.myapplication.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/myroom"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="qq"
+        android:label="@string/friend"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/nav_test"
         android:name="com.example.myapplication.ui.test.nav_test"
-        android:label="fragment_nav_tet"
+        android:label="@string/unreadmessage"
         tools:layout="@layout/fragment_nav_test" />
     <fragment
         android:id="@+id/test123"
         android:name="com.example.myapplication.ui.test123.test123"
-        android:label="fragment_test12"
+        android:label="@string/likelist"
         tools:layout="@layout/fragment_test123" />
     <fragment
         android:id="@+id/personinformation"
         android:name="com.example.myapplication.ui.personinformation.personinformation"
-        android:label="fragment_personinformation"
+        android:label="@string/personalinformation"
         tools:layout="@layout/fragment_personinformation" />
 </navigation>

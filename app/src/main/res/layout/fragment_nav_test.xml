@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/底色"
     android:scrollbarThumbHorizontal="@color/底色"
-    tools:context=".nav_test">
+    tools:context="ui.test.nav_test">
 
 
     <ImageButton
