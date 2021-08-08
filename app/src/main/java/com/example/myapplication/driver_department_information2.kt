@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_driver_department_information2.*
+import java.util.ArrayList
 import kotlin.random.Random
 
 class driver_department_information2 : AppCompatActivity() {
@@ -15,6 +17,8 @@ class driver_department_information2 : AppCompatActivity() {
     var smoke=""
     var child=""
     var pet=""
+    lateinit var auth: FirebaseAuth
+    private var _binding: FragmentHomeBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_department_information2)
@@ -78,6 +82,7 @@ class driver_department_information2 : AppCompatActivity() {
             val roomRule=roomrule(gender, smoke, child, pet)
             database.child("room").child(phone).child("roomRULE").setValue(roomRule)
             database.child("room").child(phone).child("roomINFO").setValue(roomInfo)
+            database.child("profile").child(phone).child("MyRoom").setValue(phone)
                 .addOnCompleteListener {
                         Toast.makeText(this, "房間建立成功", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, choice::class.java))
@@ -86,7 +91,6 @@ class driver_department_information2 : AppCompatActivity() {
 
         }
     }
-
     fun iconselect(){
         when(gender){
             "限男"->{

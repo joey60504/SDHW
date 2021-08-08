@@ -15,133 +15,108 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_driver_department_information2.*
 import java.util.ArrayList
+import kotlin.properties.Delegates
 
-class MyDialog(val data:HashMap<*,*>): DialogFragment(){
-        //        View元素綁定
-        private lateinit var binding: DialogViewBinding
-        override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
+lateinit var auth: FirebaseAuth
+class MyDialog(val data:HashMap<*,*>): DialogFragment() {
+    //        View元素綁定
+    private lateinit var binding: DialogViewBinding
+    var nowpeoplevalue =0
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
 //            binding實例化
-            binding = DialogViewBinding.inflate(layoutInflater)
+        binding = DialogViewBinding.inflate(layoutInflater)
 
 //            關閉按鈕
-            binding.close.setOnClickListener {
-                dismiss()
-            }
+        binding.close.setOnClickListener {
+            dismiss()
+        }
 
-//            進入按鈕
-            lateinit var auth: FirebaseAuth
-            val roominfo = data["roomINFO"] as HashMap<*, *>
-            binding.access.setOnClickListener {
-                auth = FirebaseAuth.getInstance()
-                var phone = auth.currentUser?.phoneNumber.toString()
-                var database = FirebaseDatabase.getInstance().reference
-                val driversphone = roominfo["driversphone"].toString()
-                val peoplelimit = roominfo["peoplelimit"].toString()
-                database.child("room").child(driversphone).get().addOnSuccessListener {
-                    val User = it.value as java.util.HashMap<String, Any>
-                    try {
-                        val roominfo = User["roomINFO"] as java.util.HashMap<String, Any>
-                        val compare = roominfo["roommember"] as ArrayList<String>
-                        if (roominfo["roommember"] != null) {
-                            val roommember = roominfo["roommember"] as ArrayList<String>
-                            if (phone in roommember) {
-                                Toast.makeText(requireContext(), "您已在該團隊中", Toast.LENGTH_LONG)
-                                    .show()
-                            } else {
-                                if (compare.size - 1 >= peoplelimit.toInt()) {
-                                    Log.d("123", compare.size.toString())
-                                    Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG)
-                                        .show()
-                                } else {
-                                    roommember.add(phone)
-                                    roominfo.put("roommember", roommember)
-                                    database.child("room").child(driversphone).child("roomINFO")
-                                        .updateChildren(roominfo)
-                                    Toast.makeText(requireContext(), "加入成功", Toast.LENGTH_LONG)
-                                        .show()
-                                }
-                            }
-                        } else {
-                            roominfo.put("roommember", arrayListOf<String>(phone))
-                            database.child("room").child(driversphone).child("roomINFO")
-                                .updateChildren(roominfo)
-                            Toast.makeText(requireContext(), "加入成功", Toast.LENGTH_LONG).show()
-                        }
-                    } catch (e: Exception) {
-                        Log.d("123", e.toString())
-                    }
+//      進入按鈕
+        val roominfo = data["roomINFO"] as HashMap<*, *>
+        binding.access.setOnClickListener {
+            AddMemberInRoomINFO()
+        }
+        binding.textView84.text = roominfo["date"].toString()
+        binding.textView81.text = roominfo["time"].toString()
+        binding.textView79.text = roominfo["price"].toString()
+        binding.textView78.text = roominfo["other"].toString()
+        val limitpeople = roominfo["peoplelimit"].toString()
+        try {
+            val nowpeople = roominfo["roommember"] as ArrayList<String>
+            nowpeople.onEach { ele->
+                if(ele.isNotBlank()){
+                    nowpeoplevalue+=1
                 }
             }
-            binding.textView84.text=roominfo["date"].toString()
-            binding.textView81.text=roominfo["time"].toString()
-            binding.textView79.text=roominfo["price"].toString()
-            binding.textView78.text=roominfo["other"].toString()
-            val limitpeople = roominfo["peoplelimit"].toString()
-            val nowpeople = roominfo["roommember"] as ArrayList<String>
-            val nowpeoplevalue=nowpeople.size-1
-            binding.textView82.text="$nowpeoplevalue/$limitpeople"
-            binding.textView76.text=roominfo["number"].toString()
-            startendpoint(roominfo)
-
-            val roomrule =data["roomRULE"] as HashMap<*,*>
-            manwoman =roomrule["gender"].toString()
-            pet =roomrule["pet"].toString()
-            smoke =roomrule["smoke"].toString()
-            child =roomrule["child"].toString()
-            iconselect()
-
-
-
-            return binding.root
         }
-    lateinit var manwoman :String
-    lateinit var pet :String
-    lateinit var smoke :String
-    lateinit var child :String
+        catch(e:Exception){
 
-    fun iconselect(){
-        when(manwoman){
-            "限男"->{
+        }
+        binding.textView82.text = "$nowpeoplevalue/$limitpeople"
+        binding.textView76.text = roominfo["number"].toString()
+        startendpoint(roominfo)
+
+        val roomrule = data["roomRULE"] as HashMap<*, *>
+        manwoman = roomrule["gender"].toString()
+        pet = roomrule["pet"].toString()
+        smoke = roomrule["smoke"].toString()
+        child = roomrule["child"].toString()
+        iconselect()
+
+
+
+        return binding.root
+    }
+
+    lateinit var manwoman: String
+    lateinit var pet: String
+    lateinit var smoke: String
+    lateinit var child: String
+
+    fun iconselect() {
+        when (manwoman) {
+            "限男" -> {
                 binding.wm.setImageResource(R.drawable.manonly)
             }
-            "限女"->{
+            "限女" -> {
                 binding.wm.setImageResource(R.drawable.girlonly)
             }
-            "皆可"->{
+            "皆可" -> {
                 binding.wm.setImageResource(R.drawable.genderisok)
             }
         }
-        when(pet){
-            "可"->{
+        when (pet) {
+            "可" -> {
                 binding.pet.setImageResource(R.drawable.ic_pet)
             }
-            "不可"->{
+            "不可" -> {
                 binding.pet.setImageResource(R.drawable.ic_pet_n)
             }
         }
-        when(child){
-            "可"->{
+        when (child) {
+            "可" -> {
                 binding.child.setImageResource(R.drawable.ic_child)
             }
-            "不可"->{
+            "不可" -> {
                 binding.child.setImageResource(R.drawable.ic_child_n)
             }
         }
-        when(smoke){
-            "可"->{
+        when (smoke) {
+            "可" -> {
                 binding.smokeing.setImageResource(R.drawable.ic_smoking)
             }
-            "不可"->{
+            "不可" -> {
                 binding.smokeing.setImageResource(R.drawable.ic_smoking_n)
             }
         }
     }
-    fun startendpoint(roominfo:HashMap<*,*>) {
+
+    fun startendpoint(roominfo: HashMap<*, *>) {
         try {
             val startpointselect = roominfo["startpoint"].toString()
             val startpointfinal = startpointselect.substring(
@@ -159,4 +134,78 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment(){
 
         }
     }
+    fun AddMemberInRoomINFO(){
+        val roominfo = data["roomINFO"] as HashMap<*, *>
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        val driversphone = roominfo["driversphone"].toString()
+        database.child("room").child(driversphone).get().addOnSuccessListener {
+            val User = it.value as java.util.HashMap<String, Any>
+            val roominfo = User["roomINFO"] as java.util.HashMap<String, Any>
+            val peoplelimit = roominfo["peoplelimit"].toString()
+            val roomnumber = roominfo["number"].toString()
+            try {
+                if (phone != driversphone) {
+                    if (roominfo["roommember"] != null) {
+                        val roommember = roominfo["roommember"] as ArrayList<String>
+                        if (phone in roommember) {
+                            Toast.makeText(requireContext(), "您已在該團隊中", Toast.LENGTH_LONG)
+                                .show()
+                        }
+                        else {
+                            if (roommember.size  >= peoplelimit.toInt()) {
+                                Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG)
+                                    .show()
+                            }
+                            else {
+                                roommember.add(phone)
+                                roominfo.put("roommember", roommember)
+                                database.child("room").child(driversphone).child("roomINFO")
+                                    .updateChildren(roominfo)
+                                AddRoomNumberInProfile(driversphone)
+                                Toast.makeText(requireContext(), "加入成功", Toast.LENGTH_LONG)
+                                    .show()
+                            }
+                        }
+                    }
+                    else {
+                        roominfo.put("roommember", arrayListOf<String>(phone))
+                        database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                        AddRoomNumberInProfile(driversphone)
+                        Toast.makeText(requireContext(), "加入成功", Toast.LENGTH_LONG).show()
+                    }
+                }
+                else {
+                    Toast.makeText(requireContext(), "這是您開啟的房間", Toast.LENGTH_LONG).show()
+                }
+            } catch (e: Exception) {
+                Log.d("123", e.toString())
+            }
+        }
+    }
+    fun AddRoomNumberInProfile(driversphone:String) {
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(phone).get().addOnSuccessListener {
+            val User=it.value as java.util.HashMap<String,Any>
+            if(User["joining"]!=null){
+                val joining =User["joining"] as ArrayList<String>
+                if(driversphone in joining){
+
+                }
+                else {
+                    joining.add(driversphone)
+                    User.put("joining", joining)
+                    database.child("profile").child(phone).updateChildren(User)
+                }
+            }
+            else{
+                User.put("joining", arrayListOf<String>(driversphone))
+                database.child("profile").child(phone).updateChildren(User)
+            }
+        }
+    }
+
 }

@@ -9,7 +9,7 @@ import com.example.myapplication.databinding.MyroomItemBinding
 
 
 class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<myroomAdapter.ViewHolder>() {
-
+    lateinit var likelist:ArrayList<String>
     lateinit var dataList:ArrayList<String>
     private lateinit var binding: MyroomItemBinding
 
@@ -24,6 +24,7 @@ class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter
         holder.view.cardview11111.setOnClickListener {
             itemListener.onItemClick(position)
         }
+        val myroomList=dataList.toList()
     }
 
     override fun getItemCount(): Int {

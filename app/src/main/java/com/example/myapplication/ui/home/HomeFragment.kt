@@ -43,6 +43,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
         val root: View = binding.root
 
 
+
         binding.pet.adapter = MyAdapter(requireContext(),listOf("寵物","YES", "NO"))
         binding.child.adapter = MyAdapter(requireContext(),listOf("孩童","YES", "NO"))
         binding.gender.adapter = MyAdapter(requireContext(),listOf("性別","MAN", "WOMAN","BOTH"))
@@ -140,7 +141,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
     }
     //likelist資料庫新增完
 // Recycler監聽方法完
-
     lateinit var roomList:List<Pair<*,*>>
     lateinit var profilelist:HashMap<*,*>
     fun dataselect(){
@@ -150,7 +150,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val root=dataSnapshot.value as HashMap<*,*>
                 dataList=root["room"] as HashMap<*,*>
-
                 profilelist=root["profile"] as HashMap<*,*>
                 val user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 var likelist= arrayListOf<String>()
