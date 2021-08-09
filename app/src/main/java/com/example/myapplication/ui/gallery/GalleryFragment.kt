@@ -56,12 +56,10 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                 profilelist=root["profile"] as HashMap<*,*>
                 val user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 val myroom=user["MyRoom"].toString()
-                var likelist= arrayListOf<String>()
                 var joining:ArrayList<String>
                 try {
                     joining = user["joining"] as ArrayList<String>
                     joining.add(0,myroom)
-                    likelist = user["likelist"] as ArrayList<String>
                 }
                 catch(e:Exception){
                     joining= arrayListOf(myroom)
@@ -76,7 +74,6 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                         layoutManager = manager
                         myAdapter.dataList = joining
                         myAdapter.profilelist=root
-                        myAdapter.likelist = likelist
                     }
                 }
                 //recyler完

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.MyroomItemBinding
 import com.example.myapplication.ui.home.RoomAdapter
+import com.example.myapplication.ui.test123.likelistAdapter
 import com.google.firebase.database.FirebaseDatabase
 import java.lang.Exception
 
@@ -15,7 +16,6 @@ import java.lang.Exception
 class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<myroomAdapter.ViewHolder>() {
     lateinit var dataList:ArrayList<String>
     lateinit var profilelist:HashMap<*,*>
-    lateinit var likelist:ArrayList<String>
     lateinit var roominfo:HashMap<*,*>
     private lateinit var binding: MyroomItemBinding
     class ViewHolder(val view:MyroomItemBinding):RecyclerView.ViewHolder(view.root)
@@ -37,8 +37,7 @@ class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter
             holder.view.textView26.text=roominfo["date"].toString()
             holder.view.textView27.text=roominfo["time"].toString()
             holder.view.textView25.text=roominfo["number"].toString()
-            holder.view.textView28.text=roominfo["startpoint"].toString()
-            holder.view.textView29.text=roominfo["endpoint1"].toString()
+            checkword(roominfo,holder)
         }
         catch (e:Exception){
 
@@ -52,5 +51,29 @@ class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter
 
     interface OnItemClick{
         fun onItemClick(position: Int)
+    }
+    fun checkword(roominfo:HashMap<*,*>,holder:ViewHolder){
+        try {
+            val startpointselect = roominfo["startpoint"].toString()
+            val startpointfinal = startpointselect.substring(
+                startpointselect.indexOf("區") - 2,
+                startpointselect.indexOf("區")
+            )
+            holder.view.textView28.text = startpointfinal
+        }
+        catch(e:Exception){
+
+        }
+        try {
+            val endpointselect = roominfo["endpoint1"].toString()
+            val endpointfinal = endpointselect.substring(
+                endpointselect.indexOf("區") - 2,
+                endpointselect.indexOf("區")
+            )
+            holder.view.textView29.text = endpointfinal
+        }
+        catch(e:Exception){
+
+        }
     }
 }
