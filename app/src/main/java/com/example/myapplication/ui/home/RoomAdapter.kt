@@ -84,7 +84,7 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
     //擷取縣市區域完
     //愛心變色
     fun checklikelist(likelist:ArrayList<String>,holder: ViewHolder){
-        if(roominfo["number"] in likelist){
+        if(roominfo["driversphone"] in likelist){
             holder.view.heart.setImageResource(R.drawable.heart2)
         }
         else{

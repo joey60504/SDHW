@@ -118,7 +118,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
             val (phonenumber,roommap)=roomList[position]
             roommap as HashMap<*,*>
             val roominfo=roommap["roomINFO"] as HashMap<*,*>
-            val roomID = roominfo["number"].toString()
+            val roomID = roominfo["driversphone"].toString()
 
             if(User["likelist"]!=null){
                 val likelist =User["likelist"] as ArrayList<String>

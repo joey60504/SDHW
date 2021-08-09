@@ -2,6 +2,7 @@ package com.example.myapplication.ui.gallery
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,8 +44,8 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
     }
 
 
+
     lateinit var dataList:HashMap<*,*>
-    lateinit var roomList:List<Pair<*,*>>
     lateinit var profilelist:HashMap<*,*>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
@@ -55,12 +56,15 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                 profilelist=root["profile"] as HashMap<*,*>
                 val user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 val myroom=user["MyRoom"].toString()
-                val joining = user["joining"] as ArrayList<String>
+                var likelist= arrayListOf<String>()
+                var joining:ArrayList<String>
                 try {
-                    joining.add(myroom)
+                    joining = user["joining"] as ArrayList<String>
+                    joining.add(0,myroom)
+                    likelist = user["likelist"] as ArrayList<String>
                 }
                 catch(e:Exception){
-
+                    joining= arrayListOf(myroom)
                 }
                 //recycler
                 activity?.runOnUiThread {
@@ -71,6 +75,8 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                         manager.orientation = LinearLayoutManager.VERTICAL
                         layoutManager = manager
                         myAdapter.dataList = joining
+                        myAdapter.profilelist=root
+                        myAdapter.likelist = likelist
                     }
                 }
                 //recyler完
