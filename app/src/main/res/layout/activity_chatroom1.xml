@@ -34,7 +34,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022"
-        app:srcCompat="@drawable/arrow_blue" />
+        app:srcCompat="@drawable/arrow_blue"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/send_button_chat_log"
@@ -48,12 +49,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.978"
-        app:srcCompat="@drawable/ic_send" />
+        app:srcCompat="@drawable/ic_send"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
         android:layout_width="284dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:background="@drawable/border"
         android:ems="10"
         android:gravity="start|center_vertical"

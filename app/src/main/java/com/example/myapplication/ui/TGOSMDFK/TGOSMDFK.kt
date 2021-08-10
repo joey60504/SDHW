@@ -19,7 +19,8 @@ class TGOSMDFK : Fragment() {
         val root:View= binding.root
 
         binding.webview.apply{
-            loadUrl("https://tgossd.site/")
+            settings.javaScriptEnabled=true
+            loadUrl("https://tgossd.site/map")
         }
 
         return root
