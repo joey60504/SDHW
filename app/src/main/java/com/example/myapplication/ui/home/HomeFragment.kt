@@ -177,7 +177,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
                 roomList=dataList.toList()
             }
             override fun onCancelled(databaseError: DatabaseError) {
-
             }
         }
         database.addValueEventListener(dataListener)

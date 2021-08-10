@@ -85,8 +85,6 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
                 val user=profileList[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 try {
                     likelist = user["likelist"] as ArrayList<String>
-                    //recycler
-                    //recyler完
                 }
                 catch (e:Exception){
                     likelist= arrayListOf()

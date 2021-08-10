@@ -60,7 +60,6 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         binding.textView82.text = "$nowpeoplevalue/$limitpeople"
         binding.textView76.text = roominfo["number"].toString()
         startendpoint(roominfo)
-
         val roomrule = data["roomRULE"] as HashMap<*, *>
         manwoman = roomrule["gender"].toString()
         pet = roomrule["pet"].toString()
@@ -207,5 +206,6 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
             }
         }
     }
+
 
 }

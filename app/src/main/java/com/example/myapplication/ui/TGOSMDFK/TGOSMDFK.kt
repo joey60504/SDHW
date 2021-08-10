@@ -19,7 +19,7 @@ class TGOSMDFK : Fragment() {
         val root:View= binding.root
 
         binding.webview.apply{
-            loadUrl("https://www.google.com.tw/")
+            loadUrl("https://tgossd.site/")
         }
 
         return root
