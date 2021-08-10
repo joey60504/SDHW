@@ -35,7 +35,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
 
-        <activity android:name=".chatroom1" />
         <activity android:name=".room_chat" />
         <activity android:name=".driver_department_information2" />
         <activity android:name=".driver_department_information" />

@@ -84,5 +84,6 @@
     <string name="age">age</string>
     <string name="startpoint">startpoint</string>
     <string name="title_activity_maps" translatable="false">Map</string>
+    <string name="textview">TextView</string>
 
 </resources>

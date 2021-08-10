@@ -25,6 +25,11 @@
             android:icon="@drawable/likelist_icon"
             android:title="@string/likelist"
             tools:ignore="DuplicateIds" />
+        <item
+            android:id="@+id/TGOSMDFK"
+            android:icon="@drawable/likelist_icon"
+            android:title="TGOS導覽地圖"
+            tools:ignore="DuplicateIds" />
 
         <item android:title="設定">
             <menu>

@@ -160,6 +160,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick  {
 
                 }
 
+
                 //recycler
                 activity?.runOnUiThread {
                     binding.recycler1.apply {

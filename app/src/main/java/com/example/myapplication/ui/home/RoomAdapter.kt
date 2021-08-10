@@ -30,7 +30,6 @@ class RoomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<R
         }
         holder.view.heart.setOnClickListener{
             itemListener.likeClick(position)
-
         }
 
         val roomList=dataList.toList()
