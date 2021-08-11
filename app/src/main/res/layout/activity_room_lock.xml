@@ -90,7 +90,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.376"
-        app:srcCompat="@drawable/emma1" />
+        app:srcCompat="@drawable/sam3" />
 
     <ImageButton
         android:id="@+id/imageButton13"
@@ -105,7 +105,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.662"
-        app:srcCompat="@drawable/sam1" />
+        app:srcCompat="@drawable/sam2" />
 
     <ImageButton
         android:id="@+id/imageButton14"
@@ -120,7 +120,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.662"
-        app:srcCompat="@drawable/sam1" />
+        app:srcCompat="@drawable/emma2" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -150,7 +150,7 @@
         android:id="@+id/view1"
         android:layout_width="145dp"
         android:layout_height="150dp"
-        android:background="@color/blue"
+        android:background="@color/topcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.854"
