@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,13 +17,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.databinding.RoomItemBinding
 import com.example.myapplication.driver_department_information
+import com.example.myapplication.roominfo
 import com.example.myapplication.roomrule
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_personinformation.*
+import java.text.Format
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
 import java.util.*
 import kotlin.coroutines.coroutineContext
 
@@ -38,6 +46,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     private var currGender: String = " "
     private var currDate: String = " "
     private var currTime: String = " "
+    private var roomNumber: String=" "
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,23 +70,23 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
         binding.time.adapter = MyAdapter(
             requireContext(), listOf(
                 "出發時段",
-                "0:00~8:00",
-                "8:00~9:00",
-                "9:00~10:00",
-                "10:00~11:00",
-                "11:00~12:00",
-                "12:00~13:00",
-                "13:00~14:00",
-                "14:00~15:00",
-                "15:00~16:00",
-                "16:00~17:00",
-                "17:00~18:00",
-                "18:00~19:00",
-                "19:00~20:00",
-                "20:00~21:00",
-                "21:00~22:00",
-                "22:00~23:00",
-                "23:00~0:00"
+                "0:00~7:59",
+                "8:00~8:59",
+                "9:00~9:59",
+                "10:00~10:59",
+                "11:00~11:59",
+                "12:00~12:59",
+                "13:00~13:59",
+                "14:00~14:59",
+                "15:00~15:59",
+                "16:00~16:59",
+                "17:00~17:59",
+                "18:00~18:59",
+                "19:00~19:59",
+                "20:00~20:59",
+                "21:00~21:59",
+                "22:00~22:59",
+                "23:00~23:59"
             )
         )
 //spinner完
@@ -109,6 +118,48 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
         val child = arrayListOf(" ","可", "不可")
         val gender = arrayListOf(" ","限男", "限女","皆可")
         val smoke = arrayListOf(" ","可", "不可")
+        val departdate : ArrayList<String> = arrayListOf<String>()
+        var dateSdf : Format = SimpleDateFormat("yyyy/M/d")
+        var today : Date = Date()
+        val timeSdf : Format = SimpleDateFormat ("H:mm")
+
+        var calendar : Calendar = Calendar.getInstance()
+        // 出發日預設對應值
+        departdate.add(" ")
+        departdate.add(dateSdf.format(today))
+        calendar.time = today
+        var day = calendar.get(Calendar.DATE)
+        calendar.set(Calendar.DATE, day+2) // In two days
+        departdate.add(dateSdf.format(calendar.time))
+        day = calendar.get(Calendar.DATE)
+        calendar.set(Calendar.DATE, day+1) // In three days
+        departdate.add(dateSdf.format(calendar.time))
+        day = calendar.get(Calendar.DATE)
+        calendar.set(Calendar.DATE, day+2) // In five days
+        departdate.add(dateSdf.format(calendar.time))
+        //Toast.makeText(requireActivity(), "今天日期" + departdate[1] + "\n" + "2天日期" + departdate[2] + "\n" +"3天日期" + departdate[3] + "\n" + "5天日期" + departdate[4], Toast.LENGTH_SHORT).show()
+        // 出發日預設對應值 完
+
+        val timeperiod = arrayListOf(
+            " ",
+            "0:00~7:59",
+            "8:00~8:59",
+            "9:00~9:59",
+            "10:00~10:59",
+            "11:00~11:59",
+            "12:00~12:59",
+            "13:00~13:59",
+            "14:00~14:59",
+            "15:00~15:59",
+            "16:00~16:59",
+            "17:00~17:59",
+            "18:00~18:59",
+            "19:00~19:59",
+            "20:00~20:59",
+            "21:00~21:59",
+            "22:00~22:59",
+            "23:00~23:59")
+
         // Pet
         binding.pet.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -184,9 +235,57 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+
+        binding.date.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                currDate = departdate[position]
+                if (position>0) {
+                    Toast.makeText(requireActivity(), "你選的是" + departdate[position] , Toast.LENGTH_SHORT).show()
+                }
+                if (binding.recycler1.adapter != null) {
+                    dataselect()
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
+        binding.time.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                currTime = timeperiod[position]
+                if (position>0) {
+                    Toast.makeText(requireActivity(), "你選的是" + timeperiod[position] , Toast.LENGTH_SHORT).show()
+                }
+                if (binding.recycler1.adapter != null) {
+                    dataselect()
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
         //Spinner item filter取得user選取過濾項目的值 完
 
+        //roomnumber取值
+        binding.editText2.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
 
+                roomNumber = editText2.text.toString()
+                dataselect()
+                return@OnKeyListener true
+            }
+            false
+        })
+        //roomnumber取值 完
         return root
 
     }
@@ -259,6 +358,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     lateinit var roomList: List<Pair<*, *>>
     lateinit var profilelist: HashMap<*, *>
     lateinit var roomrule:  HashMap<*,*>
+    lateinit var roominfo: HashMap<*, *>
 
     fun dataselect() {
         auth = FirebaseAuth.getInstance()
@@ -277,23 +377,29 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                 }
 
                 // 對Datalist以所有的條件做過濾
-                var selectedFlag = arrayOf(0 ,0 , 0, 0)  //[0]->Pet [1]-> Child [2]->Gender [3]->Smoke
+                var selectedFlag = arrayOf(0 ,0 , 0, 0,0,0,0)  //[0]->Pet [1]-> Child [2]->Gender [3]->Smoke [4]->Date [5]->Time [6]->roomNumber
 
                 if (currPet!=" " )  selectedFlag[0]=1
                 if (currChild!=" " )  selectedFlag[1]=1
                 if (currGender!=" " )  selectedFlag[2]=1
                 if (currSmoke!=" " )  selectedFlag[3]=1
+                if (currDate!=" " )  selectedFlag[4]=1
+                if (currTime!=" " )  selectedFlag[5]=1
+                if (roomNumber!=" " )  selectedFlag[6]=1
 
-                if (currPet==" " && currChild==" " && currGender==" " && currSmoke==" ") {
+                if (currPet==" " && currChild==" " && currGender==" " && currSmoke==" " && currDate==" " && currTime==" " && roomNumber==" ") {
 
                 } else{
                     roomList=dataList.toList()
+                    var delimiter : String ="~"
+                    lateinit var timesplit : List<String>
 
                     loop@ for ( item in roomList){
                         val (phonenumber,roommap)=item
                         roommap as HashMap<*,*>
                         roomrule = roommap["roomRULE"] as HashMap<*,*>
-                        Toast.makeText(requireActivity(), "正執行" + phonenumber , Toast.LENGTH_SHORT).show()
+                        roominfo = roommap["roomINFO"] as HashMap<*,*>
+                        //Toast.makeText(requireActivity(), "正執行" + phonenumber , Toast.LENGTH_SHORT).show()
 
                         for ((i,value) in selectedFlag.withIndex()){
                             if (value==1) // 該項user有選
@@ -302,7 +408,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currPet != roomrule["pet"].toString())
                                         {
                                             dataList.remove(phonenumber)
-                                            Toast.makeText(requireActivity(), "currPet:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -310,7 +415,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currChild != roomrule["child"].toString())
                                         {
                                             dataList.remove(phonenumber)
-                                            Toast.makeText(requireActivity(), "currChild:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -318,7 +422,6 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currGender != roomrule["gender"].toString())
                                         {
                                             dataList.remove(phonenumber)
-                                            Toast.makeText(requireActivity(), "currGender:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -326,7 +429,29 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currSmoke != roomrule["smoke"].toString())
                                         {
                                             dataList.remove(phonenumber)
-                                            Toast.makeText(requireActivity(), "currSmoke:移除" + phonenumber , Toast.LENGTH_SHORT).show()
+                                            continue@loop
+                                        }
+                                    }
+                                    4 -> { //有選date
+                                        if (currDate != roominfo["date"].toString())
+                                        {
+                                            dataList.remove(phonenumber)
+                                            continue@loop
+                                        }
+                                    }
+                                    5 -> { //有選time
+                                        timesplit = currTime.split("~")
+
+                                        if (timesplit[0] > roominfo["time"].toString() || timesplit[1] < roominfo["time"].toString())
+                                        {
+                                            dataList.remove(phonenumber)
+                                            continue@loop
+                                        }
+                                    }
+                                    6 -> { //有填roomNumber
+                                        if (roomNumber != roominfo["number"].toString())
+                                        {
+                                            dataList.remove(phonenumber)
                                             continue@loop
                                         }
                                     }
