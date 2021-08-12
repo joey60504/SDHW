@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:paddingVertical="5dp"
-            app:srcCompat="@drawable/girl2" />
+            app:srcCompat="@drawable/emma3" />
 
         <TextView
             android:id="@+id/textView2"

@@ -1,16 +1,15 @@
-package com.example.myapplication.ui.slideshow
+package com.example.myapplication.ui.test
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ChatItemBinding
 
 
 class chatAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<chatAdapter.ViewHolder>() {
 
-    lateinit var dataList:ArrayList<String>
+    lateinit var dataList:HashMap<*,*>
+    lateinit var root : HashMap<*,*>
     private lateinit var binding: ChatItemBinding
 
     class ViewHolder(val view:ChatItemBinding):RecyclerView.ViewHolder(view.root)
@@ -21,7 +20,14 @@ class chatAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<c
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.view.textView30.text=dataList[position]
+        val friendList=dataList.keys.toList()
+        val friendname=friendList[position]
+        holder.view.textView30.text=friendname.toString()
+
+        val friendchatinfo=dataList[friendname] as HashMap<*,*>
+        val textvalue=friendchatinfo["text"].toString()
+        holder.view.textView37.text=textvalue
+
         holder.view.cardview2.setOnClickListener {
             itemListener.onItemClick(position)
         }

@@ -9,12 +9,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentNavTestBinding
 import com.example.myapplication.homepage
-import com.example.myapplication.ui.slideshow.chatAdapter
+import com.example.myapplication.ui.gallery.auth
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 private var _binding: FragmentNavTestBinding?=null
 private val binding get() = _binding!!
-private val dataList=arrayListOf("5顆星","4顆星","3顆星","3顆星","3顆星","3顆星","3顆星")
 class nav_test : Fragment(), chatAdapter.OnItemClick{
 
 
@@ -26,25 +30,54 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
         _binding = FragmentNavTestBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         binding!!.backChat.setOnClickListener{
             startActivity(Intent(requireContext(), homepage::class.java))
         }
-        binding.recycler3.apply {
-            val myAdapter= chatAdapter(this@nav_test)
-            adapter=myAdapter
-            val manager= LinearLayoutManager(requireContext())
-            manager.orientation= LinearLayoutManager.VERTICAL
-            layoutManager=manager
-            myAdapter.dataList= dataList
-        }
-
-
+        dataselect()
         return root
 
     }
-
     override fun onItemClick(position: Int) {
+    }
+    lateinit var dataList:HashMap<*,*>
+    lateinit var friendlist:HashMap<*,*>
+    fun dataselect(){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        val dataListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val root=dataSnapshot.value as HashMap<*,*>
+                val profile=root["profile"] as HashMap<*,*>
+                val phone=profile[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
+                val username=phone["name"].toString()
+
+                dataList=root["latest-message"] as HashMap<*,*>
+                try {
+                    friendlist = dataList[username] as HashMap<*,*>
+                }
+                catch (e:Exception){
+
+                }
+
+                //recycler
+                activity?.runOnUiThread {
+                    binding.recycler3.apply {
+                        val myAdapter = chatAdapter(this@nav_test)
+                        adapter = myAdapter
+                        val manager = LinearLayoutManager(requireContext())
+                        manager.orientation = LinearLayoutManager.VERTICAL
+                        layoutManager = manager
+                        myAdapter.dataList = friendlist
+                        myAdapter.root = root
+                    }
+                }
+                //recyler完
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        }
+        database.addValueEventListener(dataListener)
     }
 
 }

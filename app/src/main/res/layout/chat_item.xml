@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:paddingVertical="5dp"
-            app:srcCompat="@drawable/girl1" />
+            app:srcCompat="@drawable/emma1" />
 
         <LinearLayout
             android:layout_width="205dp"
