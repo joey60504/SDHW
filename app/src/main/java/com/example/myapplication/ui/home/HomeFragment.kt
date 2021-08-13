@@ -47,6 +47,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     private var currDate: String = " "
     private var currTime: String = " "
     private var roomNumber: String=" "
+    private var todayVal: String= " "
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -125,6 +126,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
 
         var calendar : Calendar = Calendar.getInstance()
         // 出發日預設對應值
+        todayVal = dateSdf.format(today)
         departdate.add(" ")
         departdate.add(dateSdf.format(today))
         calendar.time = today
@@ -137,6 +139,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
         day = calendar.get(Calendar.DATE)
         calendar.set(Calendar.DATE, day+2) // In five days
         departdate.add(dateSdf.format(calendar.time))
+
         //Toast.makeText(requireActivity(), "今天日期" + departdate[1] + "\n" + "2天日期" + departdate[2] + "\n" +"3天日期" + departdate[3] + "\n" + "5天日期" + departdate[4], Toast.LENGTH_SHORT).show()
         // 出發日預設對應值 完
 
@@ -170,7 +173,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             ) {
                 currPet = pet[position]
                 if (position>0) {
-                    Toast.makeText(requireActivity(), "你選的是" + pet[position] , Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireActivity(), "你選的是" + pet[position] , Toast.LENGTH_SHORT).show()
                 }
                 if (binding.recycler1.adapter != null) {
                     dataselect()
@@ -189,7 +192,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             ) {
                 currChild = child[position]
                 if (position>0) {
-                    Toast.makeText(requireActivity(), "你選的是" + child[position] , Toast.LENGTH_SHORT).show()
+                    //oast.makeText(requireActivity(), "你選的是" + child[position] , Toast.LENGTH_SHORT).show()
                 }
                 if (binding.recycler1.adapter != null) {
                     dataselect()
@@ -207,7 +210,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             ) {
                 currGender = gender[position]
                 if (position>0) {
-                    Toast.makeText(requireActivity(), "你選的是" + gender[position] , Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireActivity(), "你選的是" + gender[position] , Toast.LENGTH_SHORT).show()
                 }
                 if (binding.recycler1.adapter != null) {
                     dataselect()
@@ -226,7 +229,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             ) {
                 currSmoke = smoke[position]
                 if (position>0) {
-                    Toast.makeText(requireActivity(), "你選的是" + smoke[position] , Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(requireActivity(), "你選的是" + smoke[position] , Toast.LENGTH_SHORT).show()
                 }
                 if (binding.recycler1.adapter != null) {
                     dataselect()
@@ -245,7 +248,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             ) {
                 currDate = departdate[position]
                 if (position>0) {
-                    Toast.makeText(requireActivity(), "你選的是" + departdate[position] , Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(requireActivity(), "你選的是" + departdate[position] , Toast.LENGTH_SHORT).show()
                 }
                 if (binding.recycler1.adapter != null) {
                     dataselect()
@@ -264,7 +267,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             ) {
                 currTime = timeperiod[position]
                 if (position>0) {
-                    Toast.makeText(requireActivity(), "你選的是" + timeperiod[position] , Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(requireActivity(), "你選的是" + timeperiod[position] , Toast.LENGTH_SHORT).show()
                 }
                 if (binding.recycler1.adapter != null) {
                     dataselect()
@@ -408,6 +411,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currPet != roomrule["pet"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "currPet:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -415,6 +419,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currChild != roomrule["child"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "currChild:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -422,6 +427,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currGender != roomrule["gender"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "currGender:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -429,13 +435,15 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (currSmoke != roomrule["smoke"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "currSmoke:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
                                     4 -> { //有選date
-                                        if (currDate != roominfo["date"].toString())
+                                        if (todayVal > roominfo["date"].toString() || currDate < roominfo["date"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "currDate:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -445,6 +453,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (timesplit[0] > roominfo["time"].toString() || timesplit[1] < roominfo["time"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "currTime:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
@@ -452,6 +461,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                                         if (roomNumber != roominfo["number"].toString())
                                         {
                                             dataList.remove(phonenumber)
+                                            //Toast.makeText(requireActivity(), "roomNumber:移除" + phonenumber , Toast.LENGTH_SHORT).show()
                                             continue@loop
                                         }
                                     }
