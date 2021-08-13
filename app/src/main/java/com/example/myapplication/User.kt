@@ -4,9 +4,9 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class User(val name : String,val email : String , val age : String,
-           val gender : String,val photo : String,val UID : String): Parcelable{
-            constructor() : this("", "", "", "", "","")
+class User(val UID : String,val email : String , val age : String,
+           val gender : String,val photo : String,val name : String): Parcelable{
+    constructor() : this("", "", "", "", "","")
 }
 class roominfo(
     val Date: String? ="",
@@ -15,12 +15,11 @@ class roominfo(
     val endpoint1: String? ="",
     val carcard: String? ="",
     val price : String="",
-    val number: String="",
-    val peoplelimit:String="",
-    val other:String="",
-    val driversphone:String="",
-    val roommember:ArrayList<String> = arrayListOf(" ")
-    ) {}
+    val number: String = "",
+    val peoplelimit: String = "",
+    val other: String = "",
+    val driversphone: String = ""
+) {}
 class roomrule(
     val gender:String?="",
     val smoke:String?="",

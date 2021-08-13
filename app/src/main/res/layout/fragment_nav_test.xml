@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/底色"
     android:scrollbarThumbHorizontal="@color/底色"
-    tools:context="ui.test.nav_test">
+    tools:context=".ui.test.nav_test"
+    >
+
+
 
 
     <ImageButton
@@ -41,7 +44,7 @@
         app:layout_constraintVertical_bias="0.094" />
 
     <Button
-        android:id="@+id/new_message"
+        android:id="@+id/add_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

@@ -2,19 +2,23 @@ package com.example.myapplication.ui.test
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.*
 import com.example.myapplication.databinding.FragmentNavTestBinding
-import com.example.myapplication.homepage
 import com.example.myapplication.ui.gallery.auth
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+import kotlinx.android.synthetic.main.activity_newmessage.*
 
 
 private var _binding: FragmentNavTestBinding?=null
@@ -33,14 +37,18 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
         binding!!.backChat.setOnClickListener{
             startActivity(Intent(requireContext(), homepage::class.java))
         }
+
+        binding!!.addMessage.setOnClickListener{
+            startActivity(Intent(requireContext(), newmessage::class.java))
+        }
+
         dataselect()
         return root
 
     }
-    override fun onItemClick(position: Int) {
-    }
     lateinit var dataList:HashMap<*,*>
     lateinit var friendlist:HashMap<*,*>
+    lateinit var friendname:List<Pair<*,*>>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -58,7 +66,6 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
                 catch (e:Exception){
 
                 }
-
                 //recycler
                 activity?.runOnUiThread {
                     binding.recycler3.apply {
@@ -79,5 +86,12 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
         }
         database.addValueEventListener(dataListener)
     }
+
+
+    override fun onItemClick(position: Int) {
+
+    }
+
+
 
 }
