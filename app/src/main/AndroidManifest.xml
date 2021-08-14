@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ui.gallery.dialogview3"
+            android:exported="true" />
+        <activity
+            android:name=".ui.test123.Dialogview2"
+            android:exported="true" />
+        <activity
             android:name=".chatroom1"
             android:exported="true" />
         <activity

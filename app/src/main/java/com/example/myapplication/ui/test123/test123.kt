@@ -11,6 +11,7 @@ import com.example.myapplication.databinding.FragmentTest123Binding
 import com.example.myapplication.homepage
 import com.example.myapplication.ui.gallery.auth
 import com.example.myapplication.ui.gallery.myroomAdapter
+import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -73,6 +74,7 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
     lateinit var dataList:HashMap<*,*>
     lateinit var profileList:HashMap<*,*>
     lateinit var roomlist:HashMap<*,*>
+    lateinit var user: HashMap<*,*>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -81,8 +83,7 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
                 val root=dataSnapshot.value as HashMap<*,*>
                 roomlist=root["room"] as HashMap<*,*>
                 profileList=root["profile"] as HashMap<*,*>
-
-                val user=profileList[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
+                user=profileList[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 try {
                     likelist = user["likelist"] as ArrayList<String>
                 }
@@ -109,7 +110,9 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
     }
 
     override fun onItemClick(position: Int) {
-
+        val LIKELIST=user["likelist"] as ArrayList<String>
+        val roommap = LIKELIST[position]
+        activity?.supportFragmentManager?.let { Dialogview2(roommap,roomlist).show(it, "Dialogview2") }
     }
 
 }

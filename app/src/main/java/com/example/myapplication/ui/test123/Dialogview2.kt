@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.home
+package com.example.myapplication.ui.test123
 
 import android.os.Bundle
 import android.util.Log
@@ -9,18 +9,15 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.databinding.DialogViewBinding
-import com.example.myapplication.room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_driver_department_information2.*
 import java.util.ArrayList
-import kotlin.properties.Delegates
 
 lateinit var auth: FirebaseAuth
-class MyDialog(val data:HashMap<*,*>): DialogFragment() {
+class Dialogview2(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: DialogViewBinding
+    lateinit var roomphone:HashMap<*,*>
     var nowpeoplevalue =0
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +34,8 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         }
 
 //      進入按鈕
-        val roominfo = data["roomINFO"] as HashMap<*, *>
+        roomphone=roomlist[data] as HashMap<*,*>
+        val roominfo = roomphone["roomINFO"] as HashMap<*, *>
         binding.access.setOnClickListener {
             AddMemberInRoomINFO()
         }
@@ -60,7 +58,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         binding.textView82.text = "$nowpeoplevalue/$limitpeople"
         binding.textView76.text = roominfo["number"].toString()
         startendpoint(roominfo)
-        val roomrule = data["roomRULE"] as HashMap<*, *>
+        val roomrule = roomphone["roomRULE"] as HashMap<*, *>
         manwoman = roomrule["gender"].toString()
         pet = roomrule["pet"].toString()
         smoke = roomrule["smoke"].toString()
@@ -134,7 +132,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         }
     }
     fun AddMemberInRoomINFO(){
-        val roominfo = data["roomINFO"] as HashMap<*, *>
+        val roominfo = roomphone["roomINFO"] as HashMap<*, *>
         auth = FirebaseAuth.getInstance()
         var phone = auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference

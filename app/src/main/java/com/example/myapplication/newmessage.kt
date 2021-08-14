@@ -4,18 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.chatroom1.Companion.TAG
-import com.example.myapplication.ui.test.chatAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
-import io.perfmark.Tag
 import kotlinx.android.synthetic.main.activity_newmessage.*
 import kotlinx.android.synthetic.main.chat_item.view.*
-//import kotlinx.android.synthetic.main.user_row_new_message.view.*
 
 class newmessage : AppCompatActivity() {
 

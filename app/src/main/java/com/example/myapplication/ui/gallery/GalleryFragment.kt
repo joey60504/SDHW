@@ -14,6 +14,7 @@ import com.example.myapplication.databinding.FragmentGalleryBinding
 import com.example.myapplication.homepage
 import com.example.myapplication.ui.home.RoomAdapter
 import com.example.myapplication.ui.slideshow.slideAdapter
+import com.example.myapplication.ui.test123.Dialogview2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,11 +22,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.ArrayList
 
-lateinit var auth: FirebaseAuth
 private var _binding: FragmentGalleryBinding?=null
 private val binding get() = _binding!!
 class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
-
+    lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +41,16 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
     }
 
     override fun onItemClick(position: Int) {
+        val joininglist=user["joining"] as ArrayList<String>
+        val roommap = joininglist[position]
+        activity?.supportFragmentManager?.let { dialogview3(roommap,roomlist).show(it, "dialogview3") }
     }
-
 
 
     lateinit var dataList:HashMap<*,*>
     lateinit var profilelist:HashMap<*,*>
+    lateinit var user:HashMap<*,*>
+    lateinit var roomlist:HashMap<*,*>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -54,7 +58,8 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val root=dataSnapshot.value as HashMap<*,*>
                 profilelist=root["profile"] as HashMap<*,*>
-                val user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
+                roomlist=root["room"] as HashMap<*,*>
+                user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 val myroom=user["MyRoom"].toString()
                 var joining:ArrayList<String>
                 try {
