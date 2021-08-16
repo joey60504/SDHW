@@ -41,8 +41,7 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
     }
 
     override fun onItemClick(position: Int) {
-        val joininglist=user["joining"] as ArrayList<String>
-        val roommap = joininglist[position]
+        val roommap = joining[position]
         activity?.supportFragmentManager?.let { dialogview3(roommap,roomlist).show(it, "dialogview3") }
     }
 
@@ -51,6 +50,7 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
     lateinit var profilelist:HashMap<*,*>
     lateinit var user:HashMap<*,*>
     lateinit var roomlist:HashMap<*,*>
+    lateinit var joining:ArrayList<String>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -61,7 +61,6 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                 roomlist=root["room"] as HashMap<*,*>
                 user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 val myroom=user["MyRoom"].toString()
-                var joining:ArrayList<String>
                 try {
                     joining = user["joining"] as ArrayList<String>
                     joining.add(0,myroom)

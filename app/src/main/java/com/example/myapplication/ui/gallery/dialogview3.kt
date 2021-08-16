@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.gallery
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,9 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.myapplication.MapsActivity
 import com.example.myapplication.R
+import com.example.myapplication.coustomerINFO
 import com.example.myapplication.databinding.DialogViewBinding
 import com.example.myapplication.databinding.MyroomdialogviewBinding
+import com.example.myapplication.driver_department_information2
+import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.util.ArrayList
@@ -35,10 +40,17 @@ class dialogview3(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
         }
 
 //      進入按鈕
+        binding.access.setOnClickListener {
+            Log.d("dataa",data)
+            Intent(requireContext(),coustomerINFO::class.java).apply {
+                putExtra("Data",this@dialogview3.data)
+                startActivity(this)
+            }
+        }
+
+        Log.d("data",data)
         roomphone=roomlist[data] as HashMap<*,*>
         val roominfo = roomphone["roomINFO"] as HashMap<*, *>
-        binding.access.setOnClickListener {
-        }
         binding.textView84.text = roominfo["date"].toString()
         binding.textView81.text = roominfo["time"].toString()
         binding.textView79.text = roominfo["price"].toString()

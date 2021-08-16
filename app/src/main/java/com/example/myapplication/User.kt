@@ -26,3 +26,9 @@ class roomrule(
     val child:String?="",
     val pet:String?=""
 ){}
+
+class pickupinformation(
+   val site:String?="",
+   val time:String?="",
+   val other:String?=""
+){}

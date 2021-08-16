@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".coustomerINFO"
+            android:exported="true" />
+        <activity
             android:name=".ui.gallery.dialogview3"
             android:exported="true" />
         <activity

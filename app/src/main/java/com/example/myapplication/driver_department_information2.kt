@@ -18,11 +18,9 @@ class driver_department_information2 : AppCompatActivity() {
     var child=""
     var pet=""
     lateinit var auth: FirebaseAuth
-    private var _binding: FragmentHomeBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_department_information2)
-        lateinit var auth: FirebaseAuth
         b.setOnClickListener {
             gender="限男"
             iconselect()
