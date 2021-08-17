@@ -47,25 +47,6 @@ class choice : AppCompatActivity() {
 //完
         firstlogin()
         permission()
-        //導航
-        var database = FirebaseDatabase.getInstance().reference
-        database.child("room").child(phone).child("roomINFO").get().addOnSuccessListener{
-            val locate =it.value as HashMap<*,*>
-            val ownerstartpoint=locate["startpoint"].toString()
-            val ownerendpoint=locate["endpoint1"].toString()
-            button2.setOnClickListener {
-                val url= Uri.parse(
-                    "https://www.google.com/maps/dir/?api=1&origin="+ownerstartpoint+"&destination="+ownerendpoint+"&travelmode=driving"
-                )
-                val intent=Intent().apply {
-                    action="android.intent.action.VIEW"
-                    data=url
-                }
-                startActivity(intent)
-
-
-            }
-        }
     }
 //換頁
     fun commute(p0: View){

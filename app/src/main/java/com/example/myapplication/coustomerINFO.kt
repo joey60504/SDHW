@@ -27,7 +27,7 @@ class coustomerINFO: AppCompatActivity() {
         setContentView(binding.root)
 
         val data = intent.getStringExtra("Data").toString()
-        driversphone=intent.getStringExtra("driversphone").toString()
+        driversphone=intent.getStringExtra("Data").toString()
 
         Log.d("dataa",driversphone)
         auth = FirebaseAuth.getInstance()

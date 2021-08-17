@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.gallery
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,23 +9,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.myapplication.MapsActivity
-import com.example.myapplication.R
-import com.example.myapplication.coustomerINFO
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.*
 import com.example.myapplication.databinding.DialogViewBinding
 import com.example.myapplication.databinding.MyroomdialogviewBinding
-import com.example.myapplication.driver_department_information2
 import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_choice.*
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-class dialogview3(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
+class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val user:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: MyroomdialogviewBinding
     lateinit var roomphone:HashMap<*,*>
-    lateinit var driversphone:String
+    lateinit var auth: FirebaseAuth
     var nowpeoplevalue =0
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,19 +42,20 @@ class dialogview3(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
         binding.close.setOnClickListener {
             dismiss()
         }
+        binding.button8.setOnClickListener{
+            entergooglemap()
+        }
 
 //      進入按鈕
         binding.access.setOnClickListener {
-            Intent(requireContext(),coustomerINFO::class.java).apply {
-                putExtra("Data",this@dialogview3.data)
-                putExtra("driversphone",this@dialogview3.driversphone)
+            Intent(requireContext(), coustomerINFO::class.java).apply {
+                putExtra("Data", this@dialogview3.data1)
                 startActivity(this)
             }
         }
 
-        roomphone=roomlist[data] as HashMap<*,*>
+        roomphone=roomlist[data1] as HashMap<*,*>
         val roominfo = roomphone["roomINFO"] as HashMap<*, *>
-        driversphone=roominfo["driversphone"].toString()
         binding.textView84.text = roominfo["date"].toString()
         binding.textView81.text = roominfo["time"].toString()
         binding.textView79.text = roominfo["price"].toString()
@@ -144,4 +148,30 @@ class dialogview3(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
 
         }
     }
+    fun entergooglemap(){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        val dataListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val root = dataSnapshot.value as HashMap<*, *>
+                val room = root["room"] as HashMap<*, *>
+                val roomowner=room[data1] as HashMap<*,*>
+                val roominfo = roomowner["roomINFO"] as HashMap<*, *>
+                val ownerstartpoint = roominfo["startpoint"].toString()
+                val ownerendpoint = roominfo["endpoint1"].toString()
+                val url = Uri.parse(
+                    "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving"
+                )
+                val intent = Intent().apply {
+                    action = "android.intent.action.VIEW"
+                    data = url
+                }
+                startActivity(intent)
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        }
+        database.addValueEventListener(dataListener)
+    }
+
 }
