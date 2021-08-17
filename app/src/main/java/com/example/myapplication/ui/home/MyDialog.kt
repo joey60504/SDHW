@@ -159,8 +159,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
                             else {
                                 roommember.add(phone)
                                 roominfo.put("roommember", roommember)
-                                database.child("room").child(driversphone).child("roomINFO")
-                                    .updateChildren(roominfo)
+                                database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
                                 AddRoomNumberInProfile(driversphone)
                                 Toast.makeText(requireContext(), "加入成功,請至已加入的房間確認", Toast.LENGTH_LONG)
                                     .show()

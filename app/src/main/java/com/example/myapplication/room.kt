@@ -23,23 +23,6 @@ class room : AppCompatActivity() {
         data = intent.getStringExtra("Data").toString()
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
-        val dataListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                try {
-                    Log.d("test",data)
-                    val root=dataSnapshot.value as HashMap<*,*>
-                    val room=root["room"] as HashMap<*,*>
-                    val roomowner = room[data] as HashMap<*, *>
-                    val roominfo=roomowner["roomINFO"] as HashMap<*,*>
-                }
-                catch(e:Exception){
 
-                }
-            }
-            override fun onCancelled(databaseError: DatabaseError) {
-
-            }
-        }
-        database.addValueEventListener(dataListener)
     }
 }

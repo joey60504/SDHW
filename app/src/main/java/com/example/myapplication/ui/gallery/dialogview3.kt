@@ -24,6 +24,7 @@ class dialogview3(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: MyroomdialogviewBinding
     lateinit var roomphone:HashMap<*,*>
+    lateinit var driversphone:String
     var nowpeoplevalue =0
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,16 +42,16 @@ class dialogview3(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
 
 //      進入按鈕
         binding.access.setOnClickListener {
-            Log.d("dataa",data)
             Intent(requireContext(),coustomerINFO::class.java).apply {
                 putExtra("Data",this@dialogview3.data)
+                putExtra("driversphone",this@dialogview3.driversphone)
                 startActivity(this)
             }
         }
 
-        Log.d("data",data)
         roomphone=roomlist[data] as HashMap<*,*>
         val roominfo = roomphone["roomINFO"] as HashMap<*, *>
+        driversphone=roominfo["driversphone"].toString()
         binding.textView84.text = roominfo["date"].toString()
         binding.textView81.text = roominfo["time"].toString()
         binding.textView79.text = roominfo["price"].toString()

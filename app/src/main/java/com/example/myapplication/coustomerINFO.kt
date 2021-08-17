@@ -20,13 +20,16 @@ class coustomerINFO: AppCompatActivity() {
     private var _binding: ActivityCoustomerInfoBinding?=null
     private val binding get() =_binding!!
     lateinit var auth: FirebaseAuth
+    lateinit var driversphone:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding=ActivityCoustomerInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val data = intent.getStringExtra("Data").toString()
-        Log.d("dataa",data)
+        driversphone=intent.getStringExtra("driversphone").toString()
+
+        Log.d("dataa",driversphone)
         auth = FirebaseAuth.getInstance()
         var phone = auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference
@@ -36,6 +39,7 @@ class coustomerINFO: AppCompatActivity() {
             val other =binding.editTextTextPersonName9.text.toString()
             val Pickupinformation = pickupinformation(site,time,other)
             if(site.isNotEmpty() && time.isNotEmpty() && other.isNotEmpty()) {
+                addsitetoroominfo(site)
                 database.child("profile").child(phone).child("PickupINFO").child(data)
                     .setValue(Pickupinformation)
                     .addOnCompleteListener {
@@ -66,6 +70,31 @@ class coustomerINFO: AppCompatActivity() {
             }
         },hour,minute,true
         ).show()
+    }
+
+
+    fun addsitetoroominfo(site:String){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(driversphone).get().addOnSuccessListener {
+            try {
+            val roomowner = it.value as java.util.HashMap<String, Any>
+            val roominfo = roomowner["roomINFO"] as java.util.HashMap<String, Any>
+                if (roominfo["sitearray"] != null) {
+                    val sitearray = roominfo["sitearray"] as ArrayList<String>
+                    sitearray.add(site)
+                    roominfo.put("sitearray",sitearray)
+                    database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                }
+                else {
+                    roominfo.put("sitearray", arrayListOf<String>(site))
+                    database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                }
+            }
+            catch (e: Exception) {
+                Log.d("123", e.toString())
+            }
+        }
     }
 }
 
