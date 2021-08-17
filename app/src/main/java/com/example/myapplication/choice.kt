@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_choice.*
 import kotlinx.android.synthetic.main.dialog_view.view.*
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
@@ -28,7 +30,9 @@ class choice : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choice)
 //登入
+
         auth= FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
         var currentUser=auth.currentUser
         val logout=findViewById<Button>(R.id.idLogout)
         if(currentUser==null){
@@ -43,6 +47,25 @@ class choice : AppCompatActivity() {
 //完
         firstlogin()
         permission()
+        //導航
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(phone).child("roomINFO").get().addOnSuccessListener{
+            val locate =it.value as HashMap<*,*>
+            val ownerstartpoint=locate["startpoint"].toString()
+            val ownerendpoint=locate["endpoint1"].toString()
+            button2.setOnClickListener {
+                val url= Uri.parse(
+                    "https://www.google.com/maps/dir/?api=1&origin="+ownerstartpoint+"&destination="+ownerendpoint+"&travelmode=driving"
+                )
+                val intent=Intent().apply {
+                    action="android.intent.action.VIEW"
+                    data=url
+                }
+                startActivity(intent)
+
+
+            }
+        }
     }
 //換頁
     fun commute(p0: View){
@@ -56,8 +79,9 @@ class choice : AppCompatActivity() {
 //首次登入跳出
     fun firstlogin(){
        auth = FirebaseAuth.getInstance()
-       var phone = auth.currentUser?.phoneNumber.toString()
+
        var database = FirebaseDatabase.getInstance().reference
+       var phone = auth.currentUser?.phoneNumber.toString()
        var getdata=object : ValueEventListener {
            override fun onCancelled(error: DatabaseError) {
 
