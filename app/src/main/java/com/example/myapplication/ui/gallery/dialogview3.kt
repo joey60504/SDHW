@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_choice.*
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val user:HashMap<*,*>): DialogFragment() {
+class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: MyroomdialogviewBinding
     lateinit var roomphone:HashMap<*,*>
@@ -48,10 +48,7 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val user:HashMap<*,
 
 //      進入按鈕
         binding.access.setOnClickListener {
-            Intent(requireContext(), coustomerINFO::class.java).apply {
-                putExtra("Data", this@dialogview3.data1)
-                startActivity(this)
-            }
+            nextpage()
         }
 
         roomphone=roomlist[data1] as HashMap<*,*>
@@ -174,4 +171,40 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val user:HashMap<*,
         database.addValueEventListener(dataListener)
     }
 
+    fun nextpage(){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        val phone= auth.currentUser?.phoneNumber.toString()
+        val dataListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val root = dataSnapshot.value as HashMap<*, *>
+                val profile=root["profile"] as HashMap<*,*>
+                val user=profile[phone] as HashMap<*,*>
+                if(user["PickupINFO"]!=null) {
+                    val pickinfo=user["PickupINFO"] as HashMap<*,*>
+                    if(data1 in pickinfo) {
+                        Intent(requireContext(), room::class.java).apply {
+                            putExtra("Data", this@dialogview3.data1)
+                            startActivity(this)
+                        }
+                    }
+                    else{
+                        Intent(requireContext(), coustomerINFO::class.java).apply {
+                            putExtra("Data", this@dialogview3.data1)
+                            startActivity(this)
+                        }
+                    }
+                }
+                else {
+                    Intent(requireContext(), coustomerINFO::class.java).apply {
+                        putExtra("Data", this@dialogview3.data1)
+                        startActivity(this)
+                    }
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        }
+        database.addValueEventListener(dataListener)
+    }
 }

@@ -83,8 +83,9 @@ class coustomerINFO: AppCompatActivity() {
                 if (roominfo["sitearray"] != null) {
                     val sitearray = roominfo["sitearray"] as ArrayList<String>
                     sitearray.add(site)
-                    roominfo.put("sitearray",sitearray)
-                    database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                    roominfo.put("sitearray", sitearray)
+                    database.child("room").child(driversphone).child("roomINFO")
+                        .updateChildren(roominfo)
                 }
                 else {
                     roominfo.put("sitearray", arrayListOf<String>(site))
