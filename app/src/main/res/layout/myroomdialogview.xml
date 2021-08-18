@@ -405,7 +405,7 @@
             android:background="@drawable/rectangle_blue"
             android:fontFamily="serif"
             android:onClick="clickButton"
-            android:text="@string/access"
+            android:text="查看"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"

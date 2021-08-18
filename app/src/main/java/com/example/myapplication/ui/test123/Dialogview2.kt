@@ -37,7 +37,12 @@ class Dialogview2(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
         roomphone=roomlist[data] as HashMap<*,*>
         val roominfo = roomphone["roomINFO"] as HashMap<*, *>
         binding.access.setOnClickListener {
-            AddMemberInRoomINFO()
+            if (roominfo["nolockorlocked"] == "nolock"){
+                AddMemberInRoomINFO()
+            }
+            else{
+                Toast.makeText(requireContext(), "團隊已鎖住", Toast.LENGTH_LONG).show()
+            }
         }
         binding.textView84.text = roominfo["date"].toString()
         binding.textView81.text = roominfo["time"].toString()

@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityRoomBinding
+import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -79,6 +80,9 @@ class room : AppCompatActivity() {
                     roominfo = roomowner["roomINFO"] as HashMap<*, *>
                     val roommember = roominfo["roommember"] as ArrayList<String>
                     selectarraydata(roommember, profilelist)
+
+                    val sitearray=roominfo["sitearray"] as ArrayList<String>
+                    findsitearraysvalue(sitearray)
                 }
                 catch (e:Exception){
 
@@ -93,6 +97,7 @@ class room : AppCompatActivity() {
     fun selectarraydata(roommember:ArrayList<String>,profilelist:HashMap<*,*>){
         for (i in roommember.indices) {
             filldata(roommember[i],imagebtnlist[i],textviewlist[i],profilelist)
+            Log.d("77777",roommember[i])
         }
 
     }
@@ -192,5 +197,29 @@ class room : AppCompatActivity() {
             }
         }
         database.addValueEventListener(dataListener)
+    }
+//    fun leaveroom(){
+//        auth = FirebaseAuth.getInstance()
+//        var phone = auth.currentUser?.phoneNumber.toString()
+//        var database = FirebaseDatabase.getInstance().reference
+//        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+//            val roominfoleave=it.value as java.util.HashMap<String,Any>
+//            val roommember =roominfoleave["roommember"] as ArrayList<String>
+//            roommember.remove(phone)
+//            roominfoleave.put("roommember",roommember)
+//            database.child("profile").child(phone).updateChildren(roominfoleave)
+//        }
+//        database.child("profile").child(phone).get().addOnSuccessListener {
+//            val userinfoleave=it.value as java.util.HashMap<String,Any>
+//            val joining =userinfoleave["joining"] as ArrayList<String>
+//            joining.remove(data1)
+//            userinfoleave.put("joining",joining)
+//            database.child("profile").child(phone).updateChildren(userinfoleave)
+//        }
+//    }
+    fun findsitearraysvalue(sitearray:ArrayList<String>){
+        for (i in sitearray.indices) {
+            Log.d("77777",sitearray[i])
+        }
     }
 }
