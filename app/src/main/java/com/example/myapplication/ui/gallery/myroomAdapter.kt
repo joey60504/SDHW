@@ -17,6 +17,7 @@ class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter
     lateinit var dataList:ArrayList<String>
     lateinit var profilelist:HashMap<*,*>
     lateinit var roominfo:HashMap<*,*>
+    lateinit var usersphone:String
     private lateinit var binding: MyroomItemBinding
     class ViewHolder(val view:MyroomItemBinding):RecyclerView.ViewHolder(view.root)
 
@@ -38,6 +39,10 @@ class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter
             holder.view.textView27.text=roominfo["time"].toString()
             holder.view.textView25.text=roominfo["number"].toString()
             checkword(roominfo,holder)
+            val driversphone=roominfo["driversphone"].toString()
+            if(driversphone==usersphone){
+                holder.view.textView32.text="您開啟的房間"
+            }
         }
         catch (e:Exception){
 

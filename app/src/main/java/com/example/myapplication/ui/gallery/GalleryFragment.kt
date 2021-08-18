@@ -42,7 +42,7 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
 
     override fun onItemClick(position: Int) {
         val roommap = joining[position]
-        activity?.supportFragmentManager?.let { dialogview3(roommap,roomlist).show(it, "dialogview3") }
+        activity?.supportFragmentManager?.let { dialogview3(roommap,roomlist,usersphone).show(it, "dialogview3") }
     }
 
 
@@ -51,6 +51,7 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
     lateinit var user:HashMap<*,*>
     lateinit var roomlist:HashMap<*,*>
     lateinit var joining:ArrayList<String>
+    lateinit var usersphone:String
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -59,7 +60,8 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                 val root=dataSnapshot.value as HashMap<*,*>
                 profilelist=root["profile"] as HashMap<*,*>
                 roomlist=root["room"] as HashMap<*,*>
-                user=profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
+                usersphone =auth.currentUser?.phoneNumber.toString()
+                user=profilelist[usersphone] as HashMap<*,*>
                 val myroom=user["MyRoom"].toString()
                 try {
                     joining = user["joining"] as ArrayList<String>
@@ -78,6 +80,7 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
                         layoutManager = manager
                         myAdapter.dataList = joining
                         myAdapter.profilelist=root
+                        myAdapter.usersphone=usersphone
                     }
                 }
                 //recyler完

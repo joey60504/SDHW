@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_choice.*
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() {
+class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val usersphone:String): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: MyroomdialogviewBinding
     lateinit var roomphone:HashMap<*,*>
@@ -48,7 +48,15 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() 
 
 //      進入按鈕
         binding.access.setOnClickListener {
-            nextpage()
+            if(data1 != usersphone) {
+                nextpage()
+            }
+            else{
+                Intent(requireContext(), room::class.java).apply {
+                    putExtra("Data", this@dialogview3.data1)
+                    startActivity(this)
+                }
+            }
         }
 
         roomphone=roomlist[data1] as HashMap<*,*>
