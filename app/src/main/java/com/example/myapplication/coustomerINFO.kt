@@ -48,6 +48,7 @@ class coustomerINFO: AppCompatActivity() {
                             putExtra("Data", data)
                             startActivity(this)
                         }
+                        finish()
                     }
             }
             else{

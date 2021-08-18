@@ -48,15 +48,7 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val usersphone:Stri
 
 //      進入按鈕
         binding.access.setOnClickListener {
-            if(data1 != usersphone) {
-                nextpage()
-            }
-            else{
-                Intent(requireContext(), room::class.java).apply {
-                    putExtra("Data", this@dialogview3.data1)
-                    startActivity(this)
-                }
-            }
+            nextpage()
         }
 
         roomphone=roomlist[data1] as HashMap<*,*>
@@ -183,36 +175,48 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val usersphone:Stri
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
         val phone= auth.currentUser?.phoneNumber.toString()
-        val dataListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val root = dataSnapshot.value as HashMap<*, *>
-                val profile=root["profile"] as HashMap<*,*>
-                val user=profile[phone] as HashMap<*,*>
-                if(user["PickupINFO"]!=null) {
-                    val pickinfo=user["PickupINFO"] as HashMap<*,*>
-                    if(data1 in pickinfo) {
-                        Intent(requireContext(), room::class.java).apply {
-                            putExtra("Data", this@dialogview3.data1)
-                            startActivity(this)
+        database.child("profile").child(phone).get().addOnSuccessListener {
+            val user = it.value as HashMap<*, *>
+            try {
+                if(data1 != phone) {
+                    if (user["PickupINFO"] != null) {
+                        val pickinfo = user["PickupINFO"] as HashMap<*, *>
+                        if (data1 in pickinfo) {
+                            Intent(requireContext(), room::class.java).apply {
+                                putExtra("Data", this@dialogview3.data1)
+                                startActivity(this)
+                                Toast.makeText(requireContext(), "進入組隊房間", Toast.LENGTH_LONG)
+                                    .show()
+                            }
+                        } else {
+                            Intent(requireContext(), coustomerINFO::class.java).apply {
+                                putExtra("Data", this@dialogview3.data1)
+                                startActivity(this)
+                                Toast.makeText(requireContext(), "請填寫基本資料", Toast.LENGTH_LONG)
+                                    .show()
+                            }
                         }
-                    }
-                    else{
+                    } else {
                         Intent(requireContext(), coustomerINFO::class.java).apply {
                             putExtra("Data", this@dialogview3.data1)
                             startActivity(this)
+                            Toast.makeText(requireContext(), "請填寫基本資料", Toast.LENGTH_LONG)
+                                .show()
                         }
                     }
                 }
-                else {
-                    Intent(requireContext(), coustomerINFO::class.java).apply {
+                else{
+                    Intent(requireContext(), room::class.java).apply {
                         putExtra("Data", this@dialogview3.data1)
                         startActivity(this)
+                        Toast.makeText(requireContext(), "進入組隊房間", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
-            override fun onCancelled(databaseError: DatabaseError) {
+            catch (e: Exception) {
+                Log.d("test", e.toString())
             }
         }
-        database.addValueEventListener(dataListener)
     }
 }

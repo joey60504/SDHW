@@ -21,7 +21,7 @@
             android:name=".coustomerINFO"
             android:exported="true" />
         <activity
-            android:name=".ui.gallery.dialogview3"
+            android:name="com.example.myapplication.ui.gallery.dialogview3"
             android:exported="true" />
         <activity
             android:name=".ui.test123.Dialogview2"
