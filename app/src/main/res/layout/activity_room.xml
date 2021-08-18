@@ -132,9 +132,10 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="190dp"
+        android:layout_height="25dp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -146,9 +147,10 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,9 +161,10 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,9 +175,10 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,9 +189,10 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -212,8 +217,10 @@
 
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:freezesText="false"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -232,8 +239,7 @@
         app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"
-        app:srcCompat="@drawable/rectangle3" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -245,13 +251,13 @@
         app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958"
-        app:srcCompat="@drawable/rectangle3" />
+        app:layout_constraintVertical_bias="0.958" />
 
     <TextView
         android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -75,8 +75,9 @@ class driver_department_information2 : AppCompatActivity() {
             val price = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
             val number= Random.nextInt(10000001,99999999).toString()
             val driversphone=phone
+            val nolockorlocked="nolock"
 
-            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price,number,peoplelimit,other,driversphone)
+            val roomInfo = roominfo(Date, time, startpoint, endpoint1, carcard, price,number,peoplelimit,other,driversphone,nolockorlocked)
             val roomRule=roomrule(gender, smoke, child, pet)
             database.child("room").child(phone).child("roomRULE").setValue(roomRule)
             database.child("room").child(phone).child("roomINFO").setValue(roomInfo)

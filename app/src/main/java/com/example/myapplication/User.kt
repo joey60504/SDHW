@@ -18,7 +18,8 @@ class roominfo(
     val number: String = "",
     val peoplelimit: String = "",
     val other: String = "",
-    val driversphone: String = ""
+    val driversphone: String = "",
+    val nolockorlocked :String=""
 ) {}
 class roomrule(
     val gender:String?="",

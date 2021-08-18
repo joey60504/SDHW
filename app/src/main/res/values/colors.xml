@@ -15,4 +15,5 @@
     <color name="topcolor">#9c978f </color>
     <color name="blue">#325774 </color>
     <color name="choice_yellow">#f9c806 </color>
+    <color name="lockedcolor">#A63C24 </color>
 </resources>
