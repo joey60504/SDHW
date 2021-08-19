@@ -201,9 +201,20 @@ class room : AppCompatActivity() {
             Log.d("777", "123")
         }
     }
+    fun findsitearraysvalue(sitearray:ArrayList<String>){
+        var site0=""
+        var finsite=""
+        for (i in sitearray.indices) {
 
+            Log.d("77777",sitearray[i]+"%7C")
 
-
+            var site=sitearray[i]+"%7c"
+            Log.d("000", site)
+            site0+=site
+        }
+        finsite=site0
+        entergooglemap(finsite)
+    }
     fun entergooglemap(site: String){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -309,18 +320,5 @@ class room : AppCompatActivity() {
         }
 
     }
-    fun findsitearraysvalue(sitearray:ArrayList<String>){
-        var site0=""
-        var finsite=""
-        for (i in sitearray.indices) {
 
-            Log.d("77777",sitearray[i]+"%7C")
-
-            var site=sitearray[i]+"%7c"
-            Log.d("000", site)
-            site0+=site
-        }
-        finsite=site0
-        entergooglemap(finsite)
-    }
 }
