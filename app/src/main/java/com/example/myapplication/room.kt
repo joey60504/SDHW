@@ -6,17 +6,16 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityRoomBinding
-import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_room.*
 import java.lang.Exception
 import java.util.ArrayList
 
@@ -68,6 +67,7 @@ class room : AppCompatActivity() {
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 try {
+
                     val root = dataSnapshot.value as HashMap<*, *>
                     profilelist = root["profile"] as HashMap<*, *>
                     val driver = profilelist[data1] as HashMap<*, *>
@@ -80,9 +80,11 @@ class room : AppCompatActivity() {
                     roominfo = roomowner["roomINFO"] as HashMap<*, *>
                     val roommember = roominfo["roommember"] as ArrayList<String>
                     selectarraydata(roommember, profilelist)
+                    imageButton16.setOnClickListener {
+                        val sitearray = roominfo["sitearray"] as ArrayList<String>
+                        findsitearraysvalue(sitearray)
+                    }
 
-                    val sitearray=roominfo["sitearray"] as ArrayList<String>
-                    findsitearraysvalue(sitearray)
                 }
                 catch (e:Exception){
 
@@ -173,7 +175,7 @@ class room : AppCompatActivity() {
 
 
 
-    fun entergooglemap(){
+    fun entergooglemap(site: String){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
         val dataListener = object : ValueEventListener {
@@ -185,7 +187,7 @@ class room : AppCompatActivity() {
                 val ownerstartpoint = roominfo["startpoint"].toString()
                 val ownerendpoint = roominfo["endpoint1"].toString()
                 val url = Uri.parse(
-                    "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving"
+                    "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving&waypoints="+site
                 )
                 val intent = Intent().apply {
                     action = "android.intent.action.VIEW"
@@ -218,8 +220,17 @@ class room : AppCompatActivity() {
 //        }
 //    }
     fun findsitearraysvalue(sitearray:ArrayList<String>){
+        var site0=""
+        var finsite=""
         for (i in sitearray.indices) {
-            Log.d("77777",sitearray[i])
+
+            Log.d("77777",sitearray[i]+"%7C")
+
+            var site=sitearray[i]+"%7c"
+            Log.d("000", site)
+            site0+=site
         }
+        finsite=site0
+        entergooglemap(finsite)
     }
 }
