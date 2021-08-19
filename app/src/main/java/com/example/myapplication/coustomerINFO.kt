@@ -20,16 +20,12 @@ class coustomerINFO: AppCompatActivity() {
     private var _binding: ActivityCoustomerInfoBinding?=null
     private val binding get() =_binding!!
     lateinit var auth: FirebaseAuth
-    lateinit var driversphone:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding=ActivityCoustomerInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val data = intent.getStringExtra("Data").toString()
-        driversphone=intent.getStringExtra("Data").toString()
-
-        Log.d("dataa",driversphone)
+        val data1 = intent.getStringExtra("Data1").toString()
         auth = FirebaseAuth.getInstance()
         var phone = auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference
@@ -39,13 +35,13 @@ class coustomerINFO: AppCompatActivity() {
             val other =binding.editTextTextPersonName9.text.toString()
             val Pickupinformation = pickupinformation(site,time,other)
             if(site.isNotEmpty() && time.isNotEmpty() && other.isNotEmpty()) {
-                addsitetoroominfo(site)
-                database.child("profile").child(phone).child("PickupINFO").child(data)
+                addsitetoroominfo(site,data1)
+                database.child("profile").child(phone).child("PickupINFO").child(data1)
                     .setValue(Pickupinformation)
                     .addOnCompleteListener {
-                        Toast.makeText(this, "加入成功,跳轉至房間頁面", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "加入成功", Toast.LENGTH_LONG).show()
                         Intent(this, room::class.java).apply {
-                            putExtra("Data", data)
+                            putExtra("Data", data1)
                             startActivity(this)
                         }
                         finish()
@@ -56,28 +52,28 @@ class coustomerINFO: AppCompatActivity() {
             }
         }
     }
-    fun timePicker(v: View){
+    fun timePicker(v:View){
         val calendar = Calendar.getInstance()
         val hour = calendar[Calendar.HOUR]
         val minute = calendar[Calendar.MINUTE]
         TimePickerDialog(v.context, {_, hour, minute ->
             if(minute<10){
                 val dateTime= "$hour:0$minute"
-                editTextDate2.setText(dateTime)
+                binding.editTextTextPersonName8.setText(dateTime)
             }
             else{
                 val dateTime= "$hour:$minute"
-                editTextTextPersonName8.setText(dateTime)
+                binding.editTextTextPersonName8.setText(dateTime)
             }
         },hour,minute,true
         ).show()
     }
 
 
-    fun addsitetoroominfo(site:String){
+    fun addsitetoroominfo(site:String,data1:String){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
-        database.child("room").child(driversphone).get().addOnSuccessListener {
+        database.child("room").child(data1).get().addOnSuccessListener {
             try {
             val roomowner = it.value as java.util.HashMap<String, Any>
             val roominfo = roomowner["roomINFO"] as java.util.HashMap<String, Any>
@@ -85,12 +81,12 @@ class coustomerINFO: AppCompatActivity() {
                     val sitearray = roominfo["sitearray"] as ArrayList<String>
                     sitearray.add(site)
                     roominfo.put("sitearray", sitearray)
-                    database.child("room").child(driversphone).child("roomINFO")
+                    database.child("room").child(data1).child("roomINFO")
                         .updateChildren(roominfo)
                 }
                 else {
                     roominfo.put("sitearray", arrayListOf<String>(site))
-                    database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                    database.child("room").child(data1).child("roomINFO").updateChildren(roominfo)
                 }
             }
             catch (e: Exception) {

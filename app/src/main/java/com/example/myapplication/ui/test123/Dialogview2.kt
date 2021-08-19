@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.test123
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,13 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.myapplication.R
+import com.example.myapplication.coustomerINFO
 import com.example.myapplication.databinding.DialogViewBinding
+import com.example.myapplication.room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-class Dialogview2(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
+class Dialogview2(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: DialogViewBinding
     lateinit var roomphone:HashMap<*,*>
@@ -34,15 +37,10 @@ class Dialogview2(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
         }
 
 //      進入按鈕
-        roomphone=roomlist[data] as HashMap<*,*>
+        roomphone=roomlist[data1] as HashMap<*,*>
         val roominfo = roomphone["roomINFO"] as HashMap<*, *>
         binding.access.setOnClickListener {
-            if (roominfo["nolockorlocked"] == "nolock"){
-                AddMemberInRoomINFO()
-            }
-            else{
-                Toast.makeText(requireContext(), "團隊已鎖住", Toast.LENGTH_LONG).show()
-            }
+            AddMemberInRoomINFO()
         }
         binding.textView84.text = roominfo["date"].toString()
         binding.textView81.text = roominfo["time"].toString()
@@ -148,37 +146,46 @@ class Dialogview2(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
             val peoplelimit = roominfo["peoplelimit"].toString()
             try {
                 if (phone != driversphone) {
-                    if (roominfo["roommember"] != null) {
-                        val roommember = roominfo["roommember"] as ArrayList<String>
-                        if (phone in roommember) {
-                            Toast.makeText(requireContext(), "您已在該團隊中,請至已加入的房間確認", Toast.LENGTH_LONG)
-                                .show()
+                    if (roominfo["nolockorlocked"] == "nolock") {
+                        if (roominfo["roommember"] != null) {
+                            val roommember = roominfo["roommember"] as ArrayList<String>
+                            if (phone in roommember) {
+                                Toast.makeText(requireContext(), "您已在該團隊中,請至已加入的房間確認", Toast.LENGTH_LONG).show()
+                            } else {
+                                if (roommember.size >= peoplelimit.toInt()) {
+                                    Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG).show()
+                                } else {
+                                    roommember.add(phone)
+                                    roominfo.put("roommember", roommember)
+                                    database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                                    AddRoomNumberInProfile(driversphone)
+                                    Intent(requireContext(), coustomerINFO::class.java).apply {
+                                        putExtra("Data1", this@Dialogview2.data1)
+                                        startActivity(this)
+                                        Toast.makeText(
+                                            requireContext(), "加入成功,請填寫基本資料", Toast.LENGTH_LONG).show()
+                                    }
+                                }
+                            }
                         }
                         else {
-                            if (roommember.size  >= peoplelimit.toInt()) {
-                                Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG)
-                                    .show()
-                            }
-                            else {
-                                roommember.add(phone)
-                                roominfo.put("roommember", roommember)
-                                database.child("room").child(driversphone).child("roomINFO")
-                                    .updateChildren(roominfo)
-                                AddRoomNumberInProfile(driversphone)
-                                Toast.makeText(requireContext(), "加入成功,請至已加入的房間確認", Toast.LENGTH_LONG)
+                            roominfo.put("roommember", arrayListOf<String>(phone))
+                            database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                            AddRoomNumberInProfile(driversphone)
+                            Intent(requireContext(), coustomerINFO::class.java).apply {
+                                putExtra("Data1", this@Dialogview2.data1)
+                                startActivity(this)
+                                Toast.makeText(requireContext(), "加入成功,請填寫基本資料", Toast.LENGTH_LONG)
                                     .show()
                             }
                         }
                     }
-                    else {
-                        roominfo.put("roommember", arrayListOf<String>(phone))
-                        database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
-                        AddRoomNumberInProfile(driversphone)
-                        Toast.makeText(requireContext(), "加入成功,請至已加入的房間確認", Toast.LENGTH_LONG).show()
+                    else{
+                        Toast.makeText(requireContext(), "團隊已鎖住", Toast.LENGTH_LONG).show()
                     }
                 }
                 else {
-                    Toast.makeText(requireContext(), "這是您開啟的房間", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "這是您開啟的房間,請至我的房間確認", Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 Log.d("123", e.toString())
@@ -208,6 +215,4 @@ class Dialogview2(val data:String,val roomlist:HashMap<*,*>): DialogFragment() {
             }
         }
     }
-
-
 }

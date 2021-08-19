@@ -497,8 +497,8 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     //dialogview
     override fun onItemClick(position: Int) {
         val (phonenumber, roommap) = roomList[position]
-        roommap as HashMap<*, *>
-        activity?.supportFragmentManager?.let { MyDialog(roommap).show(it, "myDialog") }
+        roommap as HashMap<*,*>
+        activity?.supportFragmentManager?.let { MyDialog(phonenumber.toString(),roommap).show(it, "myDialog") }
     }
     //dialogview完
 

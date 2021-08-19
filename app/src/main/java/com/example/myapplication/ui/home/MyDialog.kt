@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.myapplication.R
+import com.example.myapplication.coustomerINFO
 import com.example.myapplication.databinding.DialogViewBinding
 import com.example.myapplication.room
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +20,7 @@ import java.util.ArrayList
 import kotlin.properties.Delegates
 
 lateinit var auth: FirebaseAuth
-class MyDialog(val data:HashMap<*,*>): DialogFragment() {
+class MyDialog(val phonenumber:String,val data1:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: DialogViewBinding
     var nowpeoplevalue =0
@@ -37,7 +39,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         }
 
 //      進入按鈕
-        val roominfo = data["roomINFO"] as HashMap<*, *>
+        val roominfo = data1["roomINFO"] as HashMap<*, *>
         binding.access.setOnClickListener {
             if (roominfo["nolockorlocked"] == "nolock"){
                 AddMemberInRoomINFO()
@@ -65,7 +67,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         binding.textView82.text = "$nowpeoplevalue/$limitpeople"
         binding.textView76.text = roominfo["number"].toString()
         startendpoint(roominfo)
-        val roomrule = data["roomRULE"] as HashMap<*, *>
+        val roomrule = data1["roomRULE"] as HashMap<*, *>
         manwoman = roomrule["gender"].toString()
         pet = roomrule["pet"].toString()
         smoke = roomrule["smoke"].toString()
@@ -139,7 +141,7 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
         }
     }
     fun AddMemberInRoomINFO(){
-        val roominfo = data["roomINFO"] as HashMap<*, *>
+        val roominfo = data1["roomINFO"] as HashMap<*, *>
         auth = FirebaseAuth.getInstance()
         var phone = auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference
@@ -150,38 +152,48 @@ class MyDialog(val data:HashMap<*,*>): DialogFragment() {
             val peoplelimit = roominfo["peoplelimit"].toString()
             try {
                 if (phone != driversphone) {
-                    if (roominfo["roommember"] != null) {
-                        val roommember = roominfo["roommember"] as ArrayList<String>
-                        if (phone in roommember) {
-                            Toast.makeText(requireContext(), "您已在該團隊中,請至已加入的房間確認", Toast.LENGTH_LONG)
-                                .show()
-                        }
-                        else {
-                            if (roommember.size  >= peoplelimit.toInt()) {
-                                Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG)
-                                    .show()
+                    if (roominfo["nolockorlocked"] == "nolock") {
+                        if (roominfo["roommember"] != null) {
+                            val roommember = roominfo["roommember"] as ArrayList<String>
+                            if (phone in roommember) {
+                                Toast.makeText(
+                                    requireContext(), "您已在該團隊中,請至已加入的房間確認", Toast.LENGTH_LONG).show()
+                            } else {
+                                if (roommember.size >= peoplelimit.toInt()) {
+                                    Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG).show()
+                                } else {
+                                    roommember.add(phone)
+                                    roominfo.put("roommember", roommember)
+                                    database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                                    AddRoomNumberInProfile(driversphone)
+                                    Intent(requireContext(), coustomerINFO::class.java).apply {
+                                        putExtra("Data1", this@MyDialog.phonenumber)
+                                        startActivity(this)
+                                        Toast.makeText(
+                                            requireContext(), "加入成功,請填寫基本資料", Toast.LENGTH_LONG).show()
+                                    }
+                                }
                             }
-                            else {
-                                roommember.add(phone)
-                                roominfo.put("roommember", roommember)
-                                database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
-                                AddRoomNumberInProfile(driversphone)
-                                Toast.makeText(requireContext(), "加入成功,請至已加入的房間確認", Toast.LENGTH_LONG)
-                                    .show()
+                        } else {
+                            roominfo.put("roommember", arrayListOf<String>(phone))
+                            database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                            AddRoomNumberInProfile(driversphone)
+                            Intent(requireContext(), coustomerINFO::class.java).apply {
+                                putExtra("Data1", this@MyDialog.phonenumber)
+                                startActivity(this)
+                                Toast.makeText(
+                                    requireContext(), "加入成功,請填寫基本資料", Toast.LENGTH_LONG).show()
                             }
                         }
                     }
-                    else {
-                        roominfo.put("roommember", arrayListOf<String>(phone))
-                        database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
-                        AddRoomNumberInProfile(driversphone)
-                        Toast.makeText(requireContext(), "加入成功,請至已加入的房間確認", Toast.LENGTH_LONG).show()
+                    else{
+                        Toast.makeText(requireContext(), "團隊已鎖住", Toast.LENGTH_LONG).show()
                     }
                 }
                 else {
                     Toast.makeText(requireContext(), "這是您開啟的房間", Toast.LENGTH_LONG).show()
                 }
-            } catch (e: Exception) {
+            }catch (e: Exception) {
                 Log.d("123", e.toString())
             }
         }

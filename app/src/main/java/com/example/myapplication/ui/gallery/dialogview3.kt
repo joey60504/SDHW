@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_choice.*
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val usersphone:String): DialogFragment() {
+class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() {
     //        View元素綁定
     private lateinit var binding: MyroomdialogviewBinding
     lateinit var roomphone:HashMap<*,*>
@@ -172,51 +172,11 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>,val usersphone:Stri
     }
 
     fun nextpage(){
-        auth = FirebaseAuth.getInstance()
-        var database = FirebaseDatabase.getInstance().reference
-        val phone= auth.currentUser?.phoneNumber.toString()
-        database.child("profile").child(phone).get().addOnSuccessListener {
-            val user = it.value as HashMap<*, *>
-            try {
-                if(data1 != phone) {
-                    if (user["PickupINFO"] != null) {
-                        val pickinfo = user["PickupINFO"] as HashMap<*, *>
-                        if (data1 in pickinfo) {
-                            Intent(requireContext(), room::class.java).apply {
-                                putExtra("Data", this@dialogview3.data1)
-                                startActivity(this)
-                                Toast.makeText(requireContext(), "進入組隊房間", Toast.LENGTH_LONG)
-                                    .show()
-                            }
-                        } else {
-                            Intent(requireContext(), coustomerINFO::class.java).apply {
-                                putExtra("Data", this@dialogview3.data1)
-                                startActivity(this)
-                                Toast.makeText(requireContext(), "請填寫基本資料", Toast.LENGTH_LONG)
-                                    .show()
-                            }
-                        }
-                    } else {
-                        Intent(requireContext(), coustomerINFO::class.java).apply {
-                            putExtra("Data", this@dialogview3.data1)
-                            startActivity(this)
-                            Toast.makeText(requireContext(), "請填寫基本資料", Toast.LENGTH_LONG)
-                                .show()
-                        }
-                    }
-                }
-                else{
-                    Intent(requireContext(), room::class.java).apply {
-                        putExtra("Data", this@dialogview3.data1)
-                        startActivity(this)
-                        Toast.makeText(requireContext(), "進入組隊房間", Toast.LENGTH_LONG)
-                            .show()
-                    }
-                }
-            }
-            catch (e: Exception) {
-                Log.d("test", e.toString())
-            }
+        Intent(requireContext(), room::class.java).apply {
+            putExtra("Data", this@dialogview3.data1)
+            startActivity(this)
+            Toast.makeText(requireContext(), "進入組隊房間", Toast.LENGTH_LONG)
+                .show()
         }
     }
 }

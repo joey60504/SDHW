@@ -112,7 +112,7 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
     override fun onItemClick(position: Int) {
         val LIKELIST=user["likelist"] as ArrayList<String>
         val roommap = LIKELIST[position]
-        activity?.supportFragmentManager?.let { Dialogview2(roommap,roomlist).show(it, "Dialogview2") }
+        activity?.supportFragmentManager?.let { Dialogview2(roommap,roomlist,).show(it, "Dialogview2") }
     }
 
 }

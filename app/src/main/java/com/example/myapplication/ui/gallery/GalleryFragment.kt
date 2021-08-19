@@ -42,7 +42,7 @@ class GalleryFragment : Fragment(),myroomAdapter.OnItemClick {
 
     override fun onItemClick(position: Int) {
         val roommap = joining[position]
-        activity?.supportFragmentManager?.let { dialogview3(roommap,roomlist,usersphone).show(it, "dialogview3") }
+        activity?.supportFragmentManager?.let { dialogview3(roommap,roomlist).show(it, "dialogview3") }
     }
 
 

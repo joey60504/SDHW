@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.databinding.ActivityRoomBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -20,15 +21,17 @@ import java.lang.Exception
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-lateinit var data1:String
+var data1:String=" "
 lateinit var textviewlist:List<TextView>
 lateinit var imagebtnlist:List<ImageButton>
+
 class room : AppCompatActivity() {
     lateinit var binding:ActivityRoomBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         textviewlist= listOf(binding.textView15,binding.textView16,binding.textView17,binding.textView18,binding.textView33,binding.textView31)
         imagebtnlist= listOf(binding.imageButton9,binding.imageButton12,binding.imageButton13,binding.imageButton14,binding.imageButton3,binding.imageButton4)
         data1 = intent.getStringExtra("Data").toString()
@@ -51,6 +54,33 @@ class room : AppCompatActivity() {
                     Log.d("test",e.toString())
                 }
             }
+        }
+        binding.leavebtn.setOnClickListener {
+            if(data1!=usersphone) {
+                AlertDialog.Builder(this).apply {
+                    setTitle("提醒")
+                    setMessage("確認離開?")
+                    setPositiveButton("確定?") { _, _ ->
+                        leaveroomcoustomer()
+                        startActivity(Intent(this@room, homepage::class.java))
+                    }
+                    setNegativeButton("取消", null)
+                }.show()
+            }
+            else{
+                AlertDialog.Builder(this).apply {
+                    setTitle("提醒")
+                    setMessage("確定要關閉組隊?")
+                    setPositiveButton("確定?") { _, _ ->
+                        deleteRoomByDriver()
+                        startActivity(Intent(this@room, homepage::class.java))
+                    }
+                    setNegativeButton("取消", null)
+                }.show()
+            }
+        }
+        binding.imageButton5.setOnClickListener {
+            startActivity(Intent(this@room,homepage::class.java))
         }
     }
     val imagelist= listOf<List<Int>>(
@@ -101,7 +131,6 @@ class room : AppCompatActivity() {
             filldata(roommember[i],imagebtnlist[i],textviewlist[i],profilelist)
             Log.d("77777",roommember[i])
         }
-
     }
     fun filldata(roommembersphone:String,imagebtn:ImageButton,textV:TextView,profilelist: HashMap<*,*>){
         val members=profilelist[roommembersphone] as HashMap<*,*>
@@ -200,25 +229,86 @@ class room : AppCompatActivity() {
         }
         database.addValueEventListener(dataListener)
     }
-//    fun leaveroom(){
-//        auth = FirebaseAuth.getInstance()
-//        var phone = auth.currentUser?.phoneNumber.toString()
-//        var database = FirebaseDatabase.getInstance().reference
-//        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
-//            val roominfoleave=it.value as java.util.HashMap<String,Any>
-//            val roommember =roominfoleave["roommember"] as ArrayList<String>
-//            roommember.remove(phone)
-//            roominfoleave.put("roommember",roommember)
-//            database.child("profile").child(phone).updateChildren(roominfoleave)
-//        }
-//        database.child("profile").child(phone).get().addOnSuccessListener {
-//            val userinfoleave=it.value as java.util.HashMap<String,Any>
-//            val joining =userinfoleave["joining"] as ArrayList<String>
-//            joining.remove(data1)
-//            userinfoleave.put("joining",joining)
-//            database.child("profile").child(phone).updateChildren(userinfoleave)
-//        }
-//    }
+
+    lateinit var userssite:String
+    fun leaveroomcoustomer(){
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(phone).get().addOnSuccessListener {
+            val userinfoleave=it.value as java.util.HashMap<String,Any>
+
+            val joining =userinfoleave["joining"] as ArrayList<String>
+            joining.remove(data1)
+            userinfoleave.put("joining",joining)
+            database.child("profile").child(phone).updateChildren(userinfoleave)
+
+            val PickupINFO=userinfoleave["PickupINFO"] as HashMap<String,Any>
+            val driversphoneinPickupINFO=PickupINFO[data1] as HashMap<*,*>
+            userssite=driversphoneinPickupINFO["site"].toString()
+            val pickinfoDriversphone=PickupINFO[data1] as HashMap<*,*>
+            pickinfoDriversphone.keys.remove("site")
+            pickinfoDriversphone.keys.remove("time")
+            pickinfoDriversphone.keys.remove("other")
+            database.child("profile").child(phone).child("PickupINFO").updateChildren(PickupINFO)
+        }.continueWith {
+            database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+                val roominfoleave=it.value as java.util.HashMap<String,Any>
+
+                val roommember =roominfoleave["roommember"] as ArrayList<String>
+                roommember.remove(phone)
+                roominfoleave.put("roommember",roommember)
+
+                val sitearray = roominfoleave["sitearray"] as ArrayList<String>
+                sitearray.remove(userssite)
+                roominfoleave.put("sitearray",sitearray)
+                database.child("room").child(data1).child("roomINFO").updateChildren(roominfoleave)
+
+            }
+        }
+    }
+    fun deleteRoomByDriver(){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+            val roominfo=it.value as HashMap<*,*>
+            val roommember=roominfo["roommember"] as ArrayList<String>
+            for (i in roommember.indices) {
+                WhenDriverLeaveDeleteCoustomersINFO(roommember[i])
+            }
+        }.continueWith {
+            database.child("room").get().addOnSuccessListener {
+                val room = it.value as java.util.HashMap<String, Any>
+                val roomowner = room[data1] as HashMap<*, *>
+                roomowner.keys.remove("roomINFO")
+                roomowner.keys.remove("roomRULE")
+                database.child("room").updateChildren(room)
+            }
+        }
+    }
+    fun WhenDriverLeaveDeleteCoustomersINFO(roommembersphone:String) {
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(roommembersphone).get().addOnSuccessListener {
+            val userinfoleave = it.value as java.util.HashMap<String, Any>
+
+            val joining = userinfoleave["joining"] as ArrayList<String>
+            joining.remove(data1)
+            userinfoleave.put("joining", joining)
+            database.child("profile").child(roommembersphone).updateChildren(userinfoleave)
+
+            val PickupINFO = userinfoleave["PickupINFO"] as HashMap<String, Any>
+            val driversphoneinPickupINFO = PickupINFO[data1] as HashMap<*, *>
+            userssite = driversphoneinPickupINFO["site"].toString()
+            val pickinfoDriversphone = PickupINFO[data1] as HashMap<*, *>
+            pickinfoDriversphone.keys.remove("site")
+            pickinfoDriversphone.keys.remove("time")
+            pickinfoDriversphone.keys.remove("other")
+            database.child("profile").child(roommembersphone).child("PickupINFO")
+                .updateChildren(PickupINFO)
+        }
+
+    }
     fun findsitearraysvalue(sitearray:ArrayList<String>){
         var site0=""
         var finsite=""
