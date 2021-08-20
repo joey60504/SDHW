@@ -94,6 +94,7 @@ class room : AppCompatActivity() {
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
+
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 try {
@@ -110,15 +111,22 @@ class room : AppCompatActivity() {
                     roominfo = roomowner["roomINFO"] as HashMap<*, *>
                     val roommember = roominfo["roommember"] as ArrayList<String>
                     selectarraydata(roommember, profilelist)
-                    imageButton16.setOnClickListener {
-                        val sitearray = roominfo["sitearray"] as ArrayList<String>
+                }catch (e:Exception){}
+                imageButton16.setOnClickListener {
+                    try {
+
+                        var sitearray = roominfo["sitearray"] as ArrayList<String>
                         findsitearraysvalue(sitearray)
+
+
+                    } catch (e: Exception) {
+                        val nullsite =ArrayList<String>()
+                        findsitearraysvalue(nullsite)
                     }
 
-                }
-                catch (e:Exception){
+                    }
 
-                }
+
             }
             override fun onCancelled(databaseError: DatabaseError) {
 
@@ -229,6 +237,7 @@ class room : AppCompatActivity() {
                 val url = Uri.parse(
                     "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving&waypoints="+site
                 )
+                Log.d("00000",url.toString())
                 val intent = Intent().apply {
                     action = "android.intent.action.VIEW"
                     data = url
