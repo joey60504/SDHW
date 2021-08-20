@@ -11,13 +11,10 @@ import androidx.fragment.app.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.coustomerINFO
 import com.example.myapplication.databinding.DialogViewBinding
-import com.example.myapplication.room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_driver_department_information2.*
 import java.util.ArrayList
-import kotlin.properties.Delegates
 
 lateinit var auth: FirebaseAuth
 class MyDialog(val phonenumber:String,val data1:HashMap<*,*>): DialogFragment() {

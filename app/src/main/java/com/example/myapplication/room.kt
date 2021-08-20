@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.databinding.ActivityRoomBinding
+import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -129,7 +130,6 @@ class room : AppCompatActivity() {
 
             }
             override fun onCancelled(databaseError: DatabaseError) {
-
             }
         }
         database.addValueEventListener(dataListener)
@@ -143,15 +143,22 @@ class room : AppCompatActivity() {
     fun filldata(roommembersphone:String,imagebtn:ImageButton,textV:TextView,profilelist: HashMap<*,*>){
         val members=profilelist[roommembersphone] as HashMap<*,*>
         textV.text=members["name"].toString()
+        val samList=imagelist[0]
+        val sam=samList.random()
+        val emmaList=imagelist[1]
+        val emma=emmaList.random()
         if(members["gender"]=="male") {
-            val samList=imagelist[0]
-            imagebtn.setImageResource(samList.random())
+            imagebtn.setImageResource(sam)
         }
         else{
-            val emmaList=imagelist[1]
-            imagebtn.setImageResource(emmaList.random())
+            imagebtn.setImageResource(emma)
+        }
+        imagebtn.setOnClickListener {
+            supportFragmentManager.let{ room_dialog3(sam,emma,members).show(it, "room_dialog3") }
         }
     }
+
+
     fun locked_to_nolock(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -327,7 +334,5 @@ class room : AppCompatActivity() {
             database.child("profile").child(roommembersphone).child("PickupINFO")
                 .updateChildren(PickupINFO)
         }
-
     }
-
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/room_dialog3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/dialodbackgroud"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/room_dialog1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:cardCornerRadius="90dp"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/emma1" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="170dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TVusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="serif"
+            android:gravity="center_horizontal"
+            android:text="姓名"
+            android:textAlignment="center"
+            android:textColor="#102C42"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="25dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_chat_blue" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
