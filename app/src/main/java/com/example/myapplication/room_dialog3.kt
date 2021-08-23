@@ -26,7 +26,6 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>): 
         else{
             binding.imageView5.setImageResource(pctfemale)
         }
-
         return binding.root
     }
 }

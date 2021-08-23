@@ -6,17 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.example.myapplication.databinding.FragmentNavTestBinding
 import com.example.myapplication.databinding.FragmentPersoninformationBinding
-import com.example.myapplication.driver_department_information
 import com.example.myapplication.homepage
-import com.example.myapplication.ui.home.HomeFragment
+import com.example.myapplication.modifypersoninformation
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
 
@@ -48,7 +42,10 @@ class personinformation : Fragment() {
             textView71.text=gender
             textView72.text=photo
             textView69.text=email
-            textView74.text=phone
+            textview74.text=phone
+        }
+        _binding!!.imageButton51.setOnClickListener {
+            startActivity(Intent(requireContext(),modifypersoninformation::class.java))
         }
         _binding!!.backPersoninformation.setOnClickListener{
             startActivity(Intent(requireContext(),homepage::class.java))

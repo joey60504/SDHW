@@ -18,10 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".modifypersoninformation"
+            android:exported="true" />
+        <activity
             android:name=".coustomerINFO"
             android:exported="true" />
         <activity
-            android:name="com.example.myapplication.ui.gallery.dialogview3"
+            android:name=".ui.gallery.dialogview3"
             android:exported="true" />
         <activity
             android:name=".ui.test123.Dialogview2"
