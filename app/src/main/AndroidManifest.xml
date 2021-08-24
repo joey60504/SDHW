@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+
         <activity
             android:name=".modifypersoninformation"
             android:exported="true" />
@@ -63,7 +64,9 @@
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity android:name=".choice" />
         <activity android:name=".Verify" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".SplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
