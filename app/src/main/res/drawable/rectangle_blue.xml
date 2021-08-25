@@ -9,7 +9,7 @@
             android:shape="rectangle">
             <!--設定陰影顏色-->
             <solid
-                android:color="#544c35" />
+                android:color="@color/blue" />
             <!--設定圓角的尺寸-->
             <corners
                 android:radius="10dp"/>
@@ -31,7 +31,7 @@
             <!--設定邊框-->
             <stroke
                 android:width="0dp"
-                android:color="#4a402b"/>
+                android:color="@color/blue"/>
             <!--設定內容與邊界的距離-->
             <padding
                 android:top="0dp"

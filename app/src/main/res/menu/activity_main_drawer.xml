@@ -10,11 +10,11 @@
             android:title="@string/home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/key_icon"
+            android:icon="@drawable/ic_myroom"
             android:title="@string/myroom" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/friend_icon"
+            android:icon="@drawable/ic_friends"
             android:title="@string/friend" />
         <item
             android:id="@+id/nav_test"
@@ -22,7 +22,7 @@
             android:title="@string/chat"/>
         <item
             android:id="@+id/test123"
-            android:icon="@drawable/likelist_icon"
+            android:icon="@drawable/ic_likelist"
             android:title="@string/likelist"
             tools:ignore="DuplicateIds" />
         <item

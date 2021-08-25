@@ -85,5 +85,6 @@
     <string name="startpoint">startpoint</string>
     <string name="title_activity_maps" translatable="false">Map</string>
     <string name="textview">TextView</string>
+    <string name="driver">driver</string>
 
 </resources>

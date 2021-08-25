@@ -1,11 +1,13 @@
 package com.example.myapplication
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -335,4 +337,23 @@ class room : AppCompatActivity() {
                 .updateChildren(PickupINFO)
         }
     }
+
+
+
+    val positiveButtonClick={ dialog: DialogInterface, which:Int->
+        Toast.makeText(applicationContext,android.R.string.yes,Toast.LENGTH_SHORT).show()
+    }
+    val negativeButtonClick={dialog:DialogInterface,which:Int->
+        Toast.makeText(applicationContext,android.R.string.no,Toast.LENGTH_SHORT).show()
+    }
+    fun basicAlert(view: View){
+        val builder=AlertDialog.Builder(this)
+        builder.setTitle("警告")
+        builder.setMessage("確定要退出房間嗎?")
+        builder.setPositiveButton("Yes",DialogInterface.OnClickListener(function = positiveButtonClick))
+        builder.setNegativeButton(android.R.string.no,negativeButtonClick)
+        builder.show()
+
+    }
 }
+
