@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="0dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/roominformation"
             android:textAlignment="center"
@@ -40,7 +40,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="0dp"
-                android:fontFamily="serif"
+                android:fontFamily="monospace"
                 android:text="淡水"
                 android:textColor="@color/blue"
                 android:textStyle="bold" />
@@ -59,7 +59,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="100dp"
                 android:layout_marginBottom="0dp"
-                android:fontFamily="serif"
+                android:fontFamily="monospace"
                 android:text="中山"
                 android:textColor="@color/blue"
                 android:textStyle="bold" />
@@ -95,7 +95,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/roomnumber"
             android:textAlignment="center"
@@ -111,7 +111,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="TextView"
             android:textSize="16sp" />
 
@@ -129,7 +129,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/detailinformation"
             android:textAlignment="center"
@@ -194,7 +194,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/other"
             android:textAlignment="center"
@@ -211,7 +211,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="TextView"
             android:textSize="16sp" />
 
@@ -229,7 +229,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/price"
             android:textAlignment="center"
@@ -246,7 +246,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="0"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="TextView"
             android:textSize="16sp" />
 
@@ -265,7 +265,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/set_off_date"
             android:textAlignment="center"
@@ -282,7 +282,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="0"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="TextView"
             android:textSize="16sp" />
     </LinearLayout>
@@ -299,7 +299,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/set_off_time"
             android:textAlignment="center"
@@ -315,7 +315,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="TextView"
             android:textSize="16sp" />
     </LinearLayout>
@@ -333,7 +333,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/nowpeople_limitpeople"
             android:textAlignment="center"
@@ -349,7 +349,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="TextView"
             android:textSize="16sp" />
     </LinearLayout>
@@ -369,7 +369,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/rectangle_brown"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:text="@string/close"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -385,7 +385,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/rectangle_blue"
-            android:fontFamily="serif"
+            android:fontFamily="monospace"
             android:onClick="clickButton"
             android:text="@string/access"
             android:textAllCaps="false"

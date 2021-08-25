@@ -65,4 +65,5 @@
     <string name="roomnumber">roomnumber</string>
     <string name="age">age</string>
     <string name="startpoint">Startpoint</string>
+    <string name="driver">driver</string>
 </resources>

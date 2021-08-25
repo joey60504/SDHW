@@ -65,4 +65,5 @@
     <string name="roomnumber">房間號</string>
     <string name="age">年齡</string>
     <string name="startpoint">起點</string>
+    <string name="driver">駕駛</string>
 </resources>
