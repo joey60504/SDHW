@@ -84,7 +84,7 @@ class driver_department_information2 : AppCompatActivity() {
             database.child("profile").child(phone).child("MyRoom").setValue(phone)
                 .addOnCompleteListener {
                         Toast.makeText(this, "房間建立成功", Toast.LENGTH_LONG).show()
-                        startActivity(Intent(this, choice::class.java))
+                        startActivity(Intent(this, homepage::class.java))
                 }
 
 

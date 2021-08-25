@@ -44,7 +44,7 @@
         </item>
         <item
             android:id="@+id/logoutmenu"
-            android:icon="@drawable/tgos"
+            android:icon="@drawable/door_gray"
             android:title="Logout"
             android:onClick="logoutmethod"
             tools:ignore="DuplicateIds" />

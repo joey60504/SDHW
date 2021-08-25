@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -14,11 +15,9 @@ import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.*
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.databinding.RoomItemBinding
-import com.example.myapplication.driver_department_information
-import com.example.myapplication.roominfo
-import com.example.myapplication.roomrule
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,6 +31,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.coroutines.coroutineContext
 
 
@@ -55,6 +55,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
         savedInstanceState: Bundle?
 
     ): View? {
+        firstlogin()
         dataselect()
 //spinner
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -99,16 +100,23 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             var database = FirebaseDatabase.getInstance().reference
             database.child("profile").child(phone).get().addOnSuccessListener {
                 val user = it.value as HashMap<*, *>
-                var photo = user["photo"].toString()
-                if (photo == "NO") {
-                    Toast.makeText(requireContext(), "無駕照者無法開團", Toast.LENGTH_LONG).show()
-                } else {
-                    startActivity(
-                        Intent(
-                            requireContext(),
-                            driver_department_information::class.java
+                Log.d("myroom",user["MyRoom"].toString())
+                val myroom=user["MyRoom"].toString()
+                if(myroom == "null"){
+                    var photo = user["photo"].toString()
+                    if (photo == "NO") {
+                        Toast.makeText(requireContext(), "無駕照者無法開團", Toast.LENGTH_LONG).show()
+                    } else {
+                        startActivity(
+                            Intent(
+                                requireContext(),
+                                driver_department_information::class.java
+                            )
                         )
-                    )
+                    }
+                }
+                else{
+                    Toast.makeText(requireContext(), "您已擁有房間囉", Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -289,6 +297,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             false
         })
         //roomnumber取值 完
+
         return root
 
     }
@@ -362,6 +371,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     lateinit var profilelist: HashMap<*, *>
     lateinit var roomrule:  HashMap<*,*>
     lateinit var roominfo: HashMap<*, *>
+    lateinit var likelist:ArrayList<String>
 
     fun dataselect() {
         auth = FirebaseAuth.getInstance()
@@ -369,11 +379,11 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val root = dataSnapshot.value as HashMap<*, *>
+                try {
                 dataList = root["room"] as HashMap<*, *>
                 profilelist = root["profile"] as HashMap<*, *>
                 val user = profilelist[auth.currentUser?.phoneNumber.toString()] as HashMap<*, *>
-                var likelist = arrayListOf<String>()
-                try {
+                likelist = arrayListOf<String>()
                     likelist = user["likelist"] as ArrayList<String>
                 } catch (e: Exception) {
 
@@ -501,6 +511,37 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
         activity?.supportFragmentManager?.let { MyDialog(phonenumber.toString(),roommap).show(it, "myDialog") }
     }
     //dialogview完
+    fun firstlogin(){
+        auth = FirebaseAuth.getInstance()
+
+        var database = FirebaseDatabase.getInstance().reference
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var getdata=object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+            override fun onDataChange(p0: DataSnapshot) {
+                val res=p0.value as HashMap<*,*>
+//               Log.d("login",res.toString())
+
+//               Log.d("login",profile.toString())
+                try {
+                    val profile= res["profile"] as HashMap<*,*>
+                    val userphone=profile[phone] as HashMap<*,*>
+                    for(i in userphone.values){
+                        if(i=="" || i==null){
+                            startActivity(Intent(requireContext(), ProfileActivity::class.java))
+                        }
+                    }
+                }
+                catch (e:Exception){
+                    database.child("profile").child(phone).setValue(User())
+                    startActivity(Intent(requireContext(),ProfileActivity::class.java))
+                }
+            }
+        }
+        database.addValueEventListener(getdata)
+    }
 
 
 }

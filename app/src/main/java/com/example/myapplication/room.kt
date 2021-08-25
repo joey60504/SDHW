@@ -340,23 +340,5 @@ class room : AppCompatActivity() {
                 .updateChildren(PickupINFO)
         }
     }
-
-
-
-    val positiveButtonClick={ dialog: DialogInterface, which:Int->
-        Toast.makeText(applicationContext,android.R.string.yes,Toast.LENGTH_SHORT).show()
-    }
-    val negativeButtonClick={dialog:DialogInterface,which:Int->
-        Toast.makeText(applicationContext,android.R.string.no,Toast.LENGTH_SHORT).show()
-    }
-    fun basicAlert(view: View){
-        val builder=AlertDialog.Builder(this)
-        builder.setTitle("警告")
-        builder.setMessage("確定要退出房間嗎?")
-        builder.setPositiveButton("Yes",DialogInterface.OnClickListener(function = positiveButtonClick))
-        builder.setNegativeButton(android.R.string.no,negativeButtonClick)
-        builder.show()
-
-    }
 }
 

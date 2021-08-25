@@ -45,7 +45,7 @@ class Verify : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(this@Verify, choice::class.java))
+                    startActivity(Intent(this@Verify, homepage::class.java))
                     finish()
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {

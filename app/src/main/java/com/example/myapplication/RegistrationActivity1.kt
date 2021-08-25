@@ -42,7 +42,7 @@ class RegistrationActivity1 : AppCompatActivity() {
                 database.child("profile").child(phone).setValue(Users)
                     .addOnCompleteListener {
                         Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, choice::class.java))
+                        startActivity(Intent(this, homepage::class.java))
                     }
             } else {
                 Toast.makeText(this, "欄位不可為空", Toast.LENGTH_SHORT).show()
