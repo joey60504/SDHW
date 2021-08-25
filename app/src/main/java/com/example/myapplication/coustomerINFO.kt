@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityCoustomerInfoBinding
+import com.example.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_coustomer_info.*
 import kotlinx.android.synthetic.main.activity_driver_department_information.*
 import java.util.*
@@ -51,7 +52,16 @@ class coustomerINFO: AppCompatActivity() {
                 Toast.makeText(this, "請先填寫完畢", Toast.LENGTH_LONG).show()
             }
         }
+
     }
+    fun customerinfoclose(p0: View){
+        startActivity(Intent(this,HomeFragment::class.java))
+    }
+
+    fun customerinfoaccess(p0: View){
+        startActivity(Intent(this,room::class.java))
+    }
+
     fun timePicker(v:View){
         val calendar = Calendar.getInstance()
         val hour = calendar[Calendar.HOUR]
@@ -75,8 +85,8 @@ class coustomerINFO: AppCompatActivity() {
         var database = FirebaseDatabase.getInstance().reference
         database.child("room").child(data1).get().addOnSuccessListener {
             try {
-            val roomowner = it.value as java.util.HashMap<String, Any>
-            val roominfo = roomowner["roomINFO"] as java.util.HashMap<String, Any>
+                val roomowner = it.value as java.util.HashMap<String, Any>
+                val roominfo = roomowner["roomINFO"] as java.util.HashMap<String, Any>
                 if (roominfo["sitearray"] != null) {
                     val sitearray = roominfo["sitearray"] as ArrayList<String>
                     sitearray.add(site)

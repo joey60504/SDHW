@@ -125,7 +125,7 @@ class room : AppCompatActivity() {
                         findsitearraysvalue(nullsite)
                     }
 
-                    }
+                }
 
 
             }
@@ -142,22 +142,25 @@ class room : AppCompatActivity() {
     }
     fun filldata(roommembersphone:String,imagebtn:ImageButton,textV:TextView,profilelist: HashMap<*,*>){
         val members=profilelist[roommembersphone] as HashMap<*,*>
+
         textV.text=members["name"].toString()
+
         val samList=imagelist[0]
         val sam=samList.random()
         val emmaList=imagelist[1]
         val emma=emmaList.random()
+
         if(members["gender"]=="male") {
             imagebtn.setImageResource(sam)
         }
         else{
             imagebtn.setImageResource(emma)
         }
+        //val namename=members["name"] as HashMap<*,*>
         imagebtn.setOnClickListener {
-            supportFragmentManager.let{ room_dialog3(sam,emma,members).show(it, "room_dialog3") }
+            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone).show(it, "room_dialog3") }
         }
     }
-
 
     fun locked_to_nolock(){
         auth = FirebaseAuth.getInstance()

@@ -42,5 +42,11 @@
                 </group>
             </menu>
         </item>
+        <item
+            android:id="@+id/logoutmenu"
+            android:icon="@drawable/tgos"
+            android:title="Logout"
+            android:onClick="logoutmethod"
+            tools:ignore="DuplicateIds" />
     </group>
 </menu>

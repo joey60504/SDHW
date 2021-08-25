@@ -31,11 +31,11 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
         _binding = FragmentNavTestBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding!!.backChat.setOnClickListener{
+        binding!!.backChat.setOnClickListener {
             startActivity(Intent(requireContext(), homepage::class.java))
         }
 
-        binding!!.addMessage.setOnClickListener{
+        binding!!.addMessage.setOnClickListener {
             startActivity(Intent(requireContext(), newmessage::class.java))
         }
 
@@ -43,9 +43,8 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
         return root
 
     }
+
     lateinit var dataList:HashMap<*,*>
-    lateinit var friendlist:HashMap<*,*>
-    lateinit var friendname:List<Pair<*,*>>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -55,27 +54,24 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
                 val profile=root["profile"] as HashMap<*,*>
                 val phone=profile[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
                 val username=phone["name"].toString()
-
                 dataList=root["latest-message"] as HashMap<*,*>
                 try {
-                    friendlist = dataList[username] as HashMap<*,*>
+                    val friendlist = dataList[username] as HashMap<*,*>
+                    activity?.runOnUiThread {
+                        binding.recycler3.apply {
+                            val myAdapter = chatAdapter(this@nav_test)
+                            adapter = myAdapter
+                            val manager = LinearLayoutManager(requireContext())
+                            manager.orientation = LinearLayoutManager.VERTICAL
+                            layoutManager = manager
+                            myAdapter.dataList = friendlist!!
+                            myAdapter.root = root
+                        }
+                    }
                 }
                 catch (e:Exception){
 
                 }
-                //recycler
-                activity?.runOnUiThread {
-                    binding.recycler3.apply {
-                        val myAdapter = chatAdapter(this@nav_test)
-                        adapter = myAdapter
-                        val manager = LinearLayoutManager(requireContext())
-                        manager.orientation = LinearLayoutManager.VERTICAL
-                        layoutManager = manager
-                        myAdapter.dataList = friendlist
-                        myAdapter.root = root
-                    }
-                }
-                //recyler完
             }
             override fun onCancelled(databaseError: DatabaseError) {
 
