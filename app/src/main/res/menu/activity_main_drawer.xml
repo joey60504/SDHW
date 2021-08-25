@@ -45,7 +45,7 @@
         <item
             android:id="@+id/logoutmenu"
             android:icon="@drawable/door_gray"
-            android:title="Logout"
+            android:title="登出"
             android:onClick="logoutmethod"
             tools:ignore="DuplicateIds" />
     </group>
