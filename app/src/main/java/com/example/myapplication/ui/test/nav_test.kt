@@ -79,8 +79,6 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
         }
         database.addValueEventListener(dataListener)
     }
-
-
     override fun onItemClick(position: Int) {
 
     }

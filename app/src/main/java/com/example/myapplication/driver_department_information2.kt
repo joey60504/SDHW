@@ -89,6 +89,9 @@ class driver_department_information2 : AppCompatActivity() {
 
 
         }
+        imageView10.setOnClickListener{
+            startActivity(Intent(this,driver_department_information::class.java))
+        }
     }
     fun iconselect(){
         when(gender){

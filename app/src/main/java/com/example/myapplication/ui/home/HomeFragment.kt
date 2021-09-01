@@ -39,7 +39,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    lateinit var dataList: HashMap<*, *>
+    lateinit var dataList: HashMap<*,*>
     private var currPet: String = " "
     private var currChild: String = " "
     private var currSmoke: String = " "
@@ -56,7 +56,11 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
 
     ): View? {
         firstlogin()
-        dataselect()
+        try {
+            dataselect()
+        }
+        catch(e:Exception){
+        }
 //spinner
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -371,7 +375,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     lateinit var profilelist: HashMap<*, *>
     lateinit var roomrule:  HashMap<*,*>
     lateinit var roominfo: HashMap<*, *>
-    lateinit var likelist:ArrayList<String>
+    var likelist= arrayListOf<String>()
 
     fun dataselect() {
         auth = FirebaseAuth.getInstance()
@@ -495,7 +499,8 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
                 }
                 //recyler完
                 roomList = dataList.toList()
-            }
+                }
+
 
             override fun onCancelled(databaseError: DatabaseError) {
 
@@ -521,10 +526,7 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
 
             }
             override fun onDataChange(p0: DataSnapshot) {
-                val res=p0.value as HashMap<*,*>
-//               Log.d("login",res.toString())
-
-//               Log.d("login",profile.toString())
+                val res=p0.value as java.util.HashMap<*,*>
                 try {
                     val profile= res["profile"] as HashMap<*,*>
                     val userphone=profile[phone] as HashMap<*,*>
