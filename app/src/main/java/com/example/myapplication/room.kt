@@ -24,17 +24,16 @@ import java.lang.Exception
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
-var data1:String=" "
 lateinit var textviewlist:List<TextView>
 lateinit var imagebtnlist:List<ImageButton>
 
 class room : AppCompatActivity() {
+    var data1:String=" "
     lateinit var binding:ActivityRoomBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         textviewlist= listOf(binding.textView13,binding.textView15,binding.textView16,binding.textView17,binding.textView18,binding.textView33,binding.textView31)
         imagebtnlist= listOf(binding.imageButton7,binding.imageButton9,binding.imageButton12,binding.imageButton13,binding.imageButton14,binding.imageButton3,binding.imageButton4)
         data1 = intent.getStringExtra("Data").toString()
@@ -84,6 +83,9 @@ class room : AppCompatActivity() {
         }
         binding.imageButton5.setOnClickListener {
             startActivity(Intent(this@room,homepage::class.java))
+        }
+        binding.imageButton16.setOnClickListener {
+            startActivity(Intent(this@room,mapchoice::class.java))
         }
     }
     val imagelist= listOf<List<Int>>(
@@ -163,7 +165,7 @@ class room : AppCompatActivity() {
         }
         //val namename=members["name"] as HashMap<*,*>
         imagebtn.setOnClickListener {
-            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone).show(it, "room_dialog3") }
+            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone,data1).show(it, "room_dialog3") }
         }
     }
 

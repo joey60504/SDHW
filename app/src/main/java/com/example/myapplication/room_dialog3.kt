@@ -14,9 +14,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.lang.Exception
 
-class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,val roomp:String): DialogFragment() {
-
+class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,val roomp:String,val driversphone:String): DialogFragment() {
     var chatuser: User? = null
 
     lateinit var auth: FirebaseAuth
@@ -27,6 +27,7 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = RoomDialog3Binding.inflate(layoutInflater)
         val ref = FirebaseDatabase.getInstance().getReference("/profile/$roomp")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
@@ -47,19 +48,30 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
             override fun onCancelled(error: DatabaseError) {
             }
         })
-
-        binding= RoomDialog3Binding.inflate(layoutInflater)
-
-        binding.TVusername.text=members["name"].toString()
-
-
-
-
-        if(members["gender"]=="male") {
-            binding.imageView5.setImageResource(pctmale)
+        if(roomp==driversphone){
+            binding.TVusername.text=members["name"].toString()
+            if (members["gender"] == "male") {
+                binding.imageView5.setImageResource(pctmale)
+            } else {
+                binding.imageView5.setImageResource(pctfemale)
+            }
         }
-        else{
-            binding.imageView5.setImageResource(pctfemale)
+        else {
+            binding.TVusername.text = members["name"].toString()
+            try {
+                val pickupinfo = members["PickupINFO"] as HashMap<*, *>
+                val pickupinfodriversphone = pickupinfo[driversphone] as HashMap<*, *>
+                val time = pickupinfodriversphone["time"].toString()
+                val other = pickupinfodriversphone["other"].toString()
+                binding.textView45.text = "希望上車時間 :$time"
+                binding.textView46.text = "備註 :$other"
+            }
+            catch(e:Exception){}
+            if (members["gender"] == "male") {
+                binding.imageView5.setImageResource(pctmale)
+            } else {
+                binding.imageView5.setImageResource(pctfemale)
+            }
         }
 
         return binding.root
