@@ -106,8 +106,8 @@
 
         <TextView
             android:id="@+id/textView64"
-            android:layout_width="164dp"
-            android:layout_height="46dp"
+            android:layout_width="196dp"
+            android:layout_height="43dp"
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="@string/name"
