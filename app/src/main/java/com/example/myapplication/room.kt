@@ -85,6 +85,11 @@ class room : AppCompatActivity() {
         binding.imageButton5.setOnClickListener {
             startActivity(Intent(this@room,homepage::class.java))
         }
+        binding.imageButton16.setOnClickListener {
+            Intent(this@room,mapchoice::class.java).apply {
+                startActivity(this)
+            }
+        }
     }
     val imagelist= listOf<List<Int>>(
         listOf(R.drawable.sam1,R.drawable.sam2,R.drawable.sam3,R.drawable.sam4),
@@ -97,11 +102,9 @@ class room : AppCompatActivity() {
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
-
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 try {
-
                     val root = dataSnapshot.value as HashMap<*, *>
                     profilelist = root["profile"] as HashMap<*, *>
                     val driver = profilelist[data1] as HashMap<*, *>
@@ -115,21 +118,16 @@ class room : AppCompatActivity() {
                     val roommember = roominfo["roommember"] as ArrayList<String>
                     selectarraydata(roommember, profilelist)
                 }catch (e:Exception){}
-                imageButton16.setOnClickListener {
-                    try {
-
-                        var sitearray = roominfo["sitearray"] as ArrayList<String>
-                        findsitearraysvalue(sitearray)
-
-
-                    } catch (e: Exception) {
-                        val nullsite =ArrayList<String>()
-                        findsitearraysvalue(nullsite)
-                    }
-
-                }
-
-
+//                imageButton16.setOnClickListener {
+//                    try {
+//                        var sitearray = roominfo["sitearray"] as ArrayList<String>
+//                        findsitearraysvalue(sitearray)
+//                    }
+//                    catch (e:Exception){
+//                        val nullsite =ArrayList<String>()
+//                        findsitearraysvalue(nullsite)
+//                    }
+//                }
             }
             override fun onCancelled(databaseError: DatabaseError) {
             }
@@ -160,7 +158,21 @@ class room : AppCompatActivity() {
         }
         //val namename=members["name"] as HashMap<*,*>
         imagebtn.setOnClickListener {
-            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone).show(it, "room_dialog3") }
+            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone,data1).show(it, "room_dialog3") }
+        }
+        val driversphone=profilelist[data1] as HashMap<*,*>
+        val driversname=driversphone["name"].toString()
+        if(driversphone["gender"]=="male"){
+            binding.imageButton7.setImageResource(sam)
+            binding.imageButton7.setOnClickListener {
+                supportFragmentManager.let{ room_dialog3ForD(sam,driversname).show(it, "room_dialog3ForD") }
+            }
+        }
+        else{
+            binding.imageButton7.setImageResource(emma)
+            binding.imageButton7.setOnClickListener {
+                supportFragmentManager.let{ room_dialog3ForD(emma,driversname).show(it, "room_dialog3ForD") }
+            }
         }
     }
 

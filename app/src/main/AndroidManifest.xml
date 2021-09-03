@@ -17,7 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-
+        <activity
+            android:name=".mapchoiceForC"
+            android:exported="true" />
+        <activity
+            android:name=".mapchoice"
+            android:exported="true" />
+        <activity
+            android:name=".room_dialog3ForD"
+            android:exported="true" />
         <activity
             android:name=".modifypersoninformation"
             android:exported="true" />
@@ -55,18 +63,17 @@
         <activity android:name=".driver_department_information2" />
         <activity android:name=".driver_department_information" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".room_lock" />
         <activity android:name=".room" />
         <activity android:name=".RegistrationActivity1" />
         <activity
             android:name=".homepage"
             android:label="@string/title_activity_homepage"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
-        <activity android:name=".choice" />
         <activity android:name=".Verify" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SplashScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

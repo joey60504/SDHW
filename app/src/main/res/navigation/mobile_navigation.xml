@@ -49,7 +49,7 @@
         tools:layout="@layout/fragment_personinformation" />
     <fragment
         android:id="@+id/TGOSMDFK"
-        android:name="com.example.myapplication.ui.TGOSMDFK.TGOSMDFK"
-        android:label="fragment_t_g_o_s_m_d_f_k"
-        tools:layout="@layout/fragment_t_g_o_s_m_d_f_k" />
+        android:name="com.example.myapplication.ui.TGOS.TGOS"
+        android:label="fragment_t_g_o_s"
+        tools:layout="@layout/fragment_t_g_o_s" />
 </navigation>

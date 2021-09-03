@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,val roomp:String): DialogFragment() {
+class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,val roomp:String,driversphone:String): DialogFragment() {
 
     var chatuser: User? = null
 
@@ -51,10 +51,12 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
         binding= RoomDialog3Binding.inflate(layoutInflater)
 
         binding.TVusername.text=members["name"].toString()
-
-
-
-
+        val pickupinfo=members["PickupINFO"] as HashMap<*,*>
+        val pickupinfodriversphone=pickupinfo[data1] as HashMap<*,*>
+        val time=pickupinfodriversphone["time"].toString()
+        val other=pickupinfodriversphone["other"].toString()
+        binding.textView45.text="希望上車時間 :$time"
+        binding.textView46.text="備註 :$other"
         if(members["gender"]=="male") {
             binding.imageView5.setImageResource(pctmale)
         }
