@@ -35,8 +35,8 @@ class room : AppCompatActivity() {
         binding= ActivityRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        textviewlist= listOf(binding.textView15,binding.textView16,binding.textView17,binding.textView18,binding.textView33,binding.textView31)
-        imagebtnlist= listOf(binding.imageButton9,binding.imageButton12,binding.imageButton13,binding.imageButton14,binding.imageButton3,binding.imageButton4)
+        textviewlist= listOf(binding.textView13,binding.textView15,binding.textView16,binding.textView17,binding.textView18,binding.textView33,binding.textView31)
+        imagebtnlist= listOf(binding.imageButton7,binding.imageButton9,binding.imageButton12,binding.imageButton13,binding.imageButton14,binding.imageButton3,binding.imageButton4)
         data1 = intent.getStringExtra("Data").toString()
         dataselect()
         whenenterroom()
@@ -113,21 +113,24 @@ class room : AppCompatActivity() {
                     val roomowner = roomlist[data1] as HashMap<*, *>
                     roominfo = roomowner["roomINFO"] as HashMap<*, *>
                     val roommember = roominfo["roommember"] as ArrayList<String>
+                    roommember.add(0,data1)
                     selectarraydata(roommember, profilelist)
-                }catch (e:Exception){}
-                imageButton16.setOnClickListener {
-                    try {
-
-                        var sitearray = roominfo["sitearray"] as ArrayList<String>
-                        findsitearraysvalue(sitearray)
-
-
-                    } catch (e: Exception) {
-                        val nullsite =ArrayList<String>()
-                        findsitearraysvalue(nullsite)
-                    }
+                }catch (e:Exception){
 
                 }
+//                imageButton16.setOnClickListener {
+//                    try {
+//
+//                        var sitearray = roominfo["sitearray"] as ArrayList<String>
+//                        findsitearraysvalue(sitearray)
+//
+//
+//                    } catch (e: Exception) {
+//                        val nullsite =ArrayList<String>()
+//                        findsitearraysvalue(nullsite)
+//                    }
+//
+//                }
 
 
             }
