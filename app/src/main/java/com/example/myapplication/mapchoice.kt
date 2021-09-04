@@ -1,8 +1,11 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -12,13 +15,19 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.core.SyncEngine
 import kotlinx.android.synthetic.main.activity_mapchoice.*
 
-class mapchoice : AppCompatActivity(),siteadapter.OnItemClick {
+class mapchoice: AppCompatActivity(),siteadapter.OnItemClick{
+    var data1:String=" "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mapchoice)
+        data1 = intent.getStringExtra("Data").toString()
         dataselect()
         button9.setOnClickListener{
             entermap()
+            Toast.makeText(this@mapchoice,"已決定載客順位", Toast.LENGTH_SHORT).show()
+        }
+        button11.setOnClickListener {
+            datasel()
         }
     }
 
@@ -35,40 +44,45 @@ class mapchoice : AppCompatActivity(),siteadapter.OnItemClick {
                 val roomlist = root["room"] as HashMap<*, *>
                 val roomowner = roomlist[phone] as HashMap<*, *>
                 val roominfo = roomowner["roomINFO"] as HashMap<*, *>
-                val roommember = roominfo["roommember"] as ArrayList<String>
-                val sitearray = roominfo["sitearray"] as ArrayList<HashMap<String,Any>>
-                for((i,e) in sitearray.withIndex()) {
-                    e.put("index",i)
-                }
-                runOnUiThread {
-                    siterecycler1.apply {
-                        val myAdapter = siteadapter(this@mapchoice)
-                        adapter = myAdapter
-                        val manager = LinearLayoutManager(this@mapchoice)
-                        manager.orientation = LinearLayoutManager.VERTICAL
-                        layoutManager = manager
-                        myAdapter.sitearrayList = sitearray.filter {
-                            it["pick"] == false
-                        }
-                        myAdapter.profilelist = profilelist
-                        myAdapter.driversphone = phone
-                        myAdapter.roommemberList = roommember
+                try {
+                    val roommember = roominfo["roommember"] as ArrayList<String>
+                    val sitearray = roominfo["sitearray"] as ArrayList<HashMap<String, Any>>
+                    for ((i, e) in sitearray.withIndex()) {
+                        e.put("index", i)
                     }
-                    siterecycler2.apply {
-                        val myAdapter = siteadapter(this@mapchoice)
-                        adapter = myAdapter
-                        val manager = LinearLayoutManager(this@mapchoice)
-                        manager.orientation = LinearLayoutManager.VERTICAL
-                        layoutManager = manager
-                        myAdapter.sitearrayList = sitearray.filter {
-                            it["pick"] == true
-                        }.sortedBy {
-                            it["order"] as Long
+                    runOnUiThread {
+                        siterecycler1.apply {
+                            val myAdapter = siteadapter(this@mapchoice)
+                            adapter = myAdapter
+                            val manager = LinearLayoutManager(this@mapchoice)
+                            manager.orientation = LinearLayoutManager.VERTICAL
+                            layoutManager = manager
+                            myAdapter.sitearrayList = sitearray.filter {
+                                it["pick"] == false
+                            }
+                            myAdapter.profilelist = profilelist
+                            myAdapter.driversphone = phone
+                            myAdapter.roommemberList = roommember
                         }
-                        myAdapter.profilelist = profilelist
-                        myAdapter.driversphone = phone
-                        myAdapter.roommemberList = roommember
+                        siterecycler2.apply {
+                            val myAdapter = siteadapter(this@mapchoice)
+                            adapter = myAdapter
+                            val manager = LinearLayoutManager(this@mapchoice)
+                            manager.orientation = LinearLayoutManager.VERTICAL
+                            layoutManager = manager
+                            myAdapter.sitearrayList = sitearray.filter {
+                                it["pick"] == true
+                            }.sortedBy {
+                                it["order"] as Long
+                            }
+                            myAdapter.profilelist = profilelist
+                            myAdapter.driversphone = phone
+                            myAdapter.roommemberList = roommember
+                        }
                     }
+                }catch (e:Exception){
+                    Toast.makeText(this@mapchoice,"目前無乘客", Toast.LENGTH_LONG).show()
+                    entergooglemap("")
                 }
             }
 
@@ -137,4 +151,60 @@ class mapchoice : AppCompatActivity(),siteadapter.OnItemClick {
 //            }
         }
     }
+
+    fun findsitearraysvalue(sitearray: java.util.ArrayList<String>){
+        var site0=""
+        var finsite=""
+        for (i in sitearray.indices) {
+
+            Log.d("77777",sitearray[i]+"%7C")
+
+            var site=sitearray[i]+"%7c"
+            Log.d("000", site)
+            site0+=site
+        }
+        finsite=site0
+        entergooglemap(finsite)
+    }
+    lateinit var profilelist:HashMap<*,*>
+    lateinit var roominfo:HashMap<*,*>
+    lateinit var roomlist:HashMap<*,*>
+    fun datasel() {
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+
+        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+            val roominfo=it.value as HashMap<*,*>
+            try {
+                var site = roominfo["truesitearrayList"] as ArrayList<String>
+                findsitearraysvalue(site)
+            } catch (e: Exception) {
+                Toast.makeText(this@mapchoice, "尚未確定載客順序", Toast.LENGTH_SHORT).show()
+                val nullsite = ArrayList<String>()
+                findsitearraysvalue(nullsite)
+            }
+
+        }
+    }
+
+    fun entergooglemap(site: String){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+            val roominfo = it.value as HashMap<*, *>
+            val ownerstartpoint = roominfo["startpoint"].toString()
+            val ownerendpoint = roominfo["endpoint1"].toString()
+            val url = Uri.parse(
+                "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving&waypoints="+site
+            )
+            Log.d("00000",url.toString())
+            val intent = Intent().apply {
+                action = "android.intent.action.VIEW"
+                data = url
+            }
+            startActivity(intent)
+        }
+    }
+
+
 }

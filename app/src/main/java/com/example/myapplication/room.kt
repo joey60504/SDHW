@@ -87,7 +87,10 @@ class room : AppCompatActivity() {
         binding.imageButton16.setOnClickListener {
             var phone = auth.currentUser?.phoneNumber.toString()
             if(data1==phone) {
-                startActivity(Intent(this@room, mapchoice::class.java))
+                Intent(this, mapchoice::class.java).apply {
+                    putExtra("Data", data1)
+                    startActivity(this)
+                }
             }
             else{
                 Intent(this, mapchoiceForC::class.java).apply {
@@ -234,46 +237,7 @@ class room : AppCompatActivity() {
             Log.d("777", "123")
         }
     }
-    fun findsitearraysvalue(sitearray:ArrayList<String>){
-        var site0=""
-        var finsite=""
-        for (i in sitearray.indices) {
 
-            Log.d("77777",sitearray[i]+"%7C")
-
-            var site=sitearray[i]+"%7c"
-            Log.d("000", site)
-            site0+=site
-        }
-        finsite=site0
-        entergooglemap(finsite)
-    }
-    fun entergooglemap(site: String){
-        auth = FirebaseAuth.getInstance()
-        var database = FirebaseDatabase.getInstance().reference
-        val dataListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val root = dataSnapshot.value as HashMap<*, *>
-                val room = root["room"] as HashMap<*, *>
-                val roomowner=room[data1] as HashMap<*,*>
-                roominfo = roomowner["roomINFO"] as HashMap<*, *>
-                val ownerstartpoint = roominfo["startpoint"].toString()
-                val ownerendpoint = roominfo["endpoint1"].toString()
-                val url = Uri.parse(
-                    "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving&waypoints="+site
-                )
-                Log.d("00000",url.toString())
-                val intent = Intent().apply {
-                    action = "android.intent.action.VIEW"
-                    data = url
-                }
-                startActivity(intent)
-            }
-            override fun onCancelled(databaseError: DatabaseError) {
-            }
-        }
-        database.addValueEventListener(dataListener)
-    }
 
     lateinit var userssite:String
     fun leaveroomcoustomer(){

@@ -1,8 +1,11 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -20,6 +23,9 @@ class mapchoiceForC : AppCompatActivity(),siteadapter.OnItemClick {
         setContentView(R.layout.activity_mapchoice_for_c)
         data1 = intent.getStringExtra("Data").toString()
         dataselect()
+        button2.setOnClickListener {
+            datasel()
+        }
     }
     fun dataselect() {
         auth = FirebaseAuth.getInstance()
@@ -52,7 +58,7 @@ class mapchoiceForC : AppCompatActivity(),siteadapter.OnItemClick {
                             it["order"] as Long
                         }
                         myAdapter.profilelist = profilelist
-                        myAdapter.driversphone = phone
+                        myAdapter.driversphone = data1
                         myAdapter.roommemberList = roommember
                     }
                 }
@@ -66,5 +72,60 @@ class mapchoiceForC : AppCompatActivity(),siteadapter.OnItemClick {
     }
     override fun onItemClick(position: Int, recyclerposition: Int, pick: Boolean) {
 
+    }
+    fun findsitearraysvalue(sitearray: java.util.ArrayList<String>){
+        var site0=""
+        var finsite=""
+        for (i in sitearray.indices) {
+
+            Log.d("77777",sitearray[i]+"%7C")
+
+            var site=sitearray[i]+"%7c"
+            Log.d("000", site)
+            site0+=site
+        }
+        finsite=site0
+        entergooglemap(finsite)
+    }
+    lateinit var profilelist:HashMap<*,*>
+    lateinit var roominfo:HashMap<*,*>
+    lateinit var roomlist:HashMap<*,*>
+    fun datasel() {
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+
+        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+            val roominfo=it.value as HashMap<*,*>
+            try {
+                var site = roominfo["truesitearrayList"] as ArrayList<String>
+                findsitearraysvalue(site)
+                if(roominfo["truesitearrayList"]==null){
+                    Toast.makeText(this@mapchoiceForC, "尚未確定載客順序", Toast.LENGTH_SHORT).show()
+                    val nullsite = ArrayList<String>()
+                    findsitearraysvalue(nullsite)
+                }
+            } catch (e: Exception) {
+            }
+
+        }
+    }
+
+    fun entergooglemap(site: String){
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+            val roominfo = it.value as HashMap<*, *>
+            val ownerstartpoint = roominfo["startpoint"].toString()
+            val ownerendpoint = roominfo["endpoint1"].toString()
+            val url = Uri.parse(
+                "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving&waypoints="+site
+            )
+            Log.d("00000",url.toString())
+            val intent = Intent().apply {
+                action = "android.intent.action.VIEW"
+                data = url
+            }
+            startActivity(intent)
+        }
     }
 }
