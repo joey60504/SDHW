@@ -1,21 +1,32 @@
 package com.example.myapplication
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
-import com.example.myapplication.databinding.RoomItemBinding
 import com.example.myapplication.databinding.SiteItemBinding
-import com.example.myapplication.roominfo
-import com.example.myapplication.ui.home.RoomAdapter
-import java.lang.Exception
+import kotlin.properties.Delegates
 
 
 class siteadapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<siteadapter.ViewHolder>() {
-
-    lateinit var roommemberList:ArrayList<String>
+    var sitearrayList= emptyList<HashMap<*,*>>()
+        set(value) {
+            field=value
+            notifyDataSetChanged()
+        }
+        get() {
+            return field
+        }
+    var roommemberList= emptyList<String>()
+        set(value) {
+            field=value
+            notifyDataSetChanged()
+        }
     lateinit var profilelist:HashMap<*,*>
+    var driversphone=""
+        set(value) {
+            field=value
+            notifyDataSetChanged()
+        }
     private lateinit var binding: SiteItemBinding
     class ViewHolder(val view:SiteItemBinding):RecyclerView.ViewHolder(view.root)
 
@@ -23,26 +34,30 @@ class siteadapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<s
         binding= SiteItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val roommembersphone=roommemberList[position]
+        holder.view.cardviewsite.setOnClickListener {
+            itemListener.onItemClick(sitearrayList[position].get("index").toString().toInt(),position,sitearrayList[position].get("pick").toString().toBoolean())
+        }
+        val roommembersphone=roommemberList[sitearrayList[position].get("index").toString().toInt()]
         val member=profilelist[roommembersphone] as HashMap<*,*>
         val name=member["name"].toString()
         val pickupinfo=member["PickupINFO"] as HashMap<*,*>
-        val site=pickupinfo["site"].toString()
-        val time=pickupinfo["time"].toString()
+        val roompickupinfo=pickupinfo[driversphone] as HashMap<*,*>
+        val site=roompickupinfo["site"].toString()
+        val time=roompickupinfo["time"].toString()
         holder.view.textViewname.text=name
         holder.view.textView42.text=time
         holder.view.textView43.text=site
 
-
     }
 
     override fun getItemCount(): Int {
-        return roommemberList.size
+        return sitearrayList.size
     }
 
+
+
     interface OnItemClick{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int,recyclerposition:Int,pick:Boolean)
     }
 }

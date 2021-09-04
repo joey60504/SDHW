@@ -29,9 +29,9 @@ class roomrule(
 ){}
 
 class pickupinformation(
-   val site:String?="",
-   val time:String?="",
-   val other:String?=""
+    val site:String?="",
+    val time:String?="",
+    val other:String?=""
 ){}
 class usermod(
     val name: String,
