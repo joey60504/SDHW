@@ -32,7 +32,7 @@ class mapchoiceForC : AppCompatActivity(),siteadapter.OnItemClick {
                 val profilelist = root["profile"] as HashMap<*, *>
 
                 val roomlist = root["room"] as HashMap<*, *>
-                val roomowner = roomlist[phone] as HashMap<*, *>
+                val roomowner = roomlist[data1] as HashMap<*, *>
                 val roominfo = roomowner["roomINFO"] as HashMap<*, *>
                 val roommember = roominfo["roommember"] as ArrayList<String>
                 val sitearray = roominfo["sitearray"] as ArrayList<HashMap<String,Any>>
