@@ -16,6 +16,7 @@ import com.example.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_coustomer_info.*
 import kotlinx.android.synthetic.main.activity_driver_department_information.*
 import java.util.*
+import kotlin.collections.HashMap
 
 class coustomerINFO: AppCompatActivity() {
     private var _binding: ActivityCoustomerInfoBinding?=null
@@ -83,19 +84,20 @@ class coustomerINFO: AppCompatActivity() {
     fun addsitetoroominfo(site:String,data1:String){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
+        val sitearrayinformation = sitearrayinformation(site,false).to_dict()
         database.child("room").child(data1).get().addOnSuccessListener {
             try {
                 val roomowner = it.value as java.util.HashMap<String, Any>
                 val roominfo = roomowner["roomINFO"] as java.util.HashMap<String, Any>
                 if (roominfo["sitearray"] != null) {
-                    val sitearray = roominfo["sitearray"] as ArrayList<String>
-                    sitearray.add(site)
+                    val sitearray = roominfo["sitearray"] as ArrayList<Map<String,*>>
+                    sitearray.add(sitearrayinformation)
                     roominfo.put("sitearray", sitearray)
                     database.child("room").child(data1).child("roomINFO")
                         .updateChildren(roominfo)
                 }
                 else {
-                    roominfo.put("sitearray", arrayListOf<String>(site))
+                    roominfo.put("sitearray", arrayListOf<Map<String,*>>(sitearrayinformation))
                     database.child("room").child(data1).child("roomINFO").updateChildren(roominfo)
                 }
             }

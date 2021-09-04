@@ -81,26 +81,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle3"
-            android:fontFamily="monospace"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="進入導航"
-            android:textColor="@color/底色"
-            android:textSize="16sp" />
-
-    </LinearLayout>
+        android:orientation="horizontal"/>
 
     <LinearLayout
         android:layout_width="match_parent"

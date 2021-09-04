@@ -37,3 +37,13 @@ class usermod(
     val name: String,
     val email:String?=""
 ){}
+
+class sitearrayinformation(
+    val site:String?="",
+    val boolean: Boolean
+){
+    fun to_dict(): Map<String,*> {
+        return mapOf("location" to site,"pick" to boolean)
+
+    }
+}

@@ -85,7 +85,16 @@ class room : AppCompatActivity() {
             startActivity(Intent(this@room,homepage::class.java))
         }
         binding.imageButton16.setOnClickListener {
-            startActivity(Intent(this@room,mapchoice::class.java))
+            var phone = auth.currentUser?.phoneNumber.toString()
+            if(data1==phone) {
+                startActivity(Intent(this@room, mapchoice::class.java))
+            }
+            else{
+                Intent(this, mapchoiceForC::class.java).apply {
+                    putExtra("Data", data1)
+                    startActivity(this)
+                }
+            }
         }
     }
     val imagelist= listOf<List<Int>>(
@@ -103,7 +112,6 @@ class room : AppCompatActivity() {
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 try {
-
                     val root = dataSnapshot.value as HashMap<*, *>
                     profilelist = root["profile"] as HashMap<*, *>
                     val driver = profilelist[data1] as HashMap<*, *>

@@ -41,9 +41,6 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() 
         binding.close.setOnClickListener {
             dismiss()
         }
-        binding.button8.setOnClickListener{
-            entergooglemap()
-        }
 
 //      進入按鈕
         binding.access.setOnClickListener {
@@ -144,31 +141,31 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() 
 
         }
     }
-    fun entergooglemap(){
-        auth = FirebaseAuth.getInstance()
-        var database = FirebaseDatabase.getInstance().reference
-        val dataListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val root = dataSnapshot.value as HashMap<*, *>
-                val room = root["room"] as HashMap<*, *>
-                val roomowner=room[data1] as HashMap<*,*>
-                val roominfo = roomowner["roomINFO"] as HashMap<*, *>
-                val ownerstartpoint = roominfo["startpoint"].toString()
-                val ownerendpoint = roominfo["endpoint1"].toString()
-                val url = Uri.parse(
-                    "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving"
-                )
-                val intent = Intent().apply {
-                    action = "android.intent.action.VIEW"
-                    data = url
-                }
-                startActivity(intent)
-            }
-            override fun onCancelled(databaseError: DatabaseError) {
-            }
-        }
-        database.addValueEventListener(dataListener)
-    }
+//    fun entergooglemap(){
+//        auth = FirebaseAuth.getInstance()
+//        var database = FirebaseDatabase.getInstance().reference
+//        val dataListener = object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                val root = dataSnapshot.value as HashMap<*, *>
+//                val room = root["room"] as HashMap<*, *>
+//                val roomowner=room[data1] as HashMap<*,*>
+//                val roominfo = roomowner["roomINFO"] as HashMap<*, *>
+//                val ownerstartpoint = roominfo["startpoint"].toString()
+//                val ownerendpoint = roominfo["endpoint1"].toString()
+//                val url = Uri.parse(
+//                    "https://www.google.com/maps/dir/?api=1&origin=" + ownerstartpoint + "&destination=" + ownerendpoint + "&travelmode=driving"
+//                )
+//                val intent = Intent().apply {
+//                    action = "android.intent.action.VIEW"
+//                    data = url
+//                }
+//                startActivity(intent)
+//            }
+//            override fun onCancelled(databaseError: DatabaseError) {
+//            }
+//        }
+//        database.addValueEventListener(dataListener)
+//    }
 
     fun nextpage(){
         Intent(requireContext(), room::class.java).apply {
