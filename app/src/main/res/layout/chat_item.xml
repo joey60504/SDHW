@@ -4,64 +4,71 @@
     android:id="@+id/cardview2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:layout_margin="5dp"
-    android:background="?attr/selectableItemBackground"
+    android:background="@drawable/ovalby"
     android:clickable="true"
     android:focusable="true"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:background="@drawable/rectangle_brown"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/ovalby"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="30dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="0dp"
             android:layout_weight="1"
+            android:background="@color/blue"
             android:paddingVertical="5dp"
+            android:radius="100dp"
             app:srcCompat="@drawable/emma1" />
 
         <LinearLayout
             android:layout_width="205dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/blue"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView30"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:background="@color/blue"
                 android:gravity="center|left"
                 android:text="TextView"
+                android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="@drawable/ovalgreen"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
                 <LinearLayout
                     android:layout_width="184dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@color/blue"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView37"
-                        android:layout_width="match_parent"
+                        android:layout_width="210dp"
                         android:layout_height="37dp"
-                        android:background="@drawable/ovalgreen"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/rectangle3"
                         android:gravity="center|left"
                         android:text="TextView"
                         android:textSize="20sp" />

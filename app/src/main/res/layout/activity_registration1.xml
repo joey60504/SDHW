@@ -18,11 +18,12 @@
         android:textColor="@color/blue"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/firstnameInput"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021" />
 
     <EditText
         android:id="@+id/firstnameInput"
@@ -116,7 +117,7 @@
         android:id="@+id/button3"
         android:layout_width="84dp"
         android:layout_height="34dp"
-        android:background="@drawable/rectangle_brown"
+        android:background="@drawable/ovalyellow"
         android:fontFamily="monospace"
         android:onClick="datePicker"
         android:text="選取日期"

@@ -9,13 +9,13 @@ import kotlin.properties.Delegates
 
 class siteadapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<siteadapter.ViewHolder>() {
     var sitearrayList= emptyList<HashMap<*,*>>()
-        set(value) {
-            field=value
-            notifyDataSetChanged()
-        }
-        get() {
-            return field
-        }
+    set(value) {
+        field=value
+        notifyDataSetChanged()
+    }
+    get() {
+        return field
+    }
     var roommemberList= emptyList<String>()
         set(value) {
             field=value
@@ -26,7 +26,7 @@ class siteadapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<s
         set(value) {
             field=value
             notifyDataSetChanged()
-        }
+    }
     private lateinit var binding: SiteItemBinding
     class ViewHolder(val view:SiteItemBinding):RecyclerView.ViewHolder(view.root)
 

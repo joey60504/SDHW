@@ -37,7 +37,7 @@
         android:id="@+id/signOutButton"
         android:layout_width="211dp"
         android:layout_height="50dp"
-        android:background="@drawable/rectangle_brown"
+        android:background="@drawable/rectangle3"
         android:fontFamily="serif"
         android:text="@string/logout"
         android:textAllCaps="false"

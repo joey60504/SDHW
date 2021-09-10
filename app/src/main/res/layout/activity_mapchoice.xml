@@ -11,8 +11,9 @@
         android:layout_width="413dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="-2dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView44"
@@ -20,6 +21,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:text="選擇載客順序"
+            android:textColor="@color/textcolor"
             android:textSize="30sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -35,6 +37,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:text="已選擇"
+            android:textColor="@color/textcolor"
             android:textSize="30sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -50,7 +53,9 @@
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ovalyellow"
         android:text="確定順序"
+        android:textColor="@color/底色"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintHorizontal_bias="0.5"
@@ -62,11 +67,14 @@
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_blue"
         android:text="進入地圖"
+        android:textColor="@color/底色"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.521" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

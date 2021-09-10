@@ -38,11 +38,11 @@ class personinformation : Fragment() {
             var photo=user["photo"].toString()
             var email=user["email"].toString()
             textView64.text=name
-            textView70.text=age
-            textView71.text=gender
-            textView72.text=photo
-            textView69.text=email
-            textview74.text=phone
+            textView35.text=age
+            textView36.text=gender
+            textView38.text=photo
+            textView41.text=email
+            textview41.text=phone
         }
         _binding!!.imageButton51.setOnClickListener {
             startActivity(Intent(requireContext(),modifypersoninformation::class.java))

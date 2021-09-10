@@ -5,13 +5,13 @@
         <shape>
             <stroke
                 android:width="1dp"
-                android:color="#4F5E75"
+                android:color="#FFB703"
 
                 />		//邊框線顏色
             <solid
-                android:color="#2d3138" />
+                android:color="#FFFFFF" />
             <corners android:radius="5dp" />		//圓角度數
-            <solid android:color="#458382" >		//背景顏色
+            <solid android:color="#FFB703" >		//背景顏色
             </solid>
             <padding android:right="5dp" />		//邊距
             <size

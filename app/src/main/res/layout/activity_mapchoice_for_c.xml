@@ -10,7 +10,12 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginBottom="219dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView47"
@@ -18,6 +23,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:text="乘車順序"
+            android:textColor="@color/textcolor"
             android:textSize="30sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -31,7 +37,10 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_blue"
         android:text="進入地圖"
+        android:textColor="@color/底色"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

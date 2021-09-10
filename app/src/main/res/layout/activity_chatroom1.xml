@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="@string/name"
+        android:textColor="@color/textcolor"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,8 +24,8 @@
 
     <ImageButton
         android:id="@+id/back5"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
         android:background="@color/底色"
         android:onClick="back5"
         android:scaleType="fitXY"

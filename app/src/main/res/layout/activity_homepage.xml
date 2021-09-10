@@ -22,7 +22,7 @@
         android:fitsSystemWindows="true"
         android:fontFamily="monospace"
         app:headerLayout="@layout/nav_header_homepage"
-        app:itemIconTint="#615d56"
-        app:itemTextColor="#615d56"
+        app:itemIconTint="@color/textcolor"
+        app:itemTextColor="@color/textcolor"
         app:menu="@menu/activity_main_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>

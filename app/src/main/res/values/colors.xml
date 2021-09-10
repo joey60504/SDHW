@@ -8,12 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#519c81</color>
-    <color name="yellow">#f5e678</color>
     <color name="pink">#ffc0cb</color>
     <color name="background">#314c61</color>
     <color name="底色">#FEFAF1</color>
     <color name="topcolor">#9c978f </color>
     <color name="blue">#325774 </color>
-    <color name="choice_yellow">#f9c806 </color>
+    <color name="lightyellow">#FDD676 </color>
     <color name="lockedcolor">#A63C24 </color>
+    <color name="textcolor">#3E3A3A </color>
+    <color name="yellow">#FFB703 </color>
+
 </resources>
