@@ -6,27 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".chatroom1">
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="393dp"
+        android:layout_height="79dp"
+        android:background="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/textView61"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="@string/name"
-        android:textColor="@color/textcolor"
-        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.021" />
 
     <ImageButton
         android:id="@+id/back5"
         android:layout_width="55dp"
         android:layout_height="51dp"
-        android:background="@color/底色"
+        android:background="#00000000"
         android:onClick="back5"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,19 +93,20 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
+        app:layout_constraintVertical_bias="0.122" />
 
     <View
         android:id="@+id/view18"
-        android:layout_width="391dp"
-        android:layout_height="1dp"
-        android:background="@drawable/rectangle_brown"
-        android:backgroundTint="@color/topcolor"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="0.101" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_chatroom1"

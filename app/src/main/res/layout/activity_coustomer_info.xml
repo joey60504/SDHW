@@ -73,7 +73,7 @@
         android:id="@+id/customerinfoclose"
         android:layout_width="115dp"
         android:layout_height="55dp"
-        android:background="@drawable/ovalgreen"
+        android:background="@drawable/ovalyellow"
         android:fontFamily="monospace"
         android:onClick="customerinfoclose"
         android:text="@string/close"
