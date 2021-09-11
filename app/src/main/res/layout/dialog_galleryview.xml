@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/room_dialog"
+    android:id="@+id/room_dialog3"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -15,10 +15,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/yellow"
             android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/roominformation"
@@ -30,6 +32,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -40,16 +44,17 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/ovalgreen"
                 android:fontFamily="monospace"
                 android:text="淡水"
-                android:textColor="@color/blue"
+                android:textColor="@color/textcolor"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView23"
                 android:layout_width="20dp"
-                android:layout_marginTop="3dp"
                 android:layout_height="19dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/arrow_blue_mirror" />
 
             <TextView
@@ -60,9 +65,10 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="100dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/ovalgreen"
                 android:fontFamily="monospace"
                 android:text="中山"
-                android:textColor="@color/blue"
+                android:textColor="@color/textcolor"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -82,26 +88,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle3"
-            android:fontFamily="monospace"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="進入導航"
-            android:textColor="@color/底色"
-            android:textSize="16sp" />
-
-    </LinearLayout>
+        android:orientation="horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -165,6 +152,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
+        android:background="@drawable/ovalyb"
         android:orientation="horizontal">
 
         <ImageView
@@ -377,8 +365,8 @@
     <LinearLayout
         android:id="@+id/room_dialog2"
         android:layout_width="300dp"
-        android:layout_height="113dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -388,7 +376,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/rectangle_brown"
+            android:background="@drawable/ovalyellow"
             android:fontFamily="monospace"
             android:text="@string/close"
             android:textAllCaps="false"

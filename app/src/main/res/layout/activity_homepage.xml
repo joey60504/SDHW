@@ -19,10 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#CCFFB703"
         android:fitsSystemWindows="true"
         android:fontFamily="monospace"
         app:headerLayout="@layout/nav_header_homepage"
-        app:itemIconTint="@color/textcolor"
-        app:itemTextColor="@color/textcolor"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/activity_main_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>
