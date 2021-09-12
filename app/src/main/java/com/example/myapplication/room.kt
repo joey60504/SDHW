@@ -1,19 +1,16 @@
 package com.example.myapplication
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.databinding.ActivityRoomBinding
-import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -115,6 +112,7 @@ class room : AppCompatActivity() {
         val dataListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 try {
+                    clear()
                     val root = dataSnapshot.value as HashMap<*, *>
                     profilelist = root["profile"] as HashMap<*, *>
                     val driver = profilelist[data1] as HashMap<*, *>
@@ -126,26 +124,13 @@ class room : AppCompatActivity() {
                     val roomowner = roomlist[data1] as HashMap<*, *>
                     roominfo = roomowner["roomINFO"] as HashMap<*, *>
                     val roommember = roominfo["roommember"] as ArrayList<String>
+                    val peoplelimit=roominfo["peoplelimit"].toString()
                     roommember.add(0,data1)
                     selectarraydata(roommember, profilelist)
+                    limitpeople(peoplelimit)
                 }catch (e:Exception){
 
                 }
-//                imageButton16.setOnClickListener {
-//                    try {
-//
-//                        var sitearray = roominfo["sitearray"] as ArrayList<String>
-//                        findsitearraysvalue(sitearray)
-//
-//
-//                    } catch (e: Exception) {
-//                        val nullsite =ArrayList<String>()
-//                        findsitearraysvalue(nullsite)
-//                    }
-//
-//                }
-
-
             }
             override fun onCancelled(databaseError: DatabaseError) {
             }
@@ -155,7 +140,6 @@ class room : AppCompatActivity() {
     fun selectarraydata(roommember:ArrayList<String>,profilelist:HashMap<*,*>){
         for (i in roommember.indices) {
             filldata(roommember[i],imagebtnlist[i],textviewlist[i],profilelist)
-            Log.d("77777",roommember[i])
         }
     }
     fun filldata(roommembersphone:String,imagebtn:ImageButton,textV:TextView,profilelist: HashMap<*,*>){
@@ -176,7 +160,14 @@ class room : AppCompatActivity() {
         }
         //val namename=members["name"] as HashMap<*,*>
         imagebtn.setOnClickListener {
-            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone,data1).show(it, "room_dialog3") }
+            supportFragmentManager.let{ room_dialog3(sam,emma,members,roommembersphone,data1,usersphone).show(it, "room_dialog3") }
+        }
+    }
+    fun limitpeople(peoplelimit:String){
+        val peoplecount=peoplelimit.toInt()
+        for(i in peoplecount until 7){
+            Log.d("888",i.toString())
+            imagebtnlist[i+1].setImageResource(R.drawable.roomnopeople1)
         }
     }
 
@@ -264,13 +255,19 @@ class room : AppCompatActivity() {
             database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
                 val roominfoleave=it.value as java.util.HashMap<String,Any>
 
-                val roommember =roominfoleave["roommember"] as ArrayList<String>
-                roommember.remove(phone)
-                roominfoleave.put("roommember",roommember)
-
+                val roommember1 =roominfoleave["roommember"] as ArrayList<String>
+                val indexofuser=roommember1.indexOf(phone)
                 val sitearray = roominfoleave["sitearray"] as ArrayList<String>
-                sitearray.remove(userssite)
+                sitearray.removeAt(indexofuser)
                 roominfoleave.put("sitearray",sitearray)
+
+                val roommember2 =roominfoleave["roommember"] as ArrayList<String>
+                roommember2.remove(phone)
+                roominfoleave.put("roommember",roommember2)
+
+                val truesitearrayList = roominfoleave["truesitearrayList"] as ArrayList<String>
+                truesitearrayList.remove(userssite)
+                roominfoleave.put("truesitearrayList",truesitearrayList)
                 database.child("room").child(data1).child("roomINFO").updateChildren(roominfoleave)
 
             }
@@ -315,6 +312,16 @@ class room : AppCompatActivity() {
             pickinfoDriversphone.keys.remove("other")
             database.child("profile").child(roommembersphone).child("PickupINFO")
                 .updateChildren(PickupINFO)
+        }
+    }
+    fun clear(){
+        imagebtnlist.onEach {
+            it.setImageDrawable(ColorDrawable(Color.TRANSPARENT))
+            it.setOnClickListener {
+            }
+        }
+        textviewlist.onEach {
+            it.text=""
         }
     }
 }

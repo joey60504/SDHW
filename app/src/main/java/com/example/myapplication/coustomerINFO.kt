@@ -55,9 +55,6 @@ class coustomerINFO: AppCompatActivity() {
         }
 
     }
-    fun customerinfoclose(p0: View){
-        startActivity(Intent(this,HomeFragment::class.java))
-    }
 
     fun customerinfoaccess(p0: View){
         startActivity(Intent(this,room::class.java))

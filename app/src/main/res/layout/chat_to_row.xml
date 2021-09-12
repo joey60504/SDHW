@@ -50,7 +50,6 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="3dp"
-            android:layout_marginButton="10dp"
             app:cardCornerRadius="90dp">
 
             <ImageView
