@@ -6,52 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".coustomerINFO">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="您的上車地點(詳細)"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.221"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName8"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="大約時間"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName9"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="其他"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/customerinfoclose"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
-
     <Button
         android:id="@+id/button10"
         android:layout_width="70dp"
@@ -64,28 +18,71 @@
         android:textColor="@color/底色"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName8"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524" />
+        app:layout_constraintVertical_bias="0.525" />
 
-    <Button
-        android:id="@+id/customerinfoclose"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
-        android:background="@drawable/ovalyellow"
+    <EditText
+        android:id="@+id/editTextTextPersonName9"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:ems="10"
         android:fontFamily="monospace"
-        android:onClick="customerinfoclose"
-        android:text="@string/close"
-        android:textColor="@color/底色"
-
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="其他"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/addpickinfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName8"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="大約時間"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="290dp"
+        android:layout_height="89dp"
+        android:fontFamily="monospace"
+        android:text="歡迎加入房間，請先填寫乘車資料"
+        android:textColor="@color/textcolor"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName7"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="您的上車地點(詳細)"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <Button
         android:id="@+id/addpickinfo"
@@ -100,22 +97,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toEndOf="@+id/customerinfoclose"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.889" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="290dp"
-        android:layout_height="89dp"
-        android:fontFamily="monospace"
-        android:text="歡迎加入房間，請先填寫乘車資料"
-        android:textColor="@color/textcolor"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName7"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

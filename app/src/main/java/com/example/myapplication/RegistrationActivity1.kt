@@ -34,11 +34,11 @@ class RegistrationActivity1 : AppCompatActivity() {
             val age = findViewById<EditText>(R.id.ageInput).text.toString()
             val gender = findViewById<EditText>(R.id.genderinput).text.toString()
             val photo = findViewById<EditText>(R.id.photoinput).text.toString()
-            val UID=FirebaseAuth.getInstance().uid ?: ""
+            val uid=phone
 
 
             if (name.isNotEmpty() && email.isNotEmpty() && age.isNotEmpty() && gender.isNotEmpty() && photo.isNotEmpty()) {
-                val Users=User(name, email, age, gender, photo,UID)
+                val Users=User(name, email, age, gender, photo,uid)
                 database.child("profile").child(phone).setValue(Users)
                     .addOnCompleteListener {
                         Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show()
@@ -54,7 +54,7 @@ class RegistrationActivity1 : AppCompatActivity() {
         EmailInput.addTextChangedListener(emailwatcher)
     }
 
-//監聽
+    //監聽
     var usernameisvalid=false
     var emailisvalid=false
     fun isValiedEmail(target:CharSequence?):Boolean{
@@ -101,17 +101,17 @@ class RegistrationActivity1 : AppCompatActivity() {
     }
 
 
-//生日
+    //生日
     fun datePicker(v: View) {
         val calendar = Calendar.getInstance()
         val year = calendar[Calendar.YEAR]
         val month = calendar[Calendar.MONTH]
         val day = calendar[Calendar.DAY_OF_MONTH]
         DatePickerDialog(v.context, { view, year, month, day ->
-                val monthfix= month+1
-                val dateTime = "$year/$monthfix/$day"
-                ageInput.setText(dateTime)
-            }, year, month, day
+            val monthfix= month+1
+            val dateTime = "$year/$monthfix/$day"
+            ageInput.setText(dateTime)
+        }, year, month, day
         ).show()
     }
 }

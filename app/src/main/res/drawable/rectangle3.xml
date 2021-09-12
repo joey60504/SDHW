@@ -30,8 +30,7 @@
                 android:radius="5dp"/>
             <!--設定邊框-->
             <stroke
-                android:width="5dp"
-                android:color="#fffffff"/>
+                android:width="5dp"></stroke>
             <!--設定內容與邊界的距離-->
             <padding
                 android:top="0dp"

@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.test
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,16 +22,18 @@ class chatAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<c
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val friendList=dataList.keys.toList()
-        val friendname=friendList[position]
+        val friendname=friendList[position]//leehongyee
         holder.view.textView30.text=friendname.toString()
 
-        val friendchatinfo=dataList[friendname] as HashMap<*,*>
+        val friendchatinfo=dataList[friendname] as HashMap<*,*>//D/thisisbutton2: {toid=test12345678, phone=+886985443626, id=-MjA-_bMQE4ErCqWTEjo, text=grin too fly, fromid=leehongyee}
         val textvalue=friendchatinfo["text"].toString()
         holder.view.textView37.text=textvalue
 
         holder.view.cardview2.setOnClickListener {
-            itemListener.onItemClick(position)
+            itemListener.onItemClick(holder , position)
+            Log.d("thisisbutton2", friendname.toString())
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -38,6 +41,8 @@ class chatAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<c
     }
 
     interface OnItemClick{
-        fun onItemClick(position: Int)
+        fun onItemClick(holder: ViewHolder, position: Int)
+
     }
+
 }

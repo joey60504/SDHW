@@ -11,6 +11,10 @@ import com.example.myapplication.ui.personinformation.personinformation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_modifypersoninformation.*
+import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView35
+import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView36
+import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView38
+import kotlinx.android.synthetic.main.fragment_personinformation.*
 
 class modifypersoninformation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +44,8 @@ class modifypersoninformation : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         var phone=auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference
-        val name=findViewById<EditText>(R.id.editTextTextPersonName18).text.toString()
-        val email=findViewById<EditText>(R.id.editTextTextPersonName19).text.toString()
+        val name=findViewById<EditText>(R.id.editTextTextPersonName11).text.toString()
+        val email=findViewById<EditText>(R.id.editTextTextPersonName12).text.toString()
         if (name.isNotEmpty() && email.isNotEmpty()) {
             database.child("profile").child(phone).child("name").setValue(name)
             database.child("profile").child(phone).child("email").setValue(email)

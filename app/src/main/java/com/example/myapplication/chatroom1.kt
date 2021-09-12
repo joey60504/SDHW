@@ -9,6 +9,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.chatmessage
 import com.example.myapplication.ui.home.RoomAdapter
+import com.example.myapplication.ui.test.nav_test
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -20,6 +21,7 @@ import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_chatroom1.*
 import kotlinx.android.synthetic.main.chat_from_row.view.*
 import kotlinx.android.synthetic.main.chat_to_row.view.*
+
 
 
 class chatroom1 : AppCompatActivity() {
@@ -50,6 +52,7 @@ class chatroom1 : AppCompatActivity() {
             Log.d(TAG, "Attempt to send message...")
             performSendMessage()
         }
+
     }
 
     private fun listenformessage() {
@@ -113,6 +116,7 @@ class chatroom1 : AppCompatActivity() {
             val fromid = toUser!!.name
 
             val toid = user["name"].toString()
+            val toidphonenumber = toUser!!.uid
 
             if (toid != "") {
                 Log.d(TAG, fromid.toString())
@@ -132,8 +136,7 @@ class chatroom1 : AppCompatActivity() {
                     .push()
 
             val chatMessage = chatmessage(
-                reference.key!!, text, fromid!!, toid,
-                System.currentTimeMillis() / 1000
+                reference.key!!, text, fromid!!, toid,toidphonenumber
             )
             reference.setValue(chatMessage).addOnSuccessListener {
                 Log.d(TAG, "Saved our chat message: ${reference.key}")
