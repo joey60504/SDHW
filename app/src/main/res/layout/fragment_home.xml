@@ -120,7 +120,7 @@
             android:layout_height="60dp"
             android:background="#00000000"
             android:scaleType="fitXY"
-            android:src="@drawable/addhouseicon_adobespark__1_"
+            android:src="@drawable/addcar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
