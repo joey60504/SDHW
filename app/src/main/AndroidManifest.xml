@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ui.slideshow.Deletefriend"
+            android:exported="true" />
+        <activity
             android:name=".mapchoiceForC"
             android:exported="true" />
         <activity
@@ -60,14 +63,12 @@
         <activity android:name=".driver_department_information2" />
         <activity android:name=".driver_department_information" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".room_lock" />
         <activity android:name=".room" />
         <activity android:name=".RegistrationActivity1" />
         <activity
             android:name=".homepage"
             android:label="@string/title_activity_homepage"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
-        <activity android:name=".choice" />
         <activity android:name=".Verify" />
         <activity android:name=".MainActivity" />
         <activity

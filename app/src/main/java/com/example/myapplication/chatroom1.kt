@@ -154,9 +154,7 @@ class chatroom1 : AppCompatActivity() {
         }
     }
 
-    fun back5(p0: View) {
-        startActivity(Intent(this, newmessage::class.java))
-    }
+
 
 }
 

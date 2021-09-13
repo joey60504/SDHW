@@ -1,25 +1,12 @@
 package com.example.myapplication.ui.slideshow
 
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
-import com.example.myapplication.User
-import com.example.myapplication.chatroom1
 import com.example.myapplication.databinding.FriendItemBinding
-import com.example.myapplication.newmessage
-import com.example.myapplication.ui.test.chatAdapter
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import java.lang.Exception
 
 
-class slideAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<slideAdapter.ViewHolder>() {
+class DeletefriendAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<DeletefriendAdapter.ViewHolder>() {
 
     lateinit var dataList:ArrayList<String>
     lateinit var profile:HashMap<*,*>
@@ -38,8 +25,8 @@ class slideAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<
         val userphone=profile[friendphone] as HashMap<*,*>
         holder.view.textView2.text=userphone["name"].toString()
 
-        holder.view.imageView6.setOnClickListener {
-            itemListener.onItemClick(holder , position)
+        holder.view.cardview1.setOnClickListener {
+            itemListener.onItemClick(holder,position)
         }
     }
 

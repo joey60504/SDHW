@@ -99,13 +99,10 @@ class nav_test : Fragment(), chatAdapter.OnItemClick{
             ref.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     chatusers = p0.getValue(User::class.java)
+                    val intent = Intent(context,chatroom1::class.java)
+                    intent.putExtra(newmessage.USER_KEY, chatusers)
+                    startActivity(intent)
 
-                    holder.view.cardview2.setOnClickListener {
-                        Log.d("thisisbutton", friendphone.toString())
-                        val intent = Intent(context,chatroom1::class.java)
-                        intent.putExtra(newmessage.USER_KEY, chatusers)
-                        startActivity(intent)
-                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {

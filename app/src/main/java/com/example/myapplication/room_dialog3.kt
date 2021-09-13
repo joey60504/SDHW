@@ -72,8 +72,8 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
                 val pickupinfodriversphone = pickupinfo[driversphone] as HashMap<*, *>
                 val time = pickupinfodriversphone["time"].toString()
                 val other = pickupinfodriversphone["other"].toString()
-                binding.textView45.text = "希望上車時間 :$time"
-                binding.textView50.text = "備註 :$other"
+                binding.textView51.text = "希望上車時間 :$time"
+                binding.textView52.text = "備註 :$other"
             }
             catch(e:Exception){}
             if (members["gender"] == "male") {
@@ -89,7 +89,7 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
                     setTitle("提醒")
                     setMessage("確認踢出此乘客?")
                     setPositiveButton("確定?") { _, _ ->
-                        leaveroomcoustomer()
+                        kickcoustomer()
                         dismiss()
                     }
                     setNegativeButton("取消", null)
@@ -99,12 +99,15 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
                 Toast.makeText(requireContext(), "只有駕駛可以刪除乘客唷", Toast.LENGTH_SHORT).show()
             }
         }
+        binding.imageButton6.setOnClickListener {
+            addfriend()
+        }
         return binding.root
     }
 
 
     lateinit var userssite:String
-    fun leaveroomcoustomer(){
+    fun kickcoustomer(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
         database.child("profile").child(roomp).get().addOnSuccessListener {
@@ -145,4 +148,50 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
             }
         }
     }
+    fun addfriend(){
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(phone).get().addOnSuccessListener {
+            val user=it.value as java.util.HashMap<String,Any>
+            if(user["friendlist"]!=null){
+                val friendlist =user["friendlist"] as ArrayList<String>
+                if(roomp in friendlist) {
+                    Toast.makeText(requireContext(), "你們已經是朋友囉!", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    friendlist.add(roomp)
+                    user.put("friendlist", friendlist)
+                    database.child("profile").child(phone).updateChildren(user)
+                }
+            }
+            else{
+                user.put("friendlist", arrayListOf<String>(roomp))
+                database.child("profile").child(phone).updateChildren(user)
+            }
+        }
+        database.child("profile").child(roomp).get().addOnSuccessListener {
+            val user=it.value as java.util.HashMap<String,Any>
+            if(user["friendlist"]!=null){
+                val friendlist =user["friendlist"] as ArrayList<String>
+                if(phone in friendlist) {
+                    Log.d("test7","33")
+                    Toast.makeText(requireContext(), "你們已經是朋友囉!", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Log.d("test7","22")
+                    friendlist.add(phone)
+                    user.put("friendlist", friendlist)
+                    database.child("profile").child(roomp).updateChildren(user)
+                }
+            }
+            else{
+                Log.d("test7","44")
+                user.put("friendlist", arrayListOf<String>(phone))
+                database.child("profile").child(roomp).updateChildren(user)
+            }
+        }
+    }
+
+
 }

@@ -40,12 +40,14 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
         binding!!.backFriend.setOnClickListener{
             startActivity(Intent(requireContext(), homepage::class.java))
         }
+        binding.button12.setOnClickListener{
+            startActivity(Intent(requireContext(), Deletefriend::class.java))
+        }
         return root
     }
 
     lateinit var dataList:HashMap<*,*>
-    lateinit var username:String
-
+    lateinit var friendlist:ArrayList<String>
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -55,7 +57,12 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
                 val root=dataSnapshot.value as HashMap<*,*>
                 val profile=root["profile"] as HashMap<*,*>
                 val phone=profile[auth.currentUser?.phoneNumber.toString()] as HashMap<*,*>
-                username=phone["name"].toString()
+                try {
+                    friendlist = phone["friendlist"] as ArrayList<String>
+                }
+                catch (e:Exception){
+                    friendlist = arrayListOf()
+                }
                 dataList=root["profile"] as HashMap<*,*>
                 //recycler
                 activity?.runOnUiThread {
@@ -65,7 +72,8 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
                         val manager = LinearLayoutManager(requireContext())
                         manager.orientation = LinearLayoutManager.VERTICAL
                         layoutManager = manager
-                        myAdapter.dataList = dataList
+                        myAdapter.dataList = friendlist
+                        myAdapter.profile  = profile
                     }
                 }
                 //recyler完
@@ -86,12 +94,9 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 chatusers = p0.getValue(User::class.java)
-                holder.view.cardview1.setOnClickListener {
-                    Log.d("thisisbutton", friendname.toString())
-                    val intent = Intent(context, chatroom1::class.java)
-                    intent.putExtra(newmessage.USER_KEY, chatusers)
-                    startActivity(intent)
-                }
+                val intent = Intent(context, chatroom1::class.java)
+                intent.putExtra(newmessage.USER_KEY, chatusers)
+                startActivity(intent)
             }
             override fun onCancelled(error: DatabaseError) {
             }

@@ -96,8 +96,6 @@ class room : AppCompatActivity() {
                 }
             }
         }
-
-
         binding.button8.setOnClickListener {
             auth = FirebaseAuth.getInstance()
             var phone = auth.currentUser?.phoneNumber.toString()
@@ -105,8 +103,6 @@ class room : AppCompatActivity() {
             database.child("room").child(data1).child("roomINFO").child("membeready").child(phone)
                 .get().addOnSuccessListener {
                 var ready = it.value as String
-
-
                 Log.d("...", ready)
                 if (ready == "notready") {
                     AlertDialog.Builder(this).apply {
@@ -206,13 +202,13 @@ class room : AppCompatActivity() {
     fun locked_to_nolock(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
-        binding.imageButton15.setImageResource(R.drawable.ic_lock_open)
-        binding.imageButton9.setBackgroundColor(Color.parseColor("#325774"))
-        binding.imageButton12.setBackgroundColor(Color.parseColor("#325774"))
-        binding.imageButton13.setBackgroundColor(Color.parseColor("#325774"))
-        binding.imageButton14.setBackgroundColor(Color.parseColor("#325774"))
-        binding.imageButton3.setBackgroundColor(Color.parseColor("#325774"))
-        binding.imageButton4.setBackgroundColor(Color.parseColor("#325774"))
+        binding.imageButton15.setImageResource(R.drawable.lock)
+        binding.imageButton9.setBackgroundResource(R.drawable.ovalyb)
+        binding.imageButton12.setBackgroundResource(R.drawable.ovalyb)
+        binding.imageButton13.setBackgroundResource(R.drawable.ovalyb)
+        binding.imageButton14.setBackgroundResource(R.drawable.ovalyb)
+        binding.imageButton3.setBackgroundResource(R.drawable.ovalyb)
+        binding.imageButton4.setBackgroundResource(R.drawable.ovalyb)
         database.child("room").child(data1).child("roomINFO").child("nolockorlocked")
             .setValue("nolock")
     }
@@ -245,13 +241,13 @@ class room : AppCompatActivity() {
                     binding.imageButton4.setBackgroundColor(Color.parseColor("#A63C24"))
                     Log.d("777", "789")
                 } else {
-                    binding.imageButton15.setImageResource(R.drawable.ic_lock_open)
-                    binding.imageButton9.setBackgroundColor(Color.parseColor("#325774"))
-                    binding.imageButton12.setBackgroundColor(Color.parseColor("#325774"))
-                    binding.imageButton13.setBackgroundColor(Color.parseColor("#325774"))
-                    binding.imageButton14.setBackgroundColor(Color.parseColor("#325774"))
-                    binding.imageButton3.setBackgroundColor(Color.parseColor("#325774"))
-                    binding.imageButton4.setBackgroundColor(Color.parseColor("#325774"))
+                    binding.imageButton15.setImageResource(R.drawable.lock)
+                    binding.imageButton9.setBackgroundResource(R.drawable.ovalyb)
+                    binding.imageButton12.setBackgroundResource(R.drawable.ovalyb)
+                    binding.imageButton13.setBackgroundResource(R.drawable.ovalyb)
+                    binding.imageButton14.setBackgroundResource(R.drawable.ovalyb)
+                    binding.imageButton3.setBackgroundResource(R.drawable.ovalyb)
+                    binding.imageButton4.setBackgroundResource(R.drawable.ovalyb)
                     Log.d("777", "456")
                 }
             }
