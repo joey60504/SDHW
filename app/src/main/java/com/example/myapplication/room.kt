@@ -265,6 +265,8 @@ class room : AppCompatActivity() {
                 roommember2.remove(phone)
                 roominfoleave.put("roommember",roommember2)
 
+                database.child("room").child(data1).child("roomINFO").child("membeready").child(phone).removeValue()
+
                 val truesitearrayList = roominfoleave["truesitearrayList"] as ArrayList<String>
                 truesitearrayList.remove(userssite)
                 roominfoleave.put("truesitearrayList",truesitearrayList)

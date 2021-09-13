@@ -160,9 +160,13 @@ class MyDialog(val phonenumber:String,val data1:HashMap<*,*>): DialogFragment() 
                                     Toast.makeText(requireContext(), "團隊已滿", Toast.LENGTH_LONG).show()
                                 } else {
                                     roommember.add(phone)
+                                    database.child("room").child(driversphone).child("roomINFO").child("membeready").child(phone).setValue("notready")
+                                        .addOnCompleteListener {
+                                        }
                                     roominfo.put("roommember", roommember)
                                     database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
                                     AddRoomNumberInProfile(driversphone)
+
                                     Intent(requireContext(), coustomerINFO::class.java).apply {
                                         putExtra("Data1", this@MyDialog.phonenumber)
                                         startActivity(this)
@@ -174,6 +178,9 @@ class MyDialog(val phonenumber:String,val data1:HashMap<*,*>): DialogFragment() 
                         } else {
                             roominfo.put("roommember", arrayListOf<String>(phone))
                             database.child("room").child(driversphone).child("roomINFO").updateChildren(roominfo)
+                            database.child("room").child(driversphone).child("roomINFO").child("membeready").child(phone).setValue("notready")
+                                .addOnCompleteListener {
+                                }
                             AddRoomNumberInProfile(driversphone)
                             Intent(requireContext(), coustomerINFO::class.java).apply {
                                 putExtra("Data1", this@MyDialog.phonenumber)
