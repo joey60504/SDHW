@@ -38,6 +38,8 @@ class coustomerINFO: AppCompatActivity() {
             val Pickupinformation = pickupinformation(site,time,other)
             if(site.isNotEmpty() && time.isNotEmpty() && other.isNotEmpty()) {
                 addsitetoroominfo(site,data1)
+                database.child("room").child(data1).child("roomINFO").child("membeready").child(phone).setValue("notready")
+                    .addOnCompleteListener {}
                 database.child("profile").child(phone).child("PickupINFO").child(data1)
                     .setValue(Pickupinformation)
                     .addOnCompleteListener {

@@ -96,6 +96,36 @@ class room : AppCompatActivity() {
                 }
             }
         }
+
+
+        binding.button8.setOnClickListener {
+            auth = FirebaseAuth.getInstance()
+            var phone = auth.currentUser?.phoneNumber.toString()
+            var database = FirebaseDatabase.getInstance().reference
+            database.child("room").child(data1).child("roomINFO").child("membeready").child(phone)
+                .get().addOnSuccessListener {
+                var ready = it.value as String
+
+
+                Log.d("...", ready)
+                if (ready == "notready") {
+                    AlertDialog.Builder(this).apply {
+                        setTitle("提醒")
+                        setMessage("請先確認駕駛載客順序再行準備\n準備後不得取消")
+                        setPositiveButton("確定?") { _, _ ->
+                            database.child("room").child(data1).child("roomINFO")
+                                .child("membeready")
+                                .child(phone).setValue("ready")
+                            //startActivity(Intent(this@room, homepage::class.java))
+                        }
+                        setNegativeButton("取消", null)
+
+                    }.show()
+                } else {
+                    Toast.makeText(this, "你已經準備囉", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
     val imagelist= listOf<List<Int>>(
         listOf(R.drawable.sam1,R.drawable.sam2,R.drawable.sam3,R.drawable.sam4),
@@ -105,6 +135,7 @@ class room : AppCompatActivity() {
     lateinit var usersphone:String
     lateinit var user:HashMap<*,*>
     lateinit var roominfo:HashMap<*,*>
+
     fun dataselect(){
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
@@ -123,6 +154,7 @@ class room : AppCompatActivity() {
                     user = profilelist[usersphone] as HashMap<*, *>
                     val roomowner = roomlist[data1] as HashMap<*, *>
                     roominfo = roomowner["roomINFO"] as HashMap<*, *>
+
                     val roommember = roominfo["roommember"] as ArrayList<String>
                     val peoplelimit=roominfo["peoplelimit"].toString()
                     roommember.add(0,data1)
@@ -264,13 +296,18 @@ class room : AppCompatActivity() {
                 val roommember2 =roominfoleave["roommember"] as ArrayList<String>
                 roommember2.remove(phone)
                 roominfoleave.put("roommember",roommember2)
+                try {
 
-                database.child("room").child(data1).child("roomINFO").child("membeready").child(phone).removeValue()
 
-                val truesitearrayList = roominfoleave["truesitearrayList"] as ArrayList<String>
-                truesitearrayList.remove(userssite)
-                roominfoleave.put("truesitearrayList",truesitearrayList)
-                database.child("room").child(data1).child("roomINFO").updateChildren(roominfoleave)
+                    val truesitearrayList = roominfoleave["truesitearrayList"] as ArrayList<String>
+                    truesitearrayList.remove(userssite)
+                    roominfoleave.put("truesitearrayList", truesitearrayList)
+
+                }catch (e:Exception){}
+                database.child("room").child(data1).child("roomINFO")
+                        .updateChildren(roominfoleave)
+                database.child("room").child(data1).child("roomINFO").child("membeready")
+                    .child(phone).removeValue()
 
             }
         }
