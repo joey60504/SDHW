@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_blue"
-        android:text="進入地圖"
+        android:text="預覽地圖"
         android:textColor="@color/底色"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

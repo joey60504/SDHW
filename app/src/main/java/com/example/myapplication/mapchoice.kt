@@ -28,6 +28,9 @@ class mapchoice: AppCompatActivity(),siteadapter.OnItemClick{
         button11.setOnClickListener {
             datasel()
         }
+        button13.setOnClickListener {
+            readyconfirm()
+        }
     }
 
     fun dataselect() {
@@ -202,6 +205,32 @@ class mapchoice: AppCompatActivity(),siteadapter.OnItemClick{
                 data = url
             }
             startActivity(intent)
+        }
+    }
+
+    fun readyconfirm(){
+        var num=0
+        auth = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("room").child(data1).child("roomINFO").get().addOnSuccessListener {
+            val roominfo=it.value as HashMap<*, *>
+            val roommember=roominfo["roommember"] as ArrayList<String>
+            for(i in roommember.indices){
+                val membersphone=roommember[i].toString()
+                Log.d("eee",membersphone)
+                val ready=roominfo["membeready"] as HashMap<*,*>
+
+                var readyy=ready[membersphone]
+                if(readyy=="notready"){
+                    num++
+                }
+            }
+            if (num==0){
+                datasel()
+            }else{
+                Toast.makeText(this,"尚有$num 人未準備",Toast.LENGTH_LONG).show()
+            }
+
         }
     }
 

@@ -100,26 +100,31 @@ class room : AppCompatActivity() {
             auth = FirebaseAuth.getInstance()
             var phone = auth.currentUser?.phoneNumber.toString()
             var database = FirebaseDatabase.getInstance().reference
-            database.child("room").child(data1).child("roomINFO").child("membeready").child(phone)
-                .get().addOnSuccessListener {
-                var ready = it.value as String
-                Log.d("...", ready)
-                if (ready == "notready") {
-                    AlertDialog.Builder(this).apply {
-                        setTitle("提醒")
-                        setMessage("請先確認駕駛載客順序再行準備\n準備後不得取消")
-                        setPositiveButton("確定?") { _, _ ->
-                            database.child("room").child(data1).child("roomINFO")
-                                .child("membeready")
-                                .child(phone).setValue("ready")
-                            //startActivity(Intent(this@room, homepage::class.java))
-                        }
-                        setNegativeButton("取消", null)
+            if (auth.currentUser?.phoneNumber.toString() == data1) {
+                Toast.makeText(this, "駕駛不須準備喔~", Toast.LENGTH_SHORT).show()
+            } else {
+                database.child("room").child(data1).child("roomINFO").child("membeready")
+                    .child(phone)
+                    .get().addOnSuccessListener {
+                        var ready = it.value as String
+                        Log.d("...", ready)
+                        if (ready == "notready") {
+                            AlertDialog.Builder(this).apply {
+                                setTitle("提醒")
+                                setMessage("請先確認駕駛載客順序再行準備\n準備後不得取消")
+                                setPositiveButton("確定?") { _, _ ->
+                                    database.child("room").child(data1).child("roomINFO")
+                                        .child("membeready")
+                                        .child(phone).setValue("ready")
+                                    //startActivity(Intent(this@room, homepage::class.java))
+                                }
+                                setNegativeButton("取消", null)
 
-                    }.show()
-                } else {
-                    Toast.makeText(this, "你已經準備囉", Toast.LENGTH_SHORT).show()
-                }
+                            }.show()
+                        } else {
+                            Toast.makeText(this, "你已經準備囉", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             }
         }
     }
