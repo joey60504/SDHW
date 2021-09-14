@@ -15,10 +15,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/yellow"
             android:fontFamily="monospace"
             android:gravity="center_horizontal"
             android:text="@string/roominformation"
@@ -40,6 +42,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/ovalgreen"
                 android:fontFamily="monospace"
                 android:text="淡水"
                 android:textColor="@color/blue"
@@ -60,6 +63,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="100dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/ovalgreen"
                 android:fontFamily="monospace"
                 android:text="中山"
                 android:textColor="@color/blue"
@@ -142,10 +146,11 @@
 
     <LinearLayout
         android:id="@+id/room_dialog1"
-        android:layout_width="match_parent"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
+        android:background="@drawable/ovalbbyy"
         android:orientation="horizontal">
 
         <ImageView
@@ -369,7 +374,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/rectangle_brown"
+            android:background="@drawable/ovalyellow"
             android:fontFamily="monospace"
             android:text="@string/close"
             android:textAllCaps="false"

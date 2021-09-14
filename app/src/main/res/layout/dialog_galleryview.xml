@@ -148,11 +148,11 @@
 
     <LinearLayout
         android:id="@+id/room_dialog1"
-        android:layout_width="match_parent"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@drawable/ovalyb"
+        android:background="@drawable/ovalbbyy"
         android:orientation="horizontal">
 
         <ImageView

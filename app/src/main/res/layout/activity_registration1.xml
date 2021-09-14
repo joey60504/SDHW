@@ -100,7 +100,7 @@
         android:layout_width="131dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:background="@drawable/rectangle"
+        android:background="@drawable/rectangle_blue"
         android:fontFamily="monospace"
         android:text="確定"
         android:textAllCaps="false"

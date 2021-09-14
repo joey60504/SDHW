@@ -10,8 +10,8 @@
             android:title="@string/home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_myroom"
-            android:title="@string/myroom" />
+            android:icon="@drawable/ic_car"
+            android:title="我的車隊" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_friends"
@@ -50,7 +50,7 @@
             tools:ignore="DuplicateIds" />
         <item
             android:id="@+id/manager"
-            android:icon="@drawable/door_gray"
+            android:icon="@drawable/ic_myroom"
             android:title="管理者權限"
             android:onClick="managerclick"
             tools:ignore="DuplicateIds" />

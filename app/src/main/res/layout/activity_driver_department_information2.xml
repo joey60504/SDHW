@@ -66,8 +66,8 @@
 
     <ImageButton
         android:id="@+id/child_no"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:background="@drawable/cross_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,8 +79,8 @@
 
     <ImageButton
         android:id="@+id/child_yes"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:background="@drawable/check_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,8 +107,8 @@
 
     <ImageButton
         android:id="@+id/pet_yes"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:background="@drawable/check_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,8 +120,8 @@
 
     <ImageButton
         android:id="@+id/pet_no"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:background="@drawable/cross_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -148,8 +148,8 @@
 
     <ImageButton
         android:id="@+id/smoke_yes"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:background="@drawable/check_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,8 +161,8 @@
 
     <ImageButton
         android:id="@+id/smoke_no"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:background="@drawable/cross_y"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -174,7 +174,7 @@
 
     <ImageButton
         android:id="@+id/bg"
-        android:layout_width="77dp"
+        android:layout_width="65dp"
         android:layout_height="65dp"
         android:background="#00000000"
         android:scaleType="fitXY"
@@ -188,7 +188,7 @@
 
     <ImageButton
         android:id="@+id/g"
-        android:layout_width="77dp"
+        android:layout_width="65dp"
         android:layout_height="65dp"
         android:background="#00000000"
         android:scaleType="fitXY"
@@ -202,7 +202,7 @@
 
     <ImageButton
         android:id="@+id/b"
-        android:layout_width="77dp"
+        android:layout_width="65dp"
         android:layout_height="65dp"
         android:background="#00000000"
         android:scaleType="fitXY"
@@ -252,7 +252,7 @@
         android:id="@+id/button4"
         android:layout_width="127dp"
         android:layout_height="42dp"
-        android:background="@drawable/rectangle"
+        android:background="@drawable/rectangle_blue"
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="@string/Builds_the_room"
