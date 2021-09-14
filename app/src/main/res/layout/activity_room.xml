@@ -317,7 +317,7 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="65dp"
+        android:layout_width="58dp"
         android:layout_height="35dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="1dp"
@@ -329,9 +329,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageButton9"
         app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton15"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.727" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

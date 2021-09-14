@@ -3,6 +3,7 @@ package com.example.myapplication.ui.slideshow
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FriendItemBinding
 
 
@@ -24,8 +25,8 @@ class DeletefriendAdapter(private val itemListener:OnItemClick ): RecyclerView.A
         val friendphone=dataList[position]
         val userphone=profile[friendphone] as HashMap<*,*>
         holder.view.textView2.text=userphone["name"].toString()
-
-        holder.view.cardview1.setOnClickListener {
+        holder.view.imageView6.setImageResource(R.drawable.roomnopeople1)
+        holder.view.imageView6.setOnClickListener {
             itemListener.onItemClick(holder,position)
         }
     }

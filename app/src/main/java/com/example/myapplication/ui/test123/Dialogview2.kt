@@ -11,7 +11,6 @@ import androidx.fragment.app.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.coustomerINFO
 import com.example.myapplication.databinding.DialogViewBinding
-import com.example.myapplication.room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.util.ArrayList
@@ -87,7 +86,7 @@ class Dialogview2(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() 
                 binding.wm.setImageResource(R.drawable.girlonly)
             }
             "皆可" -> {
-                binding.wm.setImageResource(R.drawable.genderisok)
+                binding.wm.setImageResource(R.drawable.boy_girl2)
             }
         }
         when (pet) {

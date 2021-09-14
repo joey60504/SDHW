@@ -11,10 +11,10 @@
     app:cardCornerRadius="10dp">
 
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_width="377dp"
+        android:layout_height="89dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/ovalyb"
         android:gravity="center|center_horizontal"
         android:orientation="horizontal">
@@ -22,12 +22,12 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="60dp"
-            android:radius="100dp"
-            android:layout_marginStart="10dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:background="@color/yellow"
             android:paddingVertical="5dp"
+            android:radius="100dp"
             app:srcCompat="@drawable/emma3" />
 
         <TextView
@@ -47,8 +47,8 @@
             android:id="@+id/imageView6"
             android:layout_width="50dp"
             android:layout_height="87dp"
-            android:layout_weight="1"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1"
             android:background="@color/yellow"
             android:paddingVertical="20dp"
             app:srcCompat="@drawable/ic_chat" />

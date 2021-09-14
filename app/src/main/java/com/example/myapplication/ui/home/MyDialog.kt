@@ -90,7 +90,7 @@ class MyDialog(val phonenumber:String,val data1:HashMap<*,*>): DialogFragment() 
                 binding.wm.setImageResource(R.drawable.girlonly)
             }
             "皆可" -> {
-                binding.wm.setImageResource(R.drawable.genderisok)
+                binding.wm.setImageResource(R.drawable.boy_girl2)
             }
         }
         when (pet) {

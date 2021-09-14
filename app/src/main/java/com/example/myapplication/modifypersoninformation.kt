@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myapplication.databinding.ActivityModifypersoninformationBinding
+import com.example.myapplication.databinding.ManagerBinding
 import com.example.myapplication.ui.personinformation.personinformation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -17,9 +19,11 @@ import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView3
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
 class modifypersoninformation : AppCompatActivity() {
+    lateinit var binding: ActivityModifypersoninformationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_modifypersoninformation)
+        binding= ActivityModifypersoninformationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         getolddata()
         button7.setOnClickListener{
             getnewdata()
@@ -27,18 +31,18 @@ class modifypersoninformation : AppCompatActivity() {
     }
     fun getolddata(){
         auth = FirebaseAuth.getInstance()
-        var phone=auth.currentUser?.phoneNumber.toString()
+        val phone=auth.currentUser?.phoneNumber.toString()
         var database = FirebaseDatabase.getInstance().reference
         database.child("profile").child(phone).get().addOnSuccessListener {
             val profile=it.value as java.util.HashMap<*,*>
             val age=profile["age"].toString()
             val gender=profile["gender"].toString()
             val photo=profile["photo"].toString()
-            textView35.text=age
-            textView36.text=gender
-            textView38.text=photo
+            binding.textView35.text=age
+            binding.textView36.text=gender
+            binding.textView38.text=photo
+            binding.textview41.text=phone
         }
-        textView41.text=phone
     }
     fun getnewdata(){
         auth = FirebaseAuth.getInstance()

@@ -1,24 +1,15 @@
 package com.example.myapplication.ui.gallery
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.*
-import com.example.myapplication.databinding.DialogViewBinding
 import com.example.myapplication.databinding.MyroomdialogviewBinding
-import com.example.myapplication.ui.home.MyDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import java.util.ArrayList
 
 lateinit var auth: FirebaseAuth
@@ -94,7 +85,7 @@ class dialogview3(val data1:String,val roomlist:HashMap<*,*>): DialogFragment() 
                 binding.wm.setImageResource(R.drawable.girlonly)
             }
             "皆可" -> {
-                binding.wm.setImageResource(R.drawable.genderisok)
+                binding.wm.setImageResource(R.drawable.boy_girl2)
             }
         }
         when (pet) {
