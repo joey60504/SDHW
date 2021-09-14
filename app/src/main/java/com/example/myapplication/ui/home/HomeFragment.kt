@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.*
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.databinding.RoomItemBinding
+import com.example.myapplication.ui.manager.manager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -527,23 +528,26 @@ class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
             }
             override fun onDataChange(p0: DataSnapshot) {
                 val res=p0.value as java.util.HashMap<*,*>
-                try {
-                    val profile= res["profile"] as HashMap<*,*>
-                    val userphone=profile[phone] as HashMap<*,*>
-                    for(i in userphone.values){
-                        if(i=="" || i==null){
-                            startActivity(Intent(requireContext(), ProfileActivity::class.java))
+                if(phone!="+886966666666") {
+                    try {
+                        val profile = res["profile"] as HashMap<*, *>
+                        val userphone = profile[phone] as HashMap<*, *>
+                        for (i in userphone.values) {
+                            if (i == "" || i == null) {
+                                startActivity(Intent(requireContext(), ProfileActivity::class.java))
+                            }
                         }
+                    } catch (e: Exception) {
+                        database.child("profile").child(phone).setValue(User())
+                        startActivity(Intent(requireContext(), ProfileActivity::class.java))
                     }
                 }
-                catch (e:Exception){
-                    database.child("profile").child(phone).setValue(User())
-                    startActivity(Intent(requireContext(),ProfileActivity::class.java))
-                }
             }
+
         }
         database.addValueEventListener(getdata)
     }
+
 
 
 }

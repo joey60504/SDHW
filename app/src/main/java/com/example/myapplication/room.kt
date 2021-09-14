@@ -293,13 +293,13 @@ class room : AppCompatActivity() {
                 roommember2.remove(phone)
                 roominfoleave.put("roommember",roommember2)
                 try {
-
-
                     val truesitearrayList = roominfoleave["truesitearrayList"] as ArrayList<String>
                     truesitearrayList.remove(userssite)
                     roominfoleave.put("truesitearrayList", truesitearrayList)
+                }
+                catch (e:Exception){
 
-                }catch (e:Exception){}
+                }
                 database.child("room").child(data1).child("roomINFO")
                         .updateChildren(roominfoleave)
                 database.child("room").child(data1).child("roomINFO").child("membeready")

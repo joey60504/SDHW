@@ -21,6 +21,9 @@
             android:name=".ui.slideshow.Deletefriend"
             android:exported="true" />
         <activity
+            android:name=".ui.manager.manager"
+            android:exported="true" />
+        <activity
             android:name=".mapchoiceForC"
             android:exported="true" />
         <activity

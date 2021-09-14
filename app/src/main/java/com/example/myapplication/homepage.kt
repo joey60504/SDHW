@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityHomepageBinding
+import com.example.myapplication.ui.manager.manager
 import com.google.firebase.auth.FirebaseAuth
 
 class homepage : AppCompatActivity() {
@@ -39,7 +41,7 @@ class homepage : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_test,R.id.test123,R.id.personinformation,R.id.TGOS,R.id.logoutmenu
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_test,R.id.test123,R.id.personinformation,R.id.TGOS,R.id.logoutmenu,R.id.manager
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -50,6 +52,15 @@ class homepage : AppCompatActivity() {
         auth.signOut()
         startActivity(Intent(this,MainActivity::class.java))
 
+    }
+    fun managerclick(menuItem: MenuItem){
+        var phone = auth.currentUser?.phoneNumber.toString()
+        if(phone=="+886966666666"){
+            startActivity(Intent(this, manager::class.java))
+        }
+        else{
+            Toast.makeText(this, "只有系統管理帳號可以進入唷", Toast.LENGTH_LONG).show()
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.homepage, menu)
