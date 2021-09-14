@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.room_dialog3.*
 import java.lang.Exception
 import java.util.ArrayList
 
@@ -34,6 +35,7 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
         savedInstanceState: Bundle?
     ): View? {
         binding = RoomDialog3Binding.inflate(layoutInflater)
+        whenenter()
         val ref = FirebaseDatabase.getInstance().getReference("/profile/$roomp")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
@@ -101,6 +103,53 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
         }
         binding.imageButton6.setOnClickListener {
             addfriend()
+        }
+
+        binding.imageButton8.setOnClickListener {
+            clickgood()
+            auth = FirebaseAuth.getInstance()
+            var phone = auth.currentUser?.phoneNumber.toString()
+            var database = FirebaseDatabase.getInstance().reference
+            database.child("profile").child(roomp).get().addOnSuccessListener {
+                val user=it.value as java.util.HashMap<String,Any>
+                if(user["goodlist"]!=null) {
+                    val goodlist = user["goodlist"] as ArrayList<String>
+                    if (phone in goodlist) {
+                        binding.imageButton8.setImageResource(R.drawable.good)
+                        textView45.setTextColor(Color.parseColor("#FFFFFF"))
+                    } else {
+                        binding.imageButton8.setImageResource(R.drawable.clickgood)
+                        textView45.setTextColor(Color.parseColor("#FFB703"))
+                    }
+                }
+                else{
+                    binding.imageButton8.setImageResource(R.drawable.clickgood)
+                    textView45.setTextColor(Color.parseColor("#FFB703"))
+                }
+            }
+        }
+        binding.imageButton10.setOnClickListener {
+            clickbad()
+            auth = FirebaseAuth.getInstance()
+            var phone = auth.currentUser?.phoneNumber.toString()
+            var database = FirebaseDatabase.getInstance().reference
+            database.child("profile").child(roomp).get().addOnSuccessListener {
+                val user=it.value as java.util.HashMap<String,Any>
+                if(user["badlist"]!=null) {
+                    val badlist = user["badlist"] as ArrayList<String>
+                    if (phone in badlist) {
+                        binding.imageButton10.setImageResource(R.drawable.bad)
+                        textView50.setTextColor(Color.parseColor("#FFFFFF"))
+                    } else {
+                        binding.imageButton10.setImageResource(R.drawable.clickbad)
+                        textView50.setTextColor(Color.parseColor("#FFB703"))
+                    }
+                }
+                else{
+                    binding.imageButton10.setImageResource(R.drawable.clickbad)
+                    textView50.setTextColor(Color.parseColor("#FFB703"))
+                }
+            }
         }
         return binding.root
     }
@@ -192,6 +241,94 @@ class room_dialog3(val pctmale:Int,val pctfemale:Int,val members:HashMap<*,*>,va
             }
         }
     }
+    fun clickgood(){
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(roomp).get().addOnSuccessListener {
+            val user=it.value as java.util.HashMap<String,Any>
+            if(user["goodlist"]!=null){
+                val goodlist =user["goodlist"] as ArrayList<String>
+                if(phone in goodlist) {
+                    goodlist.remove(phone)
+                    user.put("goodlist", goodlist)
+                    database.child("profile").child(roomp).updateChildren(user)
 
+                }
+                else{
+                    goodlist.add(phone)
+                    user.put("goodlist", goodlist)
+                    database.child("profile").child(roomp).updateChildren(user)
+                }
+            }
+            else{
+                user.put("goodlist", arrayListOf<String>(phone))
+                database.child("profile").child(roomp).updateChildren(user)
+            }
+        }
+    }
+    fun clickbad(){
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(roomp).get().addOnSuccessListener {
+            val user=it.value as java.util.HashMap<String,Any>
+            if(user["badlist"]!=null){
+                val badlist =user["badlist"] as ArrayList<String>
+                if(phone in badlist) {
+                    badlist.remove(phone)
+                    user.put("badlist", badlist)
+                    database.child("profile").child(roomp).updateChildren(user)
+                }
+                else{
+                    badlist.add(phone)
+                    user.put("badlist", badlist)
+                    database.child("profile").child(roomp).updateChildren(user)
+                }
+            }
+            else{
+                user.put("badlist", arrayListOf<String>(phone))
+                database.child("profile").child(roomp).updateChildren(user)
+            }
+        }
+    }
+    fun whenenter(){
+        auth = FirebaseAuth.getInstance()
+        var phone = auth.currentUser?.phoneNumber.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        database.child("profile").child(roomp).get().addOnSuccessListener {
+            val user=it.value as java.util.HashMap<String,Any>
+            try {
+                val goodlist = user["goodlist"] as ArrayList<String>
+                if (phone in goodlist) {
+                    binding.imageButton8.setImageResource(R.drawable.clickgood)
+                    textView45.setTextColor(Color.parseColor("#FFB703"))
+                }
+                else {
+                    binding.imageButton8.setImageResource(R.drawable.good)
+                    textView45.setTextColor(Color.parseColor("#FFFFFF"))
+                }
+            }
+            catch (e:Exception){
 
+            }
+        }
+        database.child("profile").child(roomp).get().addOnSuccessListener {
+            val user=it.value as java.util.HashMap<String,Any>
+            try {
+                val badlist = user["badlist"] as ArrayList<String>
+                if (phone in badlist) {
+                    binding.imageButton10.setImageResource(R.drawable.clickbad)
+                    textView50.setTextColor(Color.parseColor("#FFB703"))
+                }
+                else {
+                    binding.imageButton10.setImageResource(R.drawable.bad)
+                    textView50.setTextColor(Color.parseColor("#FFFFFF"))
+                }
+            }
+            catch (e:Exception){
+
+            }
+        }
+    }
 }
