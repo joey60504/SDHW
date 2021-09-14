@@ -139,12 +139,15 @@ class manager: AppCompatActivity(), managerAdapter.OnItemClick {
                         database.child("room").child(driversphone).child("roomINFO").get()
                             .addOnSuccessListener {
                                 val roominfoleave = it.value as java.util.HashMap<String, Any>
-
-                                val roommember1 =
-                                    roominfoleave["roommember"] as java.util.ArrayList<String>
+                                if(roominfoleave["membeready"]!=null) {
+                                    val membeready = roominfoleave["membeready"] as HashMap<*, *>
+                                    membeready.keys.remove(userphone)
+                                    database.child("room").child(driversphone).child("roomINFO")
+                                        .updateChildren(roominfoleave)
+                                }
+                                val roommember1 = roominfoleave["roommember"] as java.util.ArrayList<String>
                                 val indexofuser = roommember1.indexOf(userphone)
-                                val sitearray =
-                                    roominfoleave["sitearray"] as java.util.ArrayList<String>
+                                val sitearray = roominfoleave["sitearray"] as java.util.ArrayList<String>
                                 sitearray.removeAt(indexofuser)
                                 roominfoleave.put("sitearray", sitearray)
 
