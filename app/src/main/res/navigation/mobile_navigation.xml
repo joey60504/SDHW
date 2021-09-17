@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.myapplication.ui.gallery.GalleryFragment"
-        android:label="@string/myroom"
+        android:label="我的車隊"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment

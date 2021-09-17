@@ -221,12 +221,12 @@ class room : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance().reference
         binding.imageButton15.setImageResource(R.drawable.ic_locked)
-        binding.imageButton9.setBackgroundColor(Color.parseColor("#A63C24"))
-        binding.imageButton12.setBackgroundColor(Color.parseColor("#A63C24"))
-        binding.imageButton13.setBackgroundColor(Color.parseColor("#A63C24"))
-        binding.imageButton14.setBackgroundColor(Color.parseColor("#A63C24"))
-        binding.imageButton3.setBackgroundColor(Color.parseColor("#A63C24"))
-        binding.imageButton4.setBackgroundColor(Color.parseColor("#A63C24"))
+        binding.imageButton9.setBackgroundResource(R.drawable.ovalrb)
+        binding.imageButton12.setBackgroundResource(R.drawable.ovalrb)
+        binding.imageButton13.setBackgroundResource(R.drawable.ovalrb)
+        binding.imageButton14.setBackgroundResource(R.drawable.ovalrb)
+        binding.imageButton3.setBackgroundResource(R.drawable.ovalrb)
+        binding.imageButton4.setBackgroundResource(R.drawable.ovalrb)
         database.child("room").child(data1).child("roomINFO").child("nolockorlocked")
             .setValue("locked")
     }
@@ -238,12 +238,12 @@ class room : AppCompatActivity() {
                 val roominfomation=it.value as HashMap<*,*>
                 if (roominfomation["nolockorlocked"] == "locked") {
                     binding.imageButton15.setImageResource(R.drawable.ic_locked)
-                    binding.imageButton9.setBackgroundColor(Color.parseColor("#A63C24"))
-                    binding.imageButton12.setBackgroundColor(Color.parseColor("#A63C24"))
-                    binding.imageButton13.setBackgroundColor(Color.parseColor("#A63C24"))
-                    binding.imageButton14.setBackgroundColor(Color.parseColor("#A63C24"))
-                    binding.imageButton3.setBackgroundColor(Color.parseColor("#A63C24"))
-                    binding.imageButton4.setBackgroundColor(Color.parseColor("#A63C24"))
+                    binding.imageButton9.setBackgroundResource(R.drawable.ovalrb)
+                    binding.imageButton12.setBackgroundResource(R.drawable.ovalrb)
+                    binding.imageButton13.setBackgroundResource(R.drawable.ovalrb)
+                    binding.imageButton14.setBackgroundResource(R.drawable.ovalrb)
+                    binding.imageButton3.setBackgroundResource(R.drawable.ovalrb)
+                    binding.imageButton4.setBackgroundResource(R.drawable.ovalrb)
                     Log.d("777", "789")
                 } else {
                     binding.imageButton15.setImageResource(R.drawable.lock)
