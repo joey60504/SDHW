@@ -22,8 +22,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="393dp"
+        android:layout_height="65dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
         <TextView
             android:id="@+id/textview_to_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_marginStart="170dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
@@ -45,24 +45,16 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView8"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="3dp"
-            app:cardCornerRadius="90dp">
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/boy_image111" />
-
-        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/sam1"
+            android:scaleType="centerCrop" />
 
 
     </LinearLayout>
