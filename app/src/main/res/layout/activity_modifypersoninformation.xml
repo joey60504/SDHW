@@ -25,8 +25,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
 
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/view"
@@ -36,8 +36,8 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
