@@ -23,7 +23,7 @@
             android:background="@color/yellow"
             android:fontFamily="monospace"
             android:gravity="center_horizontal"
-            android:text="@string/roominformation"
+            android:text="車隊資訊"
             android:textAlignment="center"
             android:textColor="#102C42"
             android:textSize="24sp"

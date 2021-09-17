@@ -27,7 +27,7 @@
         android:layout_width="110dp"
         android:layout_height="32dp"
         android:fontFamily="monospace"
-        android:text="@string/myroom"
+        android:text="我的車隊"
         android:textColor="@color/blue"
         android:textSize="24sp"
         android:textStyle="bold"
