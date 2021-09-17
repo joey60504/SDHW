@@ -102,7 +102,7 @@
             android:layout_marginBottom="5dp"
             android:fontFamily="monospace"
             android:gravity="center_horizontal"
-            android:text="@string/roomnumber"
+            android:text="車隊號"
             android:textAlignment="center"
             android:textColor="#102C42"
             android:textSize="18sp"
