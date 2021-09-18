@@ -20,27 +20,27 @@
         <TextView
             android:id="@+id/textView47"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="乘車順序"
             android:textColor="@color/textcolor"
-            android:textSize="30sp" />
+            android:textSize="48sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/siterecycler3"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="322dp" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
         android:background="@drawable/rectangle_blue"
         android:text="預覽地圖"
         android:textColor="@color/底色"
-        android:textSize="14sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

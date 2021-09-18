@@ -10,8 +10,8 @@
 
     <ImageButton
         android:id="@+id/back_likelist"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
         android:src="@drawable/arrow_blue"
@@ -30,21 +30,23 @@
         android:fontFamily="monospace"
         android:text="@string/likelist"
         android:textColor="@color/blue"
-        android:textSize="24sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler4"
-        android:layout_width="409dp"
-        android:layout_height="621dp"
+        android:layout_width="716dp"
+        android:layout_height="1020dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
+        app:layout_constraintVertical_bias="0.297" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,18 +20,19 @@
             android:src="@drawable/logo1_final"
             android:paddingBottom="40dp"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+        android:layout_height="31dp"
+        android:layout_weight="1"
         android:gravity="bottom|center"
-        android:layout_weight="1">
+        android:orientation="vertical">
 
         <com.chaos.view.PinView
             android:id="@+id/id_otp"
             style="@style/PinWidget.PinView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="616dp"
+            android:layout_height="73dp"
             android:layout_margin="10dp"
             android:cursorVisible="true"
             android:inputType="number"
@@ -39,20 +40,20 @@
             android:textColor="@color/blue"
             app:hideLineWhenFilled="true"
             app:itemCount="6"
-            app:itemRadius="5dp"
+            app:itemRadius="10dp"
             app:lineColor="@color/底色" />
 
         <Button
             android:id="@+id/verifyBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="40dp"
+            android:layout_width="600dp"
+            android:layout_height="80dp"
+            android:layout_margin="100dp"
             android:background="@drawable/ovalgreen"
             android:fontFamily="monospace"
             android:text="Verify"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

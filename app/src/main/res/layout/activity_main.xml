@@ -16,8 +16,8 @@
         android:gravity="center|bottom">
 
         <ImageView
-            android:layout_width="416dp"
-            android:layout_height="wrap_content"
+            android:layout_width="552dp"
+            android:layout_height="635dp"
             android:paddingBottom="0dp"
             android:src="@drawable/logo1_final" />
     </LinearLayout>
@@ -39,21 +39,27 @@
             android:paddingBottom="0dp">
 
             <EditText
-                android:layout_width="67dp"
-                android:layout_height="45dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="85dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/rectangle3"
                 android:enabled="false"
                 android:fontFamily="monospace"
+                android:foregroundGravity="center"
+                android:gravity="center"
                 android:paddingLeft="10dp"
                 android:text="+886"
+                android:textAlignment="viewStart"
                 android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/phoneNumber"
-                android:layout_width="235dp"
-                android:layout_height="45dp"
+                android:layout_width="440dp"
+                android:layout_height="75dp"
                 android:background="@drawable/rectangle3"
                 android:inputType="phone"
                 android:paddingLeft="5dp"
@@ -62,15 +68,15 @@
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="317dp"
-            android:layout_height="76dp"
+            android:layout_width="550dp"
+            android:layout_height="85dp"
             android:layout_margin="40dp"
             android:background="@drawable/ovalgreen"
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="LOGIN"
             android:textColor="@color/blue"
-            android:textSize="30sp"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
     </LinearLayout>

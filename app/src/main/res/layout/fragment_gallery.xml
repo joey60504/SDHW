@@ -10,8 +10,8 @@
 
     <ImageButton
         android:id="@+id/back_myroom"
-        android:layout_width="55dp"
-        android:layout_height="51dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#FEFAF1"
         android:scaleType="fitCenter"
         android:src="@drawable/arrow_blue"
@@ -24,27 +24,28 @@
 
     <TextView
         android:id="@+id/textView40"
-        android:layout_width="110dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="我的車隊"
         android:textColor="@color/blue"
-        android:textSize="24sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintTop_toBottomOf="@+id/back_myroom"
+        app:layout_constraintVertical_bias="0.025" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler1111"
-        android:layout_width="409dp"
-        android:layout_height="617dp"
+        android:layout_width="711dp"
+        android:layout_height="1027dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,8 +12,8 @@
 
     <ImageButton
         android:id="@+id/back_chat"
-        android:layout_width="55dp"
-        android:layout_height="51dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
         android:src="@drawable/arrow_blue"
@@ -27,41 +27,52 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="203dp"
-        android:layout_height="34dp"
+        android:layout_width="325dp"
+        android:layout_height="61dp"
         android:fontFamily="monospace"
         android:text="@string/unreadmessage"
         android:textColor="@color/blue"
-        android:textSize="24sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/add_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="573dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="1208dp"
         android:background="@drawable/rectangle_blue"
         android:fontFamily="monospace"
         android:onClick="newmessage"
         android:text="進入房間"
         android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/back_chat"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="OnClick" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler3"
-        android:layout_width="409dp"
-        android:layout_height="629dp"
+        android:layout_width="726dp"
+        android:layout_height="1019dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginBottom="276dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.448" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,8 @@
 
     <View
         android:id="@+id/view3"
-        android:layout_width="410dp"
-        android:layout_height="82dp"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
         android:background="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:fontFamily="monospace"
         android:text="@string/name"
         android:textColor="@color/white"
-        android:textSize="36sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +35,8 @@
 
     <ImageButton
         android:id="@+id/back5"
-        android:layout_width="55dp"
-        android:layout_height="51dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,13 +49,13 @@
 
     <ImageButton
         android:id="@+id/send_button_chat_log"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@color/底色"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.978"
@@ -63,14 +63,15 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="284dp"
-        android:layout_height="46dp"
+        android:layout_width="650dp"
+        android:layout_height="65dp"
         android:background="@drawable/border"
         android:ems="10"
         android:fontFamily="monospace"
         android:gravity="start|center_vertical"
         android:hint="輸入訊息"
         android:inputType="textMultiLine"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.256"
@@ -80,13 +81,14 @@
 
     <TextView
         android:id="@+id/textView63"
-        android:layout_width="106dp"
-        android:layout_height="20dp"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
         android:background="@drawable/rectangle_brown"
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="2021年5月6日(四)"
         android:textColor="@color/底色"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -97,27 +99,27 @@
     <View
         android:id="@+id/view18"
         android:layout_width="wrap_content"
-        android:layout_height="5dp"
+        android:layout_height="10dp"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_chatroom1"
-        android:layout_width="366dp"
-        android:layout_height="522dp"
+        android:layout_width="734dp"
+        android:layout_height="936dp"
         android:layout_marginBottom="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView63"
-        app:layout_constraintVertical_bias="0.636" />
+        app:layout_constraintVertical_bias="0.236" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

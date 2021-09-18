@@ -11,8 +11,8 @@
     app:cardCornerRadius="10dp">
 
     <LinearLayout
-        android:layout_width="369dp"
-        android:layout_height="86dp"
+        android:layout_width="767dp"
+        android:layout_height="167dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/ovalyb"
@@ -21,22 +21,22 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="68dp"
-            android:layout_height="69dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_width="130dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
             android:background="@color/yellow"
-            android:paddingVertical="5dp"
-            android:radius="100dp"
+            android:paddingVertical="0dp"
+            android:radius="10dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/emma3" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="200dp"
+            android:layout_width="403dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/yellow"
@@ -44,17 +44,17 @@
             android:gravity="center"
             android:text="TextView"
             android:textColor="@color/textcolor"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="54dp"
-            android:layout_height="87dp"
+            android:layout_width="127dp"
+            android:layout_height="113dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@color/yellow"
-            android:paddingVertical="20dp"
+            android:paddingVertical="0dp"
             app:srcCompat="@drawable/ic_chat" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

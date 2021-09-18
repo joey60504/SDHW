@@ -3,19 +3,12 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityModifypersoninformationBinding
-import com.example.myapplication.databinding.ManagerBinding
-import com.example.myapplication.ui.personinformation.personinformation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_modifypersoninformation.*
-import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView35
-import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView36
-import kotlinx.android.synthetic.main.activity_modifypersoninformation.textView38
 import kotlinx.android.synthetic.main.fragment_personinformation.*
 
 class modifypersoninformation : AppCompatActivity() {

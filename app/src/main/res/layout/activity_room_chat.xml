@@ -10,7 +10,7 @@
     <View
         android:id="@+id/view5"
         android:layout_width="wrap_content"
-        android:layout_height="5dp"
+        android:layout_height="10dp"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,12 +18,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <View
         android:id="@+id/view4"
-        android:layout_width="393dp"
-        android:layout_height="79dp"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
         android:background="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:fontFamily="monospace"
         android:text="@string/room_chat"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +49,8 @@
 
     <ImageButton
         android:id="@+id/back5"
-        android:layout_width="55dp"
-        android:layout_height="51dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:onClick="back4"
         android:scaleType="fitXY"
@@ -64,8 +64,8 @@
 
     <ImageButton
         android:id="@+id/imageButton41"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@color/底色"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,12 +78,13 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="284dp"
-        android:layout_height="46dp"
+        android:layout_width="650dp"
+        android:layout_height="65dp"
         android:background="@drawable/border"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.256"
@@ -93,8 +94,8 @@
 
     <ImageButton
         android:id="@+id/imageButton42"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,13 +108,14 @@
 
     <TextView
         android:id="@+id/textView63"
-        android:layout_width="106dp"
-        android:layout_height="20dp"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
         android:background="@drawable/rectangle_brown"
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="2021年5月6日(四)"
         android:textColor="@color/底色"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
