@@ -60,6 +60,7 @@
                 android:id="@+id/phoneNumber"
                 android:layout_width="440dp"
                 android:layout_height="75dp"
+                android:textSize="20sp"
                 android:background="@drawable/rectangle3"
                 android:inputType="phone"
                 android:paddingLeft="5dp"

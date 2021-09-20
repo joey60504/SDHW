@@ -160,6 +160,7 @@
                 android:fontFamily="monospace"
                 android:text="TextView"
                 android:textColor="#3E3A3A"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
                 app:layout_constraintHorizontal_bias="0.569"
@@ -174,6 +175,7 @@
                 android:fontFamily="monospace"
                 android:text="TextView"
                 android:textColor="#3E3A3A"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
                 app:layout_constraintHorizontal_bias="0.569"
@@ -188,11 +190,13 @@
                 android:fontFamily="monospace"
                 android:text="TextView"
                 android:textColor="#3E3A3A"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.499"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toTopOf="@+id/textView3"
-                app:layout_constraintVertical_bias="0.197" />
+                app:layout_constraintVertical_bias="0.19" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
