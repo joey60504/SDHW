@@ -107,7 +107,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="800dp"
-        android:layout_height="136dp"
+        android:layout_height="86dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
