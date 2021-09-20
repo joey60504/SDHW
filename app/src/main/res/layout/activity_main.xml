@@ -16,8 +16,8 @@
         android:gravity="center|bottom">
 
         <ImageView
-            android:layout_width="552dp"
-            android:layout_height="635dp"
+            android:layout_width="554dp"
+            android:layout_height="454dp"
             android:paddingBottom="0dp"
             android:src="@drawable/logo1_final" />
     </LinearLayout>
@@ -42,7 +42,7 @@
                 android:layout_width="100dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="85dp"
+                android:layout_marginStart="33dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/rectangle3"
@@ -58,18 +58,18 @@
 
             <EditText
                 android:id="@+id/phoneNumber"
-                android:layout_width="440dp"
+                android:layout_width="345dp"
                 android:layout_height="75dp"
-                android:textSize="20sp"
                 android:background="@drawable/rectangle3"
                 android:inputType="phone"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black" />
+                android:paddingLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="550dp"
+            android:layout_width="454dp"
             android:layout_height="85dp"
             android:layout_margin="40dp"
             android:background="@drawable/ovalgreen"

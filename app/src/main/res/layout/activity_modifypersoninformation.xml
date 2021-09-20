@@ -13,8 +13,8 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="wrap_content"
-            android:layout_height="414dp"
+            android:layout_width="0dp"
+            android:layout_height="415dp"
             android:background="#E6FFB703"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,28 +48,15 @@
 
 
         <TextView
-            android:id="@+id/textview41"
-            android:layout_width="230dp"
-            android:layout_height="75dp"
-            android:gravity="center"
-            android:textColor="@color/textcolor"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView38"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.778"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12" />
-
-        <TextView
             android:id="@+id/textView67"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
             android:background="@drawable/retangle2"
             android:fontFamily="monospace"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/gender"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView66"
             app:layout_constraintEnd_toStartOf="@+id/textView36"
@@ -79,40 +66,82 @@
 
         <TextView
             android:id="@+id/textView36"
-            android:layout_width="230dp"
-            android:layout_height="75dp"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/textView35"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.778"
+            app:layout_constraintHorizontal_bias="0.777"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
         <TextView
-            android:id="@+id/textView38"
-            android:layout_width="230dp"
-            android:layout_height="75dp"
+            android:id="@+id/textview41"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView38"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.777"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:textColor="@color/textcolor"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.777"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName12"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textColor="@color/topcolor"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textview41"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.777"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView35"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:textColor="@color/textcolor"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.778"
+            app:layout_constraintHorizontal_bias="0.777"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview41" />
 
         <TextView
             android:id="@+id/textView68"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
             android:background="@drawable/retangle2"
             android:fontFamily="monospace"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/駕照URL"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView38"
@@ -121,28 +150,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textView73" />
 
         <TextView
-            android:id="@+id/textView35"
-            android:layout_width="230dp"
-            android:layout_height="75dp"
-            android:gravity="center"
-            android:textColor="@color/textcolor"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.778"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView36" />
-
-        <TextView
             android:id="@+id/textView73"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
             android:background="@drawable/retangle2"
             android:fontFamily="monospace"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/Phone_number"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView68"
             app:layout_constraintEnd_toStartOf="@+id/textview41"
@@ -151,14 +167,14 @@
 
         <TextView
             android:id="@+id/textView66"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
             android:background="@drawable/retangle2"
             android:fontFamily="monospace"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/age"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView65"
             app:layout_constraintEnd_toStartOf="@+id/textView35"
@@ -168,14 +184,14 @@
 
         <TextView
             android:id="@+id/textView65"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
             android:background="@drawable/retangle2"
             android:fontFamily="monospace"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/Email"
             android:textColor="@color/textcolor"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView73"
             app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName12"
@@ -185,7 +201,7 @@
 
         <View
             android:id="@+id/view2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="55dp"
             android:background="#E6325774"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -193,7 +209,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.336" />
+            app:layout_constraintVertical_bias="0.397" />
 
         <TextView
             android:id="@+id/textView12"
@@ -206,10 +222,10 @@
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.527"
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view2"
-            app:layout_constraintVertical_bias="0.003" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/imageButton51"
@@ -223,21 +239,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view2"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName12"
-            android:layout_width="230dp"
-            android:layout_height="75dp"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:textColor="@color/topcolor"
-            app:layout_constraintBottom_toTopOf="@+id/textview41"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.778"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView35"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
@@ -265,11 +266,13 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.868"
+            app:layout_constraintVertical_bias="0.839"
             tools:ignore="SpeakableTextPresentCheck" />
 
 

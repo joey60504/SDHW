@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <ImageButton
         android:id="@+id/back5"
@@ -63,7 +63,7 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="650dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
         android:background="@drawable/border"
         android:ems="10"
@@ -91,10 +91,9 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <View
         android:id="@+id/view18"
@@ -104,15 +103,15 @@
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.126" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_chatroom1"
-        android:layout_width="734dp"
-        android:layout_height="936dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"

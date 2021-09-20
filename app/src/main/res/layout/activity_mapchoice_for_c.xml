@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="乘車順序"
             android:textColor="@color/textcolor"
-            android:textSize="48sp" />
+            android:textSize="40sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/siterecycler3"

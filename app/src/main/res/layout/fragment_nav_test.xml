@@ -36,10 +36,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <Button
         android:id="@+id/add_message"
@@ -66,7 +66,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler3"
         android:layout_width="0dp"
-        android:layout_height="922dp"
+        android:layout_height="730dp"
         android:layout_marginTop="192dp"
         android:layout_marginBottom="276dp"
         app:layout_constraintBottom_toBottomOf="parent"

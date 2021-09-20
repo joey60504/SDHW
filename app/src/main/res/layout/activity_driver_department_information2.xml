@@ -41,7 +41,7 @@
         android:fontFamily="monospace"
         android:text="@string/gender"
         android:textColor="@color/textcolor"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
@@ -56,7 +56,7 @@
         android:fontFamily="monospace"
         android:text="@string/child"
         android:textColor="@color/textcolor"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.163"
@@ -66,8 +66,8 @@
 
     <ImageButton
         android:id="@+id/child_no"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/cross"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,8 +79,8 @@
 
     <ImageButton
         android:id="@+id/child_yes"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/check_n"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +97,7 @@
         android:fontFamily="monospace"
         android:text="@string/pet"
         android:textColor="@color/textcolor"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.154"
@@ -107,8 +107,8 @@
 
     <ImageButton
         android:id="@+id/pet_yes"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/check_n"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,8 +120,8 @@
 
     <ImageButton
         android:id="@+id/pet_no"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/cross"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,7 +138,7 @@
         android:fontFamily="monospace"
         android:text="@string/smoke"
         android:textColor="@color/textcolor"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.175"
@@ -148,8 +148,8 @@
 
     <ImageButton
         android:id="@+id/smoke_yes"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/check_n"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,8 +161,8 @@
 
     <ImageButton
         android:id="@+id/smoke_no"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/cross"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -174,8 +174,8 @@
 
     <ImageButton
         android:id="@+id/bg"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -188,8 +188,8 @@
 
     <ImageButton
         android:id="@+id/g"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -202,8 +202,8 @@
 
     <ImageButton
         android:id="@+id/b"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -216,14 +216,14 @@
 
     <TextView
         android:id="@+id/textView55"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/oval_brown"
         android:fontFamily="serif"
         android:gravity="center"
         android:text="1"
         android:textColor="@color/底色"
-        android:textSize="60sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.195"
@@ -233,14 +233,14 @@
 
     <TextView
         android:id="@+id/textView56"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/oval_red"
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="2"
         android:textColor="@color/底色"
-        android:textSize="60sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
@@ -250,54 +250,54 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="220dp"
-        android:layout_height="75dp"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:background="@drawable/rectangle_blue"
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="@string/Builds_the_room"
         android:textAlignment="center"
         android:textColor="@color/底色"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.959" />
+        app:layout_constraintVertical_bias="0.964" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="450dp"
+        android:layout_width="400dp"
         android:layout_height="80dp"
         android:ems="10"
         android:fontFamily="monospace"
         android:hint="$NT/人(不收錢填無)"
         android:inputType="textPersonName"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763" />
+        app:layout_constraintVertical_bias="0.77" />
 
     <EditText
         android:id="@+id/editTextTextPersonName6"
-        android:layout_width="450dp"
+        android:layout_width="400dp"
         android:layout_height="80dp"
         android:ems="10"
         android:fontFamily="monospace"
         android:hint="其它"
         android:inputType="textPersonName"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="0.87" />
 
     <ImageView
         android:id="@+id/imageView10"
