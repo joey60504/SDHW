@@ -14,7 +14,7 @@
         <View
             android:id="@+id/view"
             android:layout_width="wrap_content"
-            android:layout_height="415dp"
+            android:layout_height="360dp"
             android:background="#E6FFB703"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,11 +81,11 @@
 
         <TextView
             android:id="@+id/textView36"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/textView35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -94,11 +94,11 @@
 
         <TextView
             android:id="@+id/textview41"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/textView38"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -107,11 +107,11 @@
 
         <TextView
             android:id="@+id/textView41"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/textview41"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -120,11 +120,11 @@
 
         <TextView
             android:id="@+id/textView35"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/textView41"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -133,11 +133,11 @@
 
         <TextView
             android:id="@+id/textView38"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -202,7 +202,7 @@
             android:background="@drawable/retangle2"
             android:fontFamily="monospace"
             android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/age"
+            android:text="生日"
             android:textColor="@color/textcolor"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -231,7 +231,7 @@
 
         <View
             android:id="@+id/view2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="55dp"
             android:background="#E6325774"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -239,7 +239,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.401" />
+            app:layout_constraintVertical_bias="0.397" />
 
         <TextView
             android:id="@+id/textView12"

@@ -4,24 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/底色"
-    tools:context=".room_chat">
+    tools:context=".chatroom1">
 
     <View
-        android:id="@+id/view5"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:background="@drawable/rectangle"
-        android:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
-
-    <View
-        android:id="@+id/view4"
+        android:id="@+id/view3"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:background="@color/yellow"
@@ -37,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="@string/room_chat"
+        android:text="@string/name"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -45,32 +31,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <ImageButton
         android:id="@+id/back5"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="#00000000"
-        android:onClick="back4"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/arrow_blue" />
 
     <ImageButton
-        android:id="@+id/imageButton41"
+        android:id="@+id/send_button_chat_log"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@color/底色"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.978"
@@ -78,11 +63,13 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="650dp"
+        android:layout_width="450dp"
         android:layout_height="65dp"
         android:background="@drawable/border"
         android:ems="10"
-        android:gravity="start|top"
+        android:fontFamily="monospace"
+        android:gravity="start|center_vertical"
+        android:hint="輸入訊息"
         android:inputType="textMultiLine"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,20 +78,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.978" />
-
-    <ImageButton
-        android:id="@+id/imageButton42"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019"
-        app:srcCompat="@drawable/ic_map" />
 
     <TextView
         android:id="@+id/textView63"
@@ -118,9 +91,34 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintVertical_bias="0.156" />
+
+    <View
+        android:id="@+id/view18"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_chatroom1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView63"
+        app:layout_constraintVertical_bias="0.236" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

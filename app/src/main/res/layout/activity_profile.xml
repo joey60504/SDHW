@@ -25,8 +25,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="526dp"
-        android:layout_height="545dp"
+        android:layout_width="539dp"
+        android:layout_height="451dp"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,14 +35,14 @@
 
     <Button
         android:id="@+id/signOutButton"
-        android:layout_width="500dp"
-        android:layout_height="100dp"
+        android:layout_width="400dp"
+        android:layout_height="85dp"
         android:background="@drawable/rectangle3"
         android:fontFamily="serif"
         android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="@color/blue"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,15 +51,15 @@
 
     <Button
         android:id="@+id/addProfileButton"
-        android:layout_width="500dp"
-        android:layout_height="100dp"
+        android:layout_width="400dp"
+        android:layout_height="85dp"
         android:background="@drawable/ovalgreen"
         android:fontFamily="serif"
         android:gravity="center"
         android:text="Add Profile"
         android:textAllCaps="false"
         android:textColor="@color/blue"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/signOutButton"
         app:layout_constraintEnd_toEndOf="parent"

@@ -21,8 +21,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/delfriendrecycler"
-        android:layout_width="730dp"
-        android:layout_height="876dp"
+        android:layout_width="0dp"
+        android:layout_height="676dp"
         android:layout_marginTop="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

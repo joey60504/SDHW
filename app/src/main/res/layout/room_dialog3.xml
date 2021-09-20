@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/room_dialog3"
-    android:layout_width="500dp"
-    android:layout_height="800dp"
+    android:layout_width="400dp"
+    android:layout_height="650dp"
     android:layout_gravity="center"
     android:background="@drawable/ovalyybb90"
     android:gravity="center"
@@ -15,16 +15,16 @@
         android:id="@+id/imageButton"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="0dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/ic_cancelw" />
 
     <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
@@ -32,8 +32,8 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/TVusername"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -61,7 +61,7 @@
             android:text="姓名"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="50sp"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -92,7 +92,7 @@
 
         <LinearLayout
             android:layout_width="500dp"
-            android:layout_height="150dp"
+            android:layout_height="116dp"
             android:background="@drawable/rectangle"
             android:orientation="horizontal">
 
@@ -103,8 +103,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton8"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="115dp"
                     android:layout_marginTop="10dp"
                     android:background="#00000000"
@@ -119,7 +119,7 @@
                     android:layout_weight="1"
                     android:text="喜歡"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
@@ -131,8 +131,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton10"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="10dp"
                     android:background="#00000000"
@@ -147,7 +147,7 @@
                     android:layout_weight="1"
                     android:text="不喜歡"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -156,13 +156,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="88dp"
+            android:layout_height="84dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="100dp"
@@ -175,11 +175,11 @@
 
             <ImageButton
                 android:id="@+id/imageButton6"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="5dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="110dp"
+                android:layout_marginEnd="125dp"
                 android:layout_marginBottom="10dp"
                 android:background="#00000000"
                 android:scaleType="fitXY"
@@ -189,7 +189,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="52dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -203,19 +203,19 @@
                 android:layout_marginBottom="10dp"
                 android:text="聊天"
                 android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView49"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="85dp"
+                android:layout_marginStart="105dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="70dp"
                 android:layout_marginBottom="10dp"
                 android:text="加好友"
                 android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>

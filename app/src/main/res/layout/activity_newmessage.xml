@@ -8,8 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_newmessage"
-        android:layout_width="661dp"
-        android:layout_height="1009dp"
+        android:layout_width="0dp"
+        android:layout_height="782dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
