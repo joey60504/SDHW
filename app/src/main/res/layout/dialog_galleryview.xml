@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="540dp"
+            android:layout_width="536dp"
             android:layout_height="69dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="5dp"
@@ -144,7 +144,7 @@
 
     <LinearLayout
         android:id="@+id/room_dialog1"
-        android:layout_width="541dp"
+        android:layout_width="538dp"
         android:layout_height="108dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
