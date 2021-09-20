@@ -81,8 +81,8 @@
 
         <TextView
             android:id="@+id/textView36"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -94,8 +94,8 @@
 
         <TextView
             android:id="@+id/textview41"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -107,8 +107,8 @@
 
         <TextView
             android:id="@+id/textView41"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -120,8 +120,8 @@
 
         <TextView
             android:id="@+id/textView35"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -133,8 +133,8 @@
 
         <TextView
             android:id="@+id/textView38"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"

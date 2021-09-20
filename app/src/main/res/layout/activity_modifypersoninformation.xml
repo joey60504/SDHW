@@ -49,8 +49,8 @@
 
         <TextView
             android:id="@+id/textview41"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -79,8 +79,8 @@
 
         <TextView
             android:id="@+id/textView36"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -92,8 +92,8 @@
 
         <TextView
             android:id="@+id/textView38"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -122,8 +122,8 @@
 
         <TextView
             android:id="@+id/textView35"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:gravity="center"
             android:textColor="@color/textcolor"
             android:textSize="35sp"
@@ -227,8 +227,8 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName12"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="230dp"
+            android:layout_height="75dp"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
@@ -261,7 +261,7 @@
         <EditText
             android:id="@+id/editTextTextPersonName11"
             android:layout_width="259dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white"
