@@ -11,8 +11,8 @@
     app:cardCornerRadius="10dp">
 
     <LinearLayout
-        android:layout_width="577dp"
-        android:layout_height="150dp"
+        android:layout_width="540dp"
+        android:layout_height="115dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/ovalby"
@@ -21,7 +21,7 @@
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="0dp"
-            android:layout_height="125dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
@@ -34,7 +34,7 @@
 
         <LinearLayout
             android:layout_width="300dp"
-            android:layout_height="148dp"
+            android:layout_height="130dp"
             android:layout_weight="1"
             android:background="@color/blue"
             android:orientation="vertical">
@@ -42,7 +42,7 @@
             <TextView
                 android:id="@+id/textView30"
                 android:layout_width="337dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -50,19 +50,14 @@
                 android:gravity="center|left"
                 android:text="TextView"
                 android:textColor="@color/white"
-                android:textSize="35sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@color/blue"
-                android:orientation="horizontal" />
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/textView37"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
+                android:layout_width="365dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/rectangle3"
                 android:gravity="center|left"
