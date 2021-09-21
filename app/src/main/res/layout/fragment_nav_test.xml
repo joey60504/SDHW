@@ -65,10 +65,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler3"
-        android:layout_width="0dp"
-        android:layout_height="730dp"
-        android:layout_marginTop="192dp"
+        android:layout_width="532dp"
+        android:layout_height="628dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="192dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="276dp"
         app:layout_constraintBottom_toBottomOf="parent"

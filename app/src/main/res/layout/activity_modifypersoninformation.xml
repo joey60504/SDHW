@@ -262,7 +262,7 @@
         <EditText
             android:id="@+id/editTextTextPersonName11"
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:textColor="@color/white"
@@ -271,7 +271,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.903"
+            app:layout_constraintVertical_bias="0.874"
             tools:ignore="SpeakableTextPresentCheck" />
 
 
