@@ -63,7 +63,7 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
                 catch (e:Exception){
                     friendlist = arrayListOf()
                 }
-                dataList=root["friendlist"] as HashMap<*,*>
+                dataList=root["profile"] as HashMap<*,*>
                 //recycler
                 activity?.runOnUiThread {
                     binding.recycler2.apply {
@@ -87,8 +87,8 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
 
     override fun onItemClick(holder: slideAdapter.ViewHolder, position: Int) {
 
-        val datacheckList = dataList.keys.toList()
-        val friendname=datacheckList[position].toString()
+  //      val datacheckList = dataList.keys.toList()
+        val friendname=friendlist[position].toString()
 
         val ref =FirebaseDatabase.getInstance().getReference("/profile/$friendname")//$userphonenumber
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
