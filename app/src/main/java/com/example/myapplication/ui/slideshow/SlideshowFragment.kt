@@ -63,7 +63,7 @@ class SlideshowFragment : Fragment(),slideAdapter.OnItemClick {
                 catch (e:Exception){
                     friendlist = arrayListOf()
                 }
-                dataList=root["profile"] as HashMap<*,*>
+                dataList=root["friendlist"] as HashMap<*,*>
                 //recycler
                 activity?.runOnUiThread {
                     binding.recycler2.apply {
