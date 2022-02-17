@@ -103,7 +103,6 @@ class test123 : Fragment(),likelistAdapter.OnItemClick {
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
-
             }
         }
         database.addValueEventListener(dataListener)

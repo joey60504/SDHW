@@ -35,7 +35,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.coroutines.coroutineContext
 
-
 class HomeFragment : Fragment(),RoomAdapter.OnItemClick {
     lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null

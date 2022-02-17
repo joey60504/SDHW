@@ -25,7 +25,6 @@ class myroomAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter
         binding= MyroomItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.view.cardview11111.setOnClickListener {
             itemListener.onItemClick(position)

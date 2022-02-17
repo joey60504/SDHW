@@ -32,8 +32,6 @@ class driver_department_information : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding=ActivityDriverDepartmentInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         go.setOnClickListener {
             val Date = findViewById<EditText>(R.id.editTextDate).text.toString()
             val time = findViewById<EditText>(R.id.editTextDate2).text.toString()

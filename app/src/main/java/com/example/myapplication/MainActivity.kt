@@ -32,19 +32,14 @@ class MainActivity : AppCompatActivity() {
 
 //        Reference
         val Login = findViewById<Button>(R.id.loginBtn)
-
-
         var currentUser = auth.currentUser
         if (currentUser != null) {
             startActivity(Intent(applicationContext, homepage::class.java))
-
             finish()
         }
-
         Login.setOnClickListener {
             login()
         }
-
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {

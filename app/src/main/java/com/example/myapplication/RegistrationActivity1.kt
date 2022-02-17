@@ -39,7 +39,10 @@ class RegistrationActivity1 : AppCompatActivity() {
 
             if (name.isNotEmpty() && email.isNotEmpty() && age.isNotEmpty() && gender.isNotEmpty() && photo.isNotEmpty()) {
                 val Users=User(name, email, age, gender, photo,uid)
-                database.child("profile").child(phone).setValue(Users)
+                database
+                    .child("profile")
+                    .child(phone)
+                    .setValue(Users)
                     .addOnCompleteListener {
                         Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, homepage::class.java))

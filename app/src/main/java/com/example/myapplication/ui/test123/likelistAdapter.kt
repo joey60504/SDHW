@@ -11,7 +11,7 @@ import com.example.myapplication.ui.home.RoomAdapter
 import java.lang.Exception
 
 
-class likelistAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapter<likelistAdapter.ViewHolder>() {
+class likelistAdapter(private val itemListener:OnItemClick): RecyclerView.Adapter<likelistAdapter.ViewHolder>() {
 
     lateinit var dataList:ArrayList<String>
     lateinit var roomlist:HashMap<*,*>
@@ -50,11 +50,9 @@ class likelistAdapter(private val itemListener:OnItemClick ): RecyclerView.Adapt
 
 
     }
-
     override fun getItemCount(): Int {
         return dataList.size
     }
-
     interface OnItemClick{
         fun onItemClick(position: Int)
         fun likeClick(position: Int)
